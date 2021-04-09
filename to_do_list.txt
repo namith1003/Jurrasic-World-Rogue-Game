@@ -1,2 +1,25 @@
 testing
 text document to act as to-do-list for ood assn
+
+
+1) Bushes class- extending ground, override tick function with a 10% chance for a fruit.
+
+2) Dirt Class- has the required chances to grow a bush, override the tick fuction in it for all scenarios.
+
+3) Fruit class- extends Item, overrides tick function for rotting and constructor with the super like stegosaur,
+                add alse the pickup methods for the actor.
+
+4) note: 2 types of fruits, one is still on the tree and cannot rot and has 60% chance of being plucked,
+         other is ripe fruit that falls and has a 100% chance of being picked up and replaces the '+' for
+         tree as its own character.
+
+5) FeedAction - overrides menuDescription() to give option to feed.
+
+6) hungryBehaviour- extends behaviour and used to find food for the Actor.
+
+7) all dinosaurs should have a hashmap list of all behaviours
+
+8) all the dinosaur should have a similar program.
+
+
+
