@@ -21,5 +21,15 @@ text document to act as to-do-list for ood assn
 
 8) all the dinosaur should have a similar program.
 
+9) BreedingBehaviour- extends the behaviour(only if well fed to its required limit), will use follow behaviour to move towards another dinosaur of opposite sex.
+                      if they reach a dinosaur in an adjacent square they mate
+
+10) layEggBehaviour - The FEMALE lays an egg after required amount of turns for the species.
+
+11) EggHatchAction - eggs will hactch after a required time frame and the baby dinosaurs start with the HungryBehaviour and do not have the BreedingBehaviour until they are adults.
+                     (Brachiosaur has the highest chance to be extinct).
+
+12) GrowingBehavior - makes the dinosaurs become adults after required number of turns 30 for stegosaur and 50 for brachiosaur.
+
 
 
