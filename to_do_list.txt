@@ -2,34 +2,56 @@ testing
 text document to act as to-do-list for ood assn
 
 
-1) Bushes class- extending ground, override tick function with a 10% chance for a fruit.
+1-) Bushes class- extending ground, override tick function with a 10% chance for a fruit.
 
-2) Dirt Class- has the required chances to grow a bush, override the tick fuction in it for all scenarios.
+2-) Dirt Class- has the required chances to grow a bush, override the tick fuction in it for all scenarios.
 
-3) Fruit class- extends Item, overrides tick function for rotting and constructor with the super like stegosaur,
+3-) Fruit class- extends Item, overrides tick function for rotting and constructor with the super like stegosaur,
                 add alse the pickup methods for the actor.
 
 4) note: 2 types of fruits, one is still on the tree and cannot rot and has 60% chance of being plucked,
          other is ripe fruit that falls and has a 100% chance of being picked up and replaces the '+' for
-         tree as its own character.
+         tree as its own character. Fruit will have an instance variable for the state of the fruit and it will be used 
+         to decide if the fruit is on the tree, dropped, rotten or in the inventory and etc.., this state will allow the
+         functionality of the fruit.
 
-5) FeedAction - overrides menuDescription() to give option to feed.
+5-) FeedAction - overrides menuDescription() to give option to feed.
 
-6) hungryBehaviour- extends behaviour and used to find food for the Actor.
+6-) hungryBehaviour- extends behaviour and used to find food for the Actor.
 
 7) all dinosaurs should have a hashmap list of all behaviours
 
 8) all the dinosaur should have a similar program.
 
-9) BreedingBehaviour- extends the behaviour(only if well fed to its required limit), will use follow behaviour to move towards another dinosaur of opposite sex.
+9-) BreedingBehaviour- extends the behaviour(only if well fed to its required limit), will use follow behaviour to move towards another dinosaur of opposite sex.
                       if they reach a dinosaur in an adjacent square they mate
 
-10) layEggBehaviour - The FEMALE lays an egg after required amount of turns for the species.
+10-) layEggBehaviour - The FEMALE lays an egg after required amount of turns for the species.
 
-11) EggHatchAction - eggs will hactch after a required time frame and the baby dinosaurs start with the HungryBehaviour and do not have the BreedingBehaviour until they are adults.
-                     (Brachiosaur has the highest chance to be extinct).
+11-) Egg class- extends item and has the Egghatchbehaviour and has the tick function for the hatching of the egg and the actor can pick up eggs that are layed.
 
-12) GrowingBehavior - makes the dinosaurs become adults after required number of turns 30 for stegosaur and 50 for brachiosaur.
+12-) GrowingBehavior - makes the dinosaurs become adults after required number of turns 30 for stegosaur and 50 for brachiosaur.
+
+13) Player class has an instance variable called points to store all the points he has collected and 
+    and we should increment the points on the player whenever the required things happen (ex - a ripe fruit is produced by tree)
+    so we should increment points in multiple classes and behaviours in the game.
+
+14-) VendingMachine class- extends Ground and has the list for all the items that can be bought using points.
 
 
+15) vendingAction - player will use this action when the user is adjacent to the vending machine it allows the user the option to use the vending machine. This action prints out the 
+                    menu of items the user can buy and creates the items and substracts points from the user. menudescription() will be updated to show here menu item for user to enter 
+                    and option to access the vending machine.
 
+16-) MealKit class - a class for the meal kits to feed the vegetarian and carnivorous dinosaurs, it will fill the food level of dinosaur to max and stop their hungryBehaviour.
+                    there are two types vegmeal kit for vegetarian dinosaurs and a carnivore one.\
+
+17) CarnivoreMealKit class- extends the Meal Kit class and sets the type as carnivore.
+
+18) VegetarianMealKit class- extends the Meal kit class and sets the type as a vegetarian meal kit
+
+19-) LazerGun class - extends item and can be used by a player to attack a stegosaur, reducing their hp.
+
+20-) LazerGunAction - can use the attack action as the action to attack using the lazer.
+
+21-) DinoCorpse - A class for Dead Dinosaurs and extends item for their flesh and can be used to attract allosaurs to you.
