@@ -55,3 +55,18 @@ text document to act as to-do-list for ood assn
 20-) LazerGunAction - can use the attack action as the action to attack using the lazer.
 
 21-) DinoCorpse - A class for Dead Dinosaurs and extends item for their flesh and can be used to attract allosaurs to you.
+
+22) The dinosaurs should all be linked to all the behaviours they have. allosaurs have the followBehaviour onto stegaosaurs and if they are close to the stegosaur they will attack it,
+    after an allosaur attacks a stegosaur, if it doesnt die the allosaur isnt allowed to attack that stegosaur for the next 20 turns, allosaurs cannot attack brachiosaurs.
+
+23) when a dinosaur is attacked it doesnt die, it loses a specific amount of food level.
+
+24) baby allosaurs cannot get the same amount of food by attacking stegosaurs, they only get 10 and they grow to adults after 50 turns.
+
+25) Allosaurs will keep eating a dead stegosaur after it attacks it and if it does die in the attack. Allosaurs can eat dead brachiosaurs(for full 100 points). If they go near a DinoCorpse it will
+    use the follow behaviour to the dead corpse. Allosaurs can eat eggs(for 10 points) and dead allosaurs and stegosaurs(for 50 points)
+
+26) DinoCorpse - extends item overrides tick to exist in the map for only a set amount of turns (20 for allosaur or stegosaur and 40 for brachiosaur)
+
+27) Die() function causes the dinosaur to go from the point of unconsciousncess to death after required turns (20 for stegosaur), or if the fool level
+    is dropped to 0 by an attack from say an allosaur. Allosaurs will attack an instantly kill an unconscious dinosaur.
