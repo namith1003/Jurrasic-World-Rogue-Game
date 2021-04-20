@@ -2,12 +2,13 @@ testing
 text document to act as to-do-list for ood assn
 
 
-1-) Bushes class- extending ground, override tick function with a 10% chance for a fruit.
+1-) Bushes class- extending ground, override tick function with a 10% chance for a fruit to grow.
 
-2-) Dirt Class- has the required chances to grow a bush, override the tick fuction in it for all scenarios.
+2-) Dirt Class- has the required chances(1% at beginning of a turn, 10% if dirt is next to atleast 2 bushes and 0% next to a tree) to grow a bush, 
+                override the tick fuction in it for all scenarios.
 
-3-) Fruit class- extends Item, overrides tick function for rotting and constructor with the super like stegosaur,
-                add alse the pickup methods for the actor.
+3-) Fruit class- extends Item, overrides tick() function for rotting and constructor with the super like stegosaur,
+                 add alse the pickup methods for the actor.
 
 4) note: 2 types of fruits, one is still on the tree and cannot rot and has 60% chance of being plucked,
          other is ripe fruit that falls and has a 100% chance of being picked up and replaces the '+' for
@@ -46,9 +47,9 @@ text document to act as to-do-list for ood assn
 16-) MealKit class - a class for the meal kits to feed the vegetarian and carnivorous dinosaurs, it will fill the food level of dinosaur to max and stop their hungryBehaviour.
                     there are two types vegmeal kit for vegetarian dinosaurs and a carnivore one.\
 
-17) CarnivoreMealKit class- extends the Meal Kit class and sets the type as carnivore.
+17-) CarnivoreMealKit class- extends the Meal Kit class and sets the type as carnivore.
 
-18) VegetarianMealKit class- extends the Meal kit class and sets the type as a vegetarian meal kit
+18-) VegetarianMealKit class- extends the Meal kit class and sets the type as a vegetarian meal kit
 
 19-) LazerGun class - extends item and can be used by a player to attack a stegosaur, reducing their hp.
 
@@ -56,7 +57,7 @@ text document to act as to-do-list for ood assn
 
 21-) DinoCorpse - A class for Dead Dinosaurs and extends item for their flesh and can be used to attract allosaurs to you.
 
-22) The dinosaurs should all be linked to all the behaviours they have. allosaurs have the followBehaviour onto stegaosaurs and if they are close to the stegosaur they will attack it,
+22-) The dinosaurs should all be linked to all the behaviours they have. allosaurs have the followBehaviour onto stegaosaurs and if they are close to the stegosaur they will attack it,
     after an allosaur attacks a stegosaur, if it doesnt die the allosaur isnt allowed to attack that stegosaur for the next 20 turns, allosaurs cannot attack brachiosaurs.
 
 23) when a dinosaur is attacked it doesnt die, it loses a specific amount of food level.
@@ -66,7 +67,14 @@ text document to act as to-do-list for ood assn
 25) Allosaurs will keep eating a dead stegosaur after it attacks it and if it does die in the attack. Allosaurs can eat dead brachiosaurs(for full 100 points). If they go near a DinoCorpse it will
     use the follow behaviour to the dead corpse. Allosaurs can eat eggs(for 10 points) and dead allosaurs and stegosaurs(for 50 points)
 
-26) DinoCorpse - extends item overrides tick to exist in the map for only a set amount of turns (20 for allosaur or stegosaur and 40 for brachiosaur)
+26-) DinoCorpse - extends item overrides tick to exist in the map for only a set amount of turns (20 for allosaur or stegosaur and 40 for brachiosaur)
 
-27) Die() function causes the dinosaur to go from the point of unconsciousncess to death after required turns (20 for stegosaur), or if the fool level
+27) Die() function in the Death Behaviour causes the dinosaur to go from the point of unconsciousncess to death after required turns (20 for stegosaur), or if the fool level
     is dropped to 0 by an attack from say an allosaur. Allosaurs will attack an instantly kill an unconscious dinosaur.
+
+28) Tree class will be updated to include the chances of growing a fruit on it and tree will have a list of fruits that are on the tree and fallen from the tree.
+
+29) Dinosaurs will have two constructors one for RNG gender and one for set gender to declare the first dinosaurs of the game, these will set a gender variable to male or female, there will
+    be a boolean variable for pregnant and will hold true or false for if they are pregnant and dinosaur cannot breed if they are prgnant.
+
+30) portable item can is for all the items that can be picked up and dropped and should be added to all the items.
