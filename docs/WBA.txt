@@ -2,7 +2,7 @@ Group Tute04Team160's Work Breakdown Agreement (WBA) for FIT2099 Assignment 1.
 
 To complete this assignment, we have agreed to the following WBA:
 1. Discuss and brainstorm together to form a general to-do-list for implementations needed to the base code.
-    Amith then creates a design rationale document to explain the reasoning for the implementations
+    Namith then creates a design rationale document to explain the reasoning for the implementations
     based on what was discussed and added into the to-do-list.
     Jack wil help review the design rationale when it's done.
 2. Work together to create a class diagram for the project using moqups.
@@ -14,3 +14,6 @@ To complete this assignment, we have agreed to the following WBA:
 
 I accept this WBA.
 Jack Loh Enze, Group Tute04Team160
+
+I accept this WBA.
+A.A Namith Nimlaka, Group Tute04Team160
