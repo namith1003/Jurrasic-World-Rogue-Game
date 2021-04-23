@@ -2,15 +2,15 @@ testing
 text document to act as to-do-list for ood assn
 
 
-1-) Bushes class- extending ground, override tick function with a 10% chance for a fruit to grow.
+1--) Bushes class- extending ground, override tick function with a 10% chance for a fruit to grow.
 
 2-) Dirt Class- has the required chances(1% at beginning of a turn, 10% if dirt is next to atleast 2 bushes and 0% next to a tree) to grow a bush, 
                 override the tick fuction in it for all scenarios.
 
-3-) Fruit class- extends Item, overrides tick() function for rotting and constructor with the super like stegosaur,
+3--) Fruit class- extends Item, overrides tick() function for rotting and constructor with the super like stegosaur,
                  add alse the pickup methods for the actor.
 
-4) note: 2 types of fruits, one is still on the tree and cannot rot and has 60% chance of being plucked,
+4--) note: 2 types of fruits, one is still on the tree and cannot rot and has 60% chance of being plucked,
          other is ripe fruit that falls and has a 100% chance of being picked up and replaces the '+' for
          tree as its own character. Fruit will have an instance variable for the state of the fruit and it will be used 
          to decide if the fruit is on the tree, dropped, rotten or in the inventory and etc.., this state will allow the
@@ -18,13 +18,13 @@ text document to act as to-do-list for ood assn
 
 5-) FeedAction - overrides menuDescription() to give option to feed.
 
-6-) hungryBehaviour- extends behaviour and used to find food for the Actor.
+6--) hungryBehaviour- extends behaviour and used to find food for the Actor.
 
-7) all dinosaurs should have a hashmap list of all behaviours
+7--) all dinosaurs should have a hashmap list of all behaviours
 
-8) all the dinosaur should have a similar program.
+8--) all the dinosaur should have a similar program.
 
-9-) BreedingBehaviour- extends the behaviour(only if well fed to its required limit), will use follow behaviour to move towards another dinosaur of opposite sex.
+9--) BreedingBehaviour- extends the behaviour(only if well fed to its required limit), will use follow behaviour to move towards another dinosaur of opposite sex.
                       if they reach a dinosaur in an adjacent square they mate
 
 10-) layEggBehaviour - The FEMALE lays an egg after required amount of turns for the species.
