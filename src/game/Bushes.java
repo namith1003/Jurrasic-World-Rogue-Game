@@ -25,7 +25,9 @@ public class Bushes extends Ground {
     public void ripening(){
 
         if (new Random().nextInt(10) == 0){
-            fruits.add(new Fruit());
+            Fruit fruit = new Fruit("fruit", 'f');
+            fruit.addCapability(FruitStatus.ON_BUSH);
+            fruits.add(fruit);
         }
     }
 
