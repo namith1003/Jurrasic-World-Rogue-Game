@@ -7,6 +7,7 @@ import java.util.Random;
 public class Allosaur extends Dinosaur{
     // Will need to change this to a collection if Stegosaur gets additional Behaviours.
     private Behaviour behaviour;
+    private static final String[] diet = {"Fruit", "MeatMealKit", "Egg", "DinoCorpse"};
     /**
      * Constructor.
      *

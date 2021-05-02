@@ -1,15 +1,8 @@
 package game;
 
 
-import edu.monash.fit2099.engine.Action;
-import edu.monash.fit2099.engine.Actions;
-import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.Display;
-import edu.monash.fit2099.engine.DoNothingAction;
-import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -19,7 +12,8 @@ import java.util.Random;
 public class Stegosaur extends Dinosaur {
 	// Will need to change this to a collection if Stegosaur gets additional Behaviours.
 	private Behaviour behaviour;
-	private static FoodItem[] diet = new FoodItem[] {Fruit, MealKit};
+	private static String[] diet = {"Fruit", "VegeMealKit"};
+	int age=0;
 
 	/** 
 	 * Constructor.
@@ -67,6 +61,13 @@ public class Stegosaur extends Dinosaur {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+		/*age++;
+		if (age > 10){
+
+			map.locationOf(this).addItem(new DinoCorpse("Stegosaur", 'X'));
+			map.removeActor(this);
+			return new DoNothingAction();
+		}*/
 		Action wander = behaviour.getAction(this, map);
 		if (wander != null)
 			return wander;

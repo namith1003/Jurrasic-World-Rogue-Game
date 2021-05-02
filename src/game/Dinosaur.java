@@ -18,4 +18,5 @@ public class Dinosaur extends Actor {
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
         return null;
     }
+
 }
