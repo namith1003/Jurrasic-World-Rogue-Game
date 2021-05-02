@@ -12,7 +12,7 @@ import edu.monash.fit2099.engine.GameMap;
  * A herbivorous dinosaur.
  *
  */
-public class Stegosaur extends Actor {
+public class Stegosaur extends Dinosaur {
 	// Will need to change this to a collection if Stegosaur gets additional Behaviours.
 	private Behaviour behaviour;
 
@@ -23,7 +23,7 @@ public class Stegosaur extends Actor {
 	 * @param name the name of this Stegosaur
 	 */
 	public Stegosaur(String name) {
-		super(name, 'd', 100);
+		super(name, 'S', 100);
 		
 		behaviour = new WanderBehaviour();
 	}

@@ -14,6 +14,8 @@ public class Player extends Actor {
 
 	private Menu menu = new Menu();
 
+	static Points points;
+
 	/**
 	 * Constructor.
 	 *

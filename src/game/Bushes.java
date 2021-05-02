@@ -22,13 +22,21 @@ public class Bushes extends Ground {
         ripening();
     }
 
-    public void ripening(){
+    public boolean ripening(){
 
         if (new Random().nextInt(10) == 0){
-            Fruit fruit = new Fruit("fruit", 'f');
-            fruit.addCapability(FruitStatus.ON_BUSH);
+            Fruit fruit = produceFruit();
             fruits.add(fruit);
+            return true;
         }
+        return false;
+    }
+
+    public Fruit produceFruit(){
+        Fruit fruit = new Fruit("fruit", 'f');
+        fruit.addCapability(FruitStatus.ON_BUSH);
+
+        return fruit;
     }
 
 }
