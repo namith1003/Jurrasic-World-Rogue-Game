@@ -7,8 +7,8 @@ public class Fruit extends FoodItem{
 
     private int onFloorCounter = 0;
 
-    public Fruit(String name, char displayChar) {
-        super(name, displayChar);
+    public Fruit(String name) {
+        super(name, 'f');
         healValue = 10;
     }
 

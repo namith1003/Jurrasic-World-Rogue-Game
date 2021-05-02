@@ -46,7 +46,7 @@ public class Tree extends Ground {
 	}
 
 	public Fruit produceFruit(){
-		Fruit fruit = new Fruit("Fruit", 'f');
+		Fruit fruit = new Fruit("Fruit");
 		fruit.addCapability(FruitStatus.ON_TREE);
 		Player.points.setPoints(1);
 

@@ -21,8 +21,7 @@ public class VendingAction extends Action{
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        boolean quit = false;
-        while (!quit) {
+        while (true) {
             System.out.print("""
                     It's a vending machine!
                     What do you want to buy?
@@ -46,7 +45,7 @@ public class VendingAction extends Action{
             int choice = scanner.nextInt();
 
             if (choice == 8) {
-                quit = true;
+                return "Exiting the vending machine";
             }
             else if (choice>=1 && choice<=7){
                 // TODO: ASK AMOUNT
@@ -58,7 +57,45 @@ public class VendingAction extends Action{
                     Player.points.setPoints(-(priceList[choice-1]*amount));
                     System.out.println("You have bought " + amount + " item(s). " +
                             "\nYour EP balance now is: "+ Player.points.getPoints());
-                    continue;
+
+                    switch (choice){
+                        case 1 -> {
+                            for (int i = 0; i < amount; i++) {
+                                actor.addItemToInventory(new Fruit("Fruit"));
+                            }
+                        }
+                        case 2 -> {
+                            for (int i = 0; i < amount; i++) {
+                                actor.addItemToInventory(new VegeMealKit("VegeMealKit", '^'));
+                            }
+                        }
+                        case 3 -> {
+                            for (int i = 0; i < amount; i++) {
+                                actor.addItemToInventory(new MeatMealKit("MeatMealKit", '%'));
+                            }
+                        }
+                        case 4 -> {
+                            for (int i = 0; i < amount; i++) {
+                                actor.addItemToInventory(new Egg("Egg", "Stegosaur", 'o'));
+                            }
+                        }
+                        case 5 -> {
+                            for (int i = 0; i < amount; i++) {
+                                actor.addItemToInventory(new Egg("Egg", "Brachiosaur", 'O'));
+                            }
+                        }
+                        case 6 -> {
+                            for (int i = 0; i < amount; i++) {
+                                actor.addItemToInventory(new Egg("Egg", "Allosaur", '0'));
+                            }
+                        }
+                        case 7 -> {
+                            for (int i = 0; i < amount; i++) {
+                                actor.addItemToInventory(new LazerGun("LazerGun"));
+                            }
+                        }
+                    }
+
                 } else {
                     System.out.println("you aint that rich pls");
                 }
@@ -67,7 +104,6 @@ public class VendingAction extends Action{
                 System.out.println("what");
             }
         }
-        return null;
     }
 
     @Override
