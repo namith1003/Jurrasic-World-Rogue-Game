@@ -8,6 +8,8 @@ import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.DoNothingAction;
 import edu.monash.fit2099.engine.GameMap;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -17,6 +19,7 @@ import java.util.Random;
 public class Stegosaur extends Dinosaur {
 	// Will need to change this to a collection if Stegosaur gets additional Behaviours.
 	private Behaviour behaviour;
+	private static FoodItem[] diet = new FoodItem[] {Fruit, MealKit};
 
 	/** 
 	 * Constructor.
