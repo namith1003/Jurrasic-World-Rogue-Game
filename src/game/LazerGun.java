@@ -12,4 +12,5 @@ public class LazerGun extends WeaponItem {
     public LazerGun(String name) {
         super(name, '=', 60, "zaps");
     }
+
 }

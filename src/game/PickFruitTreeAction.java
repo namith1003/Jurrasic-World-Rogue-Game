@@ -19,6 +19,7 @@ public class PickFruitTreeAction extends Action {
             Fruit fruit = theTree.fruits.remove(theTree.fruits.size() - 1);
             fruit.removeCapability(FruitStatus.ON_BUSH);
             fruit.addCapability(FruitStatus.IN_INVENTORY);
+            Player.points.setPoints(10);
             actor.addItemToInventory(theTree.fruits.remove(theTree.fruits.size() - 1));
             return "You have Successfully found a fruit !!!";
         }
