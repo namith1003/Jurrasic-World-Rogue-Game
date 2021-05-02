@@ -13,8 +13,6 @@ public class DinoCorpse extends FoodItem{
             case "Stegosaur", "Allosaur" -> healValue = 50;
             case "Brachiosaur" -> healValue = 100;
         }
-
-
     }
 
     @Override

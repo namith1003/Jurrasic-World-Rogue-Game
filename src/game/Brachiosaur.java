@@ -54,6 +54,7 @@ public class Brachiosaur extends Dinosaur{
      */
     @Override
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+        hitPoints--;
         Action wander = behaviour.getAction(this, map);
         if (wander != null)
             return wander;

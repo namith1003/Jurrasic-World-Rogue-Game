@@ -68,6 +68,7 @@ public class Stegosaur extends Dinosaur {
 			map.removeActor(this);
 			return new DoNothingAction();
 		}*/
+		hitPoints--;
 		Action wander = behaviour.getAction(this, map);
 		if (wander != null)
 			return wander;
