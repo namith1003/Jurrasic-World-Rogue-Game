@@ -5,6 +5,8 @@ import edu.monash.fit2099.engine.DropItemAction;
 import edu.monash.fit2099.engine.Location;
 import edu.monash.fit2099.engine.PickUpItemAction;
 
+import java.util.Random;
+
 public class Fruit extends FoodItem{
 
     private int onFloorCounter = 0;
@@ -19,11 +21,15 @@ public class Fruit extends FoodItem{
         if (hasCapability(FruitStatus.ON_FLOOR)){
             onFloorCounter++;
         }
-
         if (onFloorCounter > 15){
             rot();
         }
-
+        if (hasCapability(FruitStatus.ON_TREE)){
+            if(new Random().nextInt(20) == 0){
+                removeCapability(FruitStatus.ON_TREE);
+                addCapability(FruitStatus.ON_FLOOR);
+            }
+        }
     }
 
     @Override
