@@ -33,7 +33,7 @@ public class Bushes extends Ground {
     }
 
     public Fruit produceFruit(){
-        Fruit fruit = new Fruit("fruit", 'f');
+        Fruit fruit = new Fruit("Fruit", 'f');
         fruit.addCapability(FruitStatus.ON_BUSH);
 
         return fruit;

@@ -7,9 +7,11 @@ public class Egg extends FoodItem {
 
     private int eggFloorCounter = 0;
     private Dinosaur dinosaur;
-    public Egg(String name, char displayChar) {
+    private String dinoName;
+    public Egg(String name, String dinoName, char displayChar) {
         super(name, displayChar);
-        healValue = 10;
+        this.dinoName = dinoName;
+        this.healValue = 10;
     }
 
     @Override
@@ -25,7 +27,7 @@ public class Egg extends FoodItem {
     public void hatch(Location currentLocation){
         eggFloorCounter++;
 
-        switch (name) {
+        switch (dinoName) {
             case "Stegosaur" -> {
                 if (eggFloorCounter >= 10){
                     dinosaur = new Stegosaur("Stegosaur");
