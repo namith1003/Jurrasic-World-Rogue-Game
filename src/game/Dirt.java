@@ -1,10 +1,12 @@
 package game;
 
+import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -37,29 +39,10 @@ public class Dirt extends Ground {
 		int y = location.y();
 
 
-		if (x != 0){
-			aroundGround.add(map.at(x-1, y).getGround().getDisplayChar());
-		}
-		if (x != 79){
-			aroundGround.add(map.at(x+1, y).getGround().getDisplayChar());
-		}
-		if (y != 0){
-			aroundGround.add(map.at( x, y-1).getGround().getDisplayChar());
-		}
-		if (y != 24){
-			aroundGround.add(map.at(x, y+1).getGround().getDisplayChar());
-		}
-		if (x != 0 && y != 0){
-			aroundGround.add(map.at(x-1, y-1).getGround().getDisplayChar());
-		}
-		if (x != 0 && y != 24){
-			aroundGround.add(map.at(x-1, y+1).getGround().getDisplayChar());
-		}
-		if (x != 79 && y != 0){
-			aroundGround.add(map.at(x+1, y-1).getGround().getDisplayChar());
-		}
-		if (x != 79 && y != 24){
-			aroundGround.add(map.at(x+1, y+1).getGround().getDisplayChar());
+		List<Exit> exits = location.getExits();
+
+		for (Exit allExits: exits){
+			aroundGround.add(allExits.getDestination().getGround().getDisplayChar());
 		}
 
 		for (char tile: aroundGround){
