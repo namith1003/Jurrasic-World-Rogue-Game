@@ -9,6 +9,7 @@ public class Egg extends FoodItem {
     private Dinosaur dinosaur;
     public Egg(String name, char displayChar) {
         super(name, displayChar);
+        healValue = 10;
     }
 
     @Override
