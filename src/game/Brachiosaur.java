@@ -39,11 +39,6 @@ public class Brachiosaur extends Dinosaur{
 
     }
 
-    @Override
-    public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
-        return new Actions(new AttackAction(this));
-    }
-
     /**
      * Figure out what to do next.
      *

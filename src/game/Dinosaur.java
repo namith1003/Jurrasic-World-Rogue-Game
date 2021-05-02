@@ -15,6 +15,14 @@ public class Dinosaur extends Actor {
     }
 
     @Override
+    public Actions getAllowableActions(Actor otherActor, String direction, GameMap map) {
+        Actions actions = new Actions();
+        actions.add(new Actions(new AttackAction(this)));
+        actions.add(new Actions(new FeedAction(this)));
+        return actions;
+    }
+
+    @Override
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
         return null;
     }
