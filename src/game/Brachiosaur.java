@@ -7,7 +7,7 @@ import java.util.Random;
 public class Brachiosaur extends Dinosaur{
     // Will need to change this to a collection if Stegosaur gets additional Behaviours.
     private Behaviour behaviour;
-    private static String[] diet = {"Fruit", "VegeMealKit"};
+    private static final String[] diet = {"Fruit", "VegeMealKit"};
     /**
      * Constructor.
      *
