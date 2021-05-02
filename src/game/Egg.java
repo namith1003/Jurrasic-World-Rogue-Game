@@ -32,6 +32,7 @@ public class Egg extends FoodItem {
                 if (eggFloorCounter >= 10){
                     dinosaur = new Stegosaur("Stegosaur");
                     currentLocation.addActor(dinosaur);
+                    currentLocation.removeItem(this);
                     Player.points.setPoints(100);
                 }
             }
@@ -39,13 +40,15 @@ public class Egg extends FoodItem {
                 if (eggFloorCounter >= 20){
                     dinosaur = new Brachiosaur("Brachiosaur");
                     currentLocation.addActor(dinosaur);
+                    currentLocation.removeItem(this);
                     Player.points.setPoints(1000);
                 }
             }
             case "Allosaur" -> {
-                if (eggFloorCounter >= 50){
+                if (eggFloorCounter >= 10){
                     dinosaur = new Allosaur("Allosaur");
                     currentLocation.addActor(dinosaur);
+                    currentLocation.removeItem(this);
                     Player.points.setPoints(1000);
                 }
             }
