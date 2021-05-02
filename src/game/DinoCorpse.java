@@ -6,12 +6,12 @@ import edu.monash.fit2099.engine.Location;
 public class DinoCorpse extends FoodItem{
 
     protected int deadTime = 0;
-    public DinoCorpse(String name, char displayChar) {
-        super(name, displayChar);
+    public DinoCorpse(String name) {
+        super(name, 'X');
 
         switch (name){
-            case "Stegosaur", "Allosaur" -> healValue = 50;
-            case "Brachiosaur" -> healValue = 100;
+            case "Stegosaur Corpse", "Allosaur Corpse" -> healValue = 50;
+            case "Brachiosaur Corpse" -> healValue = 100;
         }
     }
 
@@ -27,12 +27,12 @@ public class DinoCorpse extends FoodItem{
     @Override
     public void tick(Location currentLocation) {
         switch (name){
-            case "Stegosaur", "Allosaur" -> {
+            case "Stegosaur Corpse", "Allosaur Corpse" -> {
                 if (deadTime > 20){
                     decay(currentLocation);
                 }
             }
-            case "Brachiosaur" -> {
+            case "Brachiosaur Corpse" -> {
                 if (deadTime > 40){
                     decay(currentLocation);
                 }
