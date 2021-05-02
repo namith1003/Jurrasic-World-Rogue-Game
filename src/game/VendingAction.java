@@ -7,7 +7,7 @@ import edu.monash.fit2099.engine.GameMap;
 public class VendingAction extends Action{
 
     /**
-     * The Actor that is to be attacked
+     * The vending machine that is accessed
      */
     protected VendingMachine vendingMachine;
 

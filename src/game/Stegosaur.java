@@ -43,7 +43,6 @@ public class Stegosaur extends Dinosaur {
 		} else if (gender.equals("female") ){
 			addCapability(Gender.FEMALE);
 		}
-
 	}
 
 	/**
