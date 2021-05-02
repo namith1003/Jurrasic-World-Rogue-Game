@@ -14,7 +14,7 @@ public class Player extends Actor {
 
 	private Menu menu = new Menu();
 
-	static Points points;
+	static Points points = new Points();
 
 	/**
 	 * Constructor.
@@ -25,6 +25,7 @@ public class Player extends Actor {
 	 */
 	public Player(String name, char displayChar, int hitPoints) {
 		super(name, displayChar, hitPoints);
+
 	}
 
 	@Override

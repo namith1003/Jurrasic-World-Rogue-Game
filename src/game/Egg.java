@@ -9,7 +9,6 @@ public class Egg extends FoodItem {
     private Dinosaur dinosaur;
     public Egg(String name, char displayChar) {
         super(name, displayChar);
-
     }
 
     @Override
@@ -26,23 +25,23 @@ public class Egg extends FoodItem {
         eggFloorCounter++;
 
         switch (name) {
-            case "stegosaur" -> {
+            case "Stegosaur" -> {
                 if (eggFloorCounter >= 10){
-                    dinosaur = new Stegosaur("stegosaur");
+                    dinosaur = new Stegosaur("Stegosaur");
                     currentLocation.addActor(dinosaur);
                     Player.points.setPoints(100);
                 }
             }
-            case "brachiosaur" -> {
+            case "Brachiosaur" -> {
                 if (eggFloorCounter >= 20){
-                    dinosaur = new Brachiosaur("brachiosaur");
+                    dinosaur = new Brachiosaur("Brachiosaur");
                     currentLocation.addActor(dinosaur);
                     Player.points.setPoints(1000);
                 }
             }
-            case "allosaur" -> {
+            case "Allosaur" -> {
                 if (eggFloorCounter >= 50){
-                    dinosaur = new Allosaur("allosaur");
+                    dinosaur = new Allosaur("Allosaur");
                     currentLocation.addActor(dinosaur);
                     Player.points.setPoints(1000);
                 }

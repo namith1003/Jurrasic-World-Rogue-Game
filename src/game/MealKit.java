@@ -1,4 +1,7 @@
 package game;
 
-public class MealKit {
+public abstract class MealKit extends FoodItem{
+    public MealKit(String name, char displayChar) {
+        super(name, displayChar);
+    }
 }
