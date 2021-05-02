@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Tree extends Ground {
 	private int age = 0;
-	private ArrayList<Fruit> fruits = new ArrayList<>();
+	protected ArrayList<Fruit> fruits = new ArrayList<>();
 
 	public Tree() {
 		super('+');
@@ -18,7 +18,7 @@ public class Tree extends Ground {
 
 	@Override
 	public Actions allowableActions(Actor actor, Location location, String direction) {
-		return new Actions(new PickFruitAction(this));
+		return new Actions(new PickFruitTreeAction(this));
 	}
 
 	@Override
@@ -32,6 +32,7 @@ public class Tree extends Ground {
 			displayChar = 'T';
 
 		ripening();
+		dropsFruit(location);
 	}
 
 	public boolean ripening(){
@@ -50,5 +51,14 @@ public class Tree extends Ground {
 		Player.points.setPoints(1);
 
 		return fruit;
+	}
+
+	public void dropsFruit(Location location){
+		if(new Random().nextInt(20) == 0 && fruits.size() != 0){
+			Fruit droppedFruit = fruits.remove(fruits.size() - 1);
+			droppedFruit.removeCapability(FruitStatus.ON_TREE);
+			droppedFruit.addCapability(FruitStatus.ON_FLOOR);
+			location.addItem(droppedFruit);
+		}
 	}
 }

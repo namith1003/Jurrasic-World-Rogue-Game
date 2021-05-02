@@ -22,28 +22,29 @@ public class VendingAction extends Action{
     @Override
     public String execute(Actor actor, GameMap map) {
         boolean quit = false;
-        System.out.print("""
-                It's a vending machine!
-                What do you want to buy?
-                (Enter item number to select item.)""" +
-                "\nYour EP Balance: " + Player.points.getPoints() +
-                """
-                
-                ------------------------------------
-                1. Fruit [30 EP]
-                2. Vegetarian Meal Kit [100 EP]
-                3. Carnivore Meal Kit [500 EP]
-                4. Stegosaur Egg [200 EP]
-                5. Brachiosaur Egg [500 EP]
-                6. Allosaur Egg [1000 EP]
-                7. Laser Gun [500 EP]
-                8. Nah, I'm broke
-                ------------------------------------
-                Insert item number here:
-                """);
-
-        int choice = scanner.nextInt();
         while (!quit) {
+            System.out.print("""
+                    It's a vending machine!
+                    What do you want to buy?
+                    (Enter item number to select item.)""" +
+                    "\nYour EP Balance: " + Player.points.getPoints() +
+                    """
+                                            
+                            ------------------------------------
+                            1. Fruit [30 EP]
+                            2. Vegetarian Meal Kit [100 EP]
+                            3. Carnivore Meal Kit [500 EP]
+                            4. Stegosaur Egg [200 EP]
+                            5. Brachiosaur Egg [500 EP]
+                            6. Allosaur Egg [1000 EP]
+                            7. Laser Gun [500 EP]
+                            8. Nah, I'm broke
+                            ------------------------------------
+                            Insert item number here:
+                            """);
+
+            int choice = scanner.nextInt();
+
             if (choice == 8) {
                 quit = true;
             }

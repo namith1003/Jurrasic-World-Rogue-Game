@@ -13,7 +13,7 @@ public class Bushes extends Ground {
      * A class that represents the bushes.
      */
 
-    private ArrayList<Fruit> fruits = new ArrayList<>();
+    protected ArrayList<Fruit> fruits = new ArrayList<>();
 
     public Bushes() {
         super('*');
@@ -21,7 +21,7 @@ public class Bushes extends Ground {
 
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
-        return new Actions(new PickFruitAction(this));
+        return new Actions(new PickFruitBushAction(this));
     }
 
     @Override
