@@ -14,7 +14,7 @@ public class Bushes extends Ground {
     private ArrayList<Fruit> fruits = new ArrayList<>();
 
     public Bushes() {
-        super('b');
+        super('*');
     }
 
     @Override
