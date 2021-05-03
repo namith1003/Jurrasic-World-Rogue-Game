@@ -7,7 +7,7 @@ import java.util.Random;
 public class Brachiosaur extends Dinosaur{
     // Will need to change this to a collection if Stegosaur gets additional Behaviours.
     private Behaviour behaviour;
-    private static final String[] diet = {"Fruit", "VegeMealKit"};
+
     /**
      * Constructor.
      *
@@ -18,6 +18,7 @@ public class Brachiosaur extends Dinosaur{
         super(name, 'B', 100);
         maxHitPoints = 160;
         behaviour = new WanderBehaviour();
+        diet = new String[]{"Fruit", "VegeMealKit"};
 
         if (new Random().nextInt(2) == 0){
             addCapability(Gender.MALE);

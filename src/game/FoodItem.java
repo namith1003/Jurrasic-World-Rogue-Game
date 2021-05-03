@@ -8,4 +8,8 @@ public abstract class FoodItem extends PortableItem{
         super(name, displayChar);
     }
 
+    public int getHealValue() {
+        return healValue;
+    }
+
 }

@@ -6,7 +6,6 @@ import edu.monash.fit2099.engine.Location;
 public class Egg extends FoodItem {
 
     private int eggFloorCounter = 0;
-    private Dinosaur dinosaur;
     private String dinoName;
     public Egg(String name, String dinoName, char displayChar) {
         super(name, displayChar);
@@ -24,12 +23,18 @@ public class Egg extends FoodItem {
         hatch(currentLocation);
     }
 
+    @Override
+    public String toString() {
+        return dinoName + " " + name;
+    }
+
     public void hatch(Location currentLocation){
         eggFloorCounter++;
 
+        Dinosaur dinosaur;
         switch (dinoName) {
             case "Stegosaur" -> {
-                if (eggFloorCounter >= 10){
+                if (eggFloorCounter >= 100000){
                     dinosaur = new Stegosaur("Stegosaur");
                     currentLocation.addActor(dinosaur);
                     currentLocation.removeItem(this);

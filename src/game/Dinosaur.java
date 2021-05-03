@@ -3,6 +3,8 @@ package game;
 import edu.monash.fit2099.engine.*;
 
 public class Dinosaur extends Actor {
+
+    protected static String[] diet = new String[0];
     /**
      * Constructor.
      *
@@ -25,6 +27,10 @@ public class Dinosaur extends Actor {
     @Override
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
         return null;
+    }
+
+    public static String[] getDiet() {
+        return diet;
     }
 
 }

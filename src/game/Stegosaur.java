@@ -12,7 +12,7 @@ import java.util.Random;
 public class Stegosaur extends Dinosaur {
 	// Will need to change this to a collection if Stegosaur gets additional Behaviours.
 	private Behaviour behaviour;
-	private static final String[] diet = {"Fruit", "VegeMealKit"};
+
 	int age=0;
 
 	/** 
@@ -25,6 +25,7 @@ public class Stegosaur extends Dinosaur {
 		super(name, 'S', 50);
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
+		diet = new String[]{"Fruit", "VegeMealKit"};
 
 		if (new Random().nextInt(2) == 0){
 			addCapability(Gender.MALE);
@@ -37,6 +38,7 @@ public class Stegosaur extends Dinosaur {
 		super(name, 'S', 50);
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
+		diet = new String[]{"Fruit", "VegeMealKit"};
 
 		if (gender.equals("male")){
 			addCapability(Gender.MALE);
