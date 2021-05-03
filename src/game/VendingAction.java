@@ -23,6 +23,7 @@ public class VendingAction extends Action{
     public String execute(Actor actor, GameMap map) {
         while (true) {
             System.out.print("""
+                    ------------------------------------
                     It's a vending machine!
                     What do you want to buy?
                     (Enter item number to select item.)""" +
@@ -47,11 +48,10 @@ public class VendingAction extends Action{
             if (choice == 8) {
                 return "You've decided to walk away from the vending machine.";
             }
-            else if (choice>=1 && choice<=7){
+            else if (choice>=1 && choice<=7) {
                 System.out.print("How many of these do you need?\n" +
-                        "You currently have " + Player.points.getPoints()
-                        + " Eco Points."
-                        + "\nYou can buy a maximum amount of " + Player.points.getPoints()/priceList[choice-1]
+                        "You currently have " + Player.points.getPoints() + " EP."
+                        + "\nYou can buy a maximum amount of " + Player.points.getPoints()/priceList[choice-1] + "."
                         + "\nInsert amount: ");
                 int amount = scanner.nextInt();
                 if (amount <= Player.points.getPoints()/priceList[choice-1]) {
@@ -102,13 +102,13 @@ public class VendingAction extends Action{
                 }
             }
             else {
-                System.out.println("change da world, goodby");
+                System.out.println("There is no such item! Try again.");
             }
         }
     }
 
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " access " + "vendingMachine";
+        return actor + " access " + "Vending Machine";
     }
 }
