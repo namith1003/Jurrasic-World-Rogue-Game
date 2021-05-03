@@ -12,7 +12,7 @@ public class Allosaur extends Dinosaur{
     private HashMap<Integer, Stegosaur> stegosaurs = new HashMap<>();
     private ArrayList<Stegosaur> attackedStegosaurs = new ArrayList<>();
     private ArrayList<Integer> timeRemaining = new ArrayList<>();
-    private static final String[] diet = {"Fruit", "MeatMealKit", "Egg", "DinoCorpse"};
+    private static final String[] diet = {"MeatMealKit", "Egg", "DinoCorpse"};
     /**
      * Constructor.
      *
