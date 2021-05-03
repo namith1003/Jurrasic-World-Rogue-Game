@@ -10,6 +10,8 @@ public class Allosaur extends Dinosaur{
     // Will need to change this to a collection if Stegosaur gets additional Behaviours.
     private ArrayList<Behaviour> behaviour = new ArrayList<>();
     private HashMap<Integer, Stegosaur> stegosaurs = new HashMap<>();
+    private ArrayList<Stegosaur> attackedStegosaurs = new ArrayList<>();
+    private ArrayList<Integer> timeRemaining = new ArrayList<>();
     private static final String[] diet = {"Fruit", "MeatMealKit", "Egg", "DinoCorpse"};
     /**
      * Constructor.
@@ -57,10 +59,22 @@ public class Allosaur extends Dinosaur{
         hitPoints--;
         stegosaurs = new HashMap<>();
 
+        if (attackedStegosaurs != null && timeRemaining.size() != 0){
+            for (int i = 0; i < timeRemaining.size(); i++){
+                timeRemaining.set(i,timeRemaining.get(i) - 1);
+            }
+
+            if (timeRemaining.get(0) == 0){
+                timeRemaining.remove(0);
+                attackedStegosaurs.remove(0);
+            }
+
+        }
+
         for (int x = 0; x < 80; x++){
             for (int y = 0; y < 25; y++){
                 Actor actor = new Location(map, x, y).getActor();
-                if (actor != null && actor.toString().equals("Stegosaur")){
+                if (actor != null && actor.toString().equals("Stegosaur") && !attackedStegosaurs.contains(actor)){
                     int distance = new FollowBehaviour(actor).distance(map.locationOf(actor), map.locationOf(this));
                     stegosaurs.put(distance, (Stegosaur) actor);
                 }
@@ -75,15 +89,17 @@ public class Allosaur extends Dinosaur{
             }
 
             if (new FollowBehaviour(stegosaurs.get(lowestDistance)).getAction(this,map) != null){
-                behaviour.add(new FollowBehaviour(stegosaurs.get(lowestDistance)));
+                return new FollowBehaviour(stegosaurs.get(lowestDistance)).getAction(this,map);
             }
             /*else if (new FollowBehaviour(stegosaurs.get(lowestDistance)).location.getActor().toString().equals("Stegosaur")){
                 return new AttackAction(stegosaurs.get(lowestDistance));
             }*/
             else{
-                return new AttackAction(stegosaurs.get(lowestDistance));
+                attackedStegosaurs.add(stegosaurs.get(lowestDistance));
+                timeRemaining.add(20);
+                heal(20);
+                return new AttackAction(stegosaurs.remove(lowestDistance));
             }
-            return behaviour.remove(1).getAction(this,map);
         }
 
         Action wander = behaviour.get(0).getAction(this, map);

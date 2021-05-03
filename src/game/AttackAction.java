@@ -32,7 +32,7 @@ public class AttackAction extends Action {
 
 		Weapon weapon = actor.getWeapon();
 
-		if (rand.nextBoolean()) {
+		if (rand.nextBoolean() && !actor.toString().equals("Allosaur")) {
 			return actor + " misses " + target + ".";
 		}
 
