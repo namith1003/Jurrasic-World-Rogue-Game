@@ -45,13 +45,14 @@ public class VendingAction extends Action{
             int choice = scanner.nextInt();
 
             if (choice == 8) {
-                return "Exiting the vending machine";
+                return "You've decided to walk away from the vending machine.";
             }
             else if (choice>=1 && choice<=7){
                 System.out.print("How many of these do you need?\n" +
                         "You currently have " + Player.points.getPoints()
-                        + " Eco Points." +
-                        "\nInsert amount: ");
+                        + " Eco Points."
+                        + "\nYou can buy a maximum amount of " + Player.points.getPoints()/priceList[choice-1]
+                        + "\nInsert amount: ");
                 int amount = scanner.nextInt();
                 if (amount <= Player.points.getPoints()/priceList[choice-1]) {
                     Player.points.setPoints(-(priceList[choice-1]*amount));
@@ -97,11 +98,11 @@ public class VendingAction extends Action{
                     }
 
                 } else {
-                    System.out.println("you aint that rich pls");
+                    System.out.println("You don't have enough points to buy these!");
                 }
             }
             else {
-                System.out.println("what");
+                System.out.println("change da world, goodby");
             }
         }
     }
