@@ -59,7 +59,7 @@ public class Allosaur extends Dinosaur{
         for (int x = 0; x < 80; x++){
             for (int y = 0; y < 25; y++){
                 Actor actor = new Location(map, x, y).getActor();
-                if (actor != null && actor.toString() == "Stegosaur"){
+                if (actor != null && actor.toString().equals("Stegosaur")){
                     int distance = new FollowBehaviour(actor).distance(map.locationOf(actor), map.locationOf(this));
                     stegosaurs.put(distance, (Stegosaur) actor);
                 }
