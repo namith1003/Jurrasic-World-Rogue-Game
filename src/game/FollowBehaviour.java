@@ -38,7 +38,7 @@ public class FollowBehaviour implements Behaviour {
 			}
 		}
 
-		return new DoNothingAction();
+		return null;
 	}
 
 	/**

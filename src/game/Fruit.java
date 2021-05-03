@@ -17,7 +17,15 @@ public class Fruit extends FoodItem{
         removeCapability(FruitStatus.IN_INVENTORY);
         addCapability(FruitStatus.ON_FLOOR);
         healValue = 10;
+
+        if (hasCapability(FruitStatus.ON_BUSH)){
+            displayChar = '*';
+        }
+        if (hasCapability(FruitStatus.ON_TREE)){
+            displayChar = 'F';
+        }
         if (hasCapability(FruitStatus.ON_FLOOR)){
+            displayChar = 'f';
             onFloorCounter++;
         }
         if (onFloorCounter > 15){

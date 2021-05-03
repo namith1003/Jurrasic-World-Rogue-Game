@@ -34,7 +34,7 @@ public class Egg extends FoodItem {
         Dinosaur dinosaur;
         switch (dinoName) {
             case "Stegosaur" -> {
-                if (eggFloorCounter >= 100000){
+                if (eggFloorCounter >= 10){
                     dinosaur = new Stegosaur("Stegosaur");
                     currentLocation.addActor(dinosaur);
                     currentLocation.removeItem(this);
@@ -50,7 +50,7 @@ public class Egg extends FoodItem {
                 }
             }
             case "Allosaur" -> {
-                if (eggFloorCounter >= 10){
+                if (eggFloorCounter >= 50){
                     dinosaur = new Allosaur("Allosaur");
                     currentLocation.addActor(dinosaur);
                     currentLocation.removeItem(this);

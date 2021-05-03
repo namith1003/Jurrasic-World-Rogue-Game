@@ -31,23 +31,24 @@ public class Tree extends Ground {
 		if (age == 20)
 			displayChar = 'T';
 
-		ripening();
+		ripening(location);
 		dropsFruit(location);
 	}
 
-	public boolean ripening(){
+	public boolean ripening(Location location){
 
 		if (new Random().nextInt(2) == 0){
-			Fruit fruit = produceFruit();
+			Fruit fruit = produceFruit(location);
 			fruits.add(fruit);
 			return true;
 		}
 		return false;
 	}
 
-	public Fruit produceFruit(){
+	public Fruit produceFruit(Location location){
 		Fruit fruit = new Fruit("Fruit");
 		fruit.addCapability(FruitStatus.ON_TREE);
+		location.addItem(fruit);
 		Player.points.setPoints(1);
 
 		return fruit;

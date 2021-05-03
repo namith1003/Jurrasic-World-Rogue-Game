@@ -26,23 +26,23 @@ public class Bushes extends Ground {
 
     @Override
     public void tick(Location location) {
-        ripening();
+        ripening(location);
     }
 
-    public boolean ripening(){
+    public boolean ripening(Location location){
 
         if (new Random().nextInt(10) == 0){
-            Fruit fruit = produceFruit();
+            Fruit fruit = produceFruit(location);
             fruits.add(fruit);
             return true;
         }
         return false;
     }
 
-    public Fruit produceFruit(){
+    public Fruit produceFruit(Location location){
         Fruit fruit = new Fruit("Fruit");
         fruit.addCapability(FruitStatus.ON_BUSH);
-
+        location.addItem(fruit);
         return fruit;
     }
 

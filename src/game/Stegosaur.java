@@ -3,6 +3,8 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -12,6 +14,7 @@ import java.util.Random;
 public class Stegosaur extends Dinosaur {
 	// Will need to change this to a collection if Stegosaur gets additional Behaviours.
 	private Behaviour behaviour;
+	private HashMap<Integer, Location> targets = new HashMap<>();
 
 	int age=0;
 
@@ -57,6 +60,8 @@ public class Stegosaur extends Dinosaur {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+
+		targets = new HashMap<>();
 		/*age++;
 		if (age > 10){
 
@@ -65,6 +70,47 @@ public class Stegosaur extends Dinosaur {
 			return new DoNothingAction();
 		}*/
 		hitPoints--;
+
+		Location targetLocation;
+		for (int x = 0; x < 80; x++){
+			for (int y = 0; y < 25; y++){
+				Actor actor = map.at(x, y).getActor();
+				ArrayList<Item> items = new ArrayList<>(map.at(x, y).getItems());
+
+				if (items.size() != 0) {
+					targetLocation = map.at(x, y);
+
+					for (Item item : items) {
+						if (item.toString().equals("Fruit") || item.toString().equals("VegeMealKit")){
+							Fruit fruit = (Fruit) item;
+							if (fruit.hasCapability(FruitStatus.ON_BUSH)) {
+								Location here = map.locationOf(this);
+								int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
+								targets.put(distance, targetLocation);
+							}
+						}
+					}
+				}
+			}
+		}
+		if (targets.size() != 0) {
+			int lowestItemDistance = (int) targets.keySet().toArray()[0];
+			for (int keys : targets.keySet()) {
+				if (keys < lowestItemDistance) {
+					lowestItemDistance = keys;
+				}
+			}
+
+			if (lowestItemDistance > 0) {
+				targetLocation = targets.get(lowestItemDistance);
+				return new HungryBehaviour(targetLocation).getAction(this, map);
+			} else {
+				targetLocation = targets.get(lowestItemDistance);
+				return new EatingAction(targetLocation);
+			}
+		}
+
+
 		Action wander = behaviour.getAction(this, map);
 		if (wander != null)
 			return wander;
