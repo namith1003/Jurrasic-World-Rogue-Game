@@ -102,13 +102,13 @@ public class VendingAction extends Action{
                 }
             }
             else {
-                System.out.println("change da world, goodby");
+                System.out.println("change da world, goodbye");
             }
         }
     }
 
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " access " + "vendingMachine";
+        return actor + " access " + "Vending Machine";
     }
 }
