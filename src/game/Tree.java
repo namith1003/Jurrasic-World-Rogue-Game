@@ -37,7 +37,7 @@ public class Tree extends Ground {
 
 	public boolean ripening(){
 
-		if (new Random().nextInt(200) == 0){
+		if (new Random().nextInt(2) == 0){
 			Fruit fruit = produceFruit();
 			fruits.add(fruit);
 			return true;
