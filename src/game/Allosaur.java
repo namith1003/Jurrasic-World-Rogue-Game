@@ -72,7 +72,16 @@ public class Allosaur extends Dinosaur{
                     lowestDistance = keys;
                 }
             }
-            behaviour.add(new FollowBehaviour(stegosaurs.get(lowestDistance)));
+
+            if (new FollowBehaviour(stegosaurs.get(lowestDistance)).getAction(this,map) != null){
+                behaviour.add(new FollowBehaviour(stegosaurs.get(lowestDistance)));
+            }
+            /*else if (new FollowBehaviour(stegosaurs.get(lowestDistance)).location.getActor().toString().equals("Stegosaur")){
+                return new AttackAction(stegosaurs.get(lowestDistance));
+            }*/
+            else{
+                return new AttackAction(stegosaurs.get(lowestDistance));
+            }
             return behaviour.get(1).getAction(this,map);
         }
 
