@@ -55,6 +55,7 @@ public class Allosaur extends Dinosaur{
     @Override
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
         hitPoints--;
+        stegosaurs = new HashMap<>();
 
         for (int x = 0; x < 80; x++){
             for (int y = 0; y < 25; y++){
@@ -82,7 +83,7 @@ public class Allosaur extends Dinosaur{
             else{
                 return new AttackAction(stegosaurs.get(lowestDistance));
             }
-            return behaviour.get(1).getAction(this,map);
+            return behaviour.remove(1).getAction(this,map);
         }
 
         Action wander = behaviour.get(0).getAction(this, map);
