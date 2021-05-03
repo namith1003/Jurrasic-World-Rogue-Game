@@ -7,7 +7,7 @@ import edu.monash.fit2099.engine.Location;
 
 public class VendingMachine extends Ground {
 
-    private String[] vendingItems = {"Fruit", "VegeMealKit", "MeatMealKit", "Egg", "LazerGun"};
+    private final String[] vendingItems = {"Fruit", "VegeMealKit", "MeatMealKit", "Egg", "LazerGun"};
     public VendingMachine() {
         super('V');
     }

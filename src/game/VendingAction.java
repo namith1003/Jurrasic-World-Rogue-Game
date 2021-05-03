@@ -37,7 +37,7 @@ public class VendingAction extends Action{
                             5. Brachiosaur Egg [500 EP]
                             6. Allosaur Egg [1000 EP]
                             7. Laser Gun [500 EP]
-                            8. Nah, I'm broke
+                            8. Quit Buying
                             ------------------------------------
                             Insert item number here:
                             """);
@@ -48,10 +48,10 @@ public class VendingAction extends Action{
                 return "Exiting the vending machine";
             }
             else if (choice>=1 && choice<=7){
-                // TODO: ASK AMOUNT
                 System.out.print("How many of these do you need?\n" +
                         "You currently have " + Player.points.getPoints()
-                        + " Eco Points.\nInsert amount: ");
+                        + " Eco Points." +
+                        "\nInsert amount: ");
                 int amount = scanner.nextInt();
                 if (amount <= Player.points.getPoints()/priceList[choice-1]) {
                     Player.points.setPoints(-(priceList[choice-1]*amount));
