@@ -42,8 +42,18 @@ public class Bushes extends Ground {
     public Fruit produceFruit(Location location){
         Fruit fruit = new Fruit("Fruit");
         fruit.addCapability(FruitStatus.ON_BUSH);
-        location.addItem(fruit);
         return fruit;
+    }
+
+    public ArrayList<Fruit> getFruits() {
+        return fruits;
+    }
+
+    public Fruit removeFruit(){
+        if (fruits.size() != 0) {
+            return fruits.remove(fruits.size() - 1);
+        }
+        return null;
     }
 
 }

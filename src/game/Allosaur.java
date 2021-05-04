@@ -4,7 +4,6 @@ import edu.monash.fit2099.engine.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 
 public class Allosaur extends Dinosaur{
     // Will need to change this to a collection if Stegosaur gets additional Behaviours.
@@ -26,27 +25,14 @@ public class Allosaur extends Dinosaur{
         behaviour.add(new WanderBehaviour());
         diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
 
-        if (new Random().nextInt(2) == 0){
-            addCapability(Gender.MALE);
-        } else {
-            addCapability(Gender.FEMALE);
-        }
-
     }
 
     public Allosaur(String name, String gender){
-        super(name, 'A', 20);
+        super(name, 'A', 20, gender);
         maxHitPoints = 100;
         behaviour.add(new WanderBehaviour());
         diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
-
         /*behaviour.add(new FollowBehaviour());*/
-
-        if (gender.equals("male")){
-            addCapability(Gender.MALE);
-        } else if (gender.equals("female") ){
-            addCapability(Gender.FEMALE);
-        }
     }
 
     /**

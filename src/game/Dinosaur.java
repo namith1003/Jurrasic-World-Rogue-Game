@@ -2,9 +2,13 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
+import java.util.Random;
+
 public class Dinosaur extends Actor {
 
     protected static String[] diet = new String[0];
+
+    protected String gender;
     /**
      * Constructor.
      *
@@ -14,6 +18,20 @@ public class Dinosaur extends Actor {
      */
     public Dinosaur(String name, char displayChar, int hitPoints) {
         super(name, displayChar, hitPoints);
+        if (new Random().nextInt(2) == 0){
+            this.gender = "male";
+        } else {
+            this.gender="female";
+        }
+    }
+
+    public Dinosaur(String name, char displayChar, int hitPoints, String gender) {
+        super(name, displayChar, hitPoints);
+        if (gender.equals("male")){
+            this.gender="male";
+        } else if (gender.equals("female") ){
+            this.gender="female";
+        }
     }
 
     @Override
@@ -31,6 +49,18 @@ public class Dinosaur extends Actor {
 
     public static String[] getDiet() {
         return diet;
+    }
+
+    public static void setDiet(String[] diet) {
+        Dinosaur.diet = diet;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
 }

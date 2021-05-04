@@ -10,6 +10,7 @@ import java.util.Random;
 
 public class Tree extends Ground {
 	private int age = 0;
+
 	protected ArrayList<Fruit> fruits = new ArrayList<>();
 
 	public Tree() {
@@ -48,7 +49,6 @@ public class Tree extends Ground {
 	public Fruit produceFruit(Location location){
 		Fruit fruit = new Fruit("Fruit");
 		fruit.addCapability(FruitStatus.ON_TREE);
-		location.addItem(fruit);
 		Player.points.setPoints(1);
 
 		return fruit;
@@ -61,5 +61,16 @@ public class Tree extends Ground {
 			droppedFruit.addCapability(FruitStatus.ON_FLOOR);
 			location.addItem(droppedFruit);
 		}
+	}
+
+	public ArrayList<Fruit> getFruits() {
+		return fruits;
+	}
+
+	public Fruit removeFruit(){
+		if (fruits.size() != 0) {
+			return fruits.remove(fruits.size() - 1);
+		}
+		return null;
 	}
 }

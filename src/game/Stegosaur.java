@@ -3,9 +3,7 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Random;
 
 /**
  * A herbivorous dinosaur.
@@ -29,12 +27,6 @@ public class Stegosaur extends Dinosaur {
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
-
-		if (new Random().nextInt(2) == 0){
-			addCapability(Gender.MALE);
-		} else {
-			addCapability(Gender.FEMALE);
-		}
 	}
 
 	public Stegosaur(String name, String gender){
@@ -42,12 +34,6 @@ public class Stegosaur extends Dinosaur {
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
-
-		if (gender.equals("male")){
-			addCapability(Gender.MALE);
-		} else if (gender.equals("female") ){
-			addCapability(Gender.FEMALE);
-		}
 	}
 
 	/**
@@ -60,7 +46,6 @@ public class Stegosaur extends Dinosaur {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-
 		targets = new HashMap<>();
 		/*age++;
 		if (age > 10){
@@ -74,25 +59,22 @@ public class Stegosaur extends Dinosaur {
 		Location targetLocation;
 		for (int x = 0; x < 80; x++){
 			for (int y = 0; y < 25; y++){
-				Actor actor = map.at(x, y).getActor();
-				ArrayList<Item> items = new ArrayList<>(map.at(x, y).getItems());
+				Ground bushes = map.at(x, y).getGround();
 
-				if (items.size() != 0) {
+				if (bushes != null) {
 					targetLocation = map.at(x, y);
-
-					for (Item item : items) {
-						if (item.toString().equals("Fruit") || item.toString().equals("VegeMealKit")){
-							Fruit fruit = (Fruit) item;
-							if (fruit.hasCapability(FruitStatus.ON_BUSH)) {
-								Location here = map.locationOf(this);
-								int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
-								targets.put(distance, targetLocation);
-							}
+					if (bushes.getDisplayChar() == '*'){
+						Bushes bush = (Bushes) bushes;
+						if (bush.getFruits().size() != 0) {
+							Location here = map.locationOf(this);
+							int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
+							targets.put(distance, targetLocation);
 						}
 					}
 				}
 			}
 		}
+
 		if (targets.size() != 0) {
 			int lowestItemDistance = (int) targets.keySet().toArray()[0];
 			for (int keys : targets.keySet()) {
@@ -114,7 +96,7 @@ public class Stegosaur extends Dinosaur {
 		Action wander = behaviour.getAction(this, map);
 		if (wander != null)
 			return wander;
-		
+
 		return new DoNothingAction();
 	}
 
