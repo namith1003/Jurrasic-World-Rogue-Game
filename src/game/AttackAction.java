@@ -41,7 +41,7 @@ public class AttackAction extends Action {
 
 		target.hurt(damage);
 		if (!target.isConscious()) {
-			Item corpse = new DinoCorpse(target.toString() + " Corpse");
+			Item corpse = new DinoCorpse(target.toString());
 			map.locationOf(target).addItem(corpse);
 			
 			Actions dropActions = new Actions();

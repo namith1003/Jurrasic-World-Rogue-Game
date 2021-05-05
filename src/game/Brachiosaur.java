@@ -52,7 +52,7 @@ public class Brachiosaur extends Dinosaur{
 		}*/
 
         boolean isHungry = isHungry(map);
-        isDead();
+
         if (isHungry) {
             Location targetLocation;
             for (int x = 0; x < 80; x++) {

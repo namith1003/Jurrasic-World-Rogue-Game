@@ -10,6 +10,7 @@ public class Dinosaur extends Actor {
 
     protected String gender;
     protected int hungerLevel;
+
     protected int unconsciousCounter = 0;
     /**
      * Constructor.
@@ -74,7 +75,7 @@ public class Dinosaur extends Actor {
         if (hitPoints >= hungerLevel){
             int newHunger = hitPoints - 1;
             if (newHunger < hungerLevel) {
-                display.println(toString() + " at (" + map.locationOf(this).x() + map.locationOf(this).y() + ") is getting hungry!");
+                display.println(toString() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ") is getting hungry!");
             }
         }
         hitPoints--;
@@ -89,24 +90,16 @@ public class Dinosaur extends Actor {
         }
     }
 
-    public void isDead(){
-        boolean isConscious = isConscious();
-        if (!isConscious){
-            unconsciousCounter++;
-            switch (toString()){
-                case "Stegosaur", "Allosaur" ->{
-                    if (unconsciousCounter >= 20){
+    public int getUnconsciousCounter() {
+        return unconsciousCounter;
+    }
 
-                    }
-                }
-                case "Brachiosaur" ->{
-                    if (unconsciousCounter >= 15){
+    public void setUnconsciousCounter(int unconsciousCounter) {
+        this.unconsciousCounter = unconsciousCounter;
+    }
 
-                    }
-                }
-            }
-        }
-        unconsciousCounter = 0;
+    public void increaseUnconsciousCounter(){
+        this.unconsciousCounter++;
     }
 
 }

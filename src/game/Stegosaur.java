@@ -57,8 +57,14 @@ public class Stegosaur extends Dinosaur {
 			return new DoNothingAction();
 		}*/
 		boolean isHungry = isHungry(map);
-		isDead();
 
+		// checks if the dinosaur is unconscious and bout to die
+		Action death = new DeathBehaviour().getAction(this, map);
+		if (death != null){
+			return death;
+		}
+
+		// searches for food if the dinosaur is hungry
 		if (isHungry) {
 			Location targetLocation;
 			for (int x = 0; x < 80; x++) {

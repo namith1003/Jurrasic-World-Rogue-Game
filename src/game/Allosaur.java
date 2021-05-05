@@ -52,7 +52,6 @@ public class Allosaur extends Dinosaur{
         targets = new HashMap<>();
 
         boolean isHungry = isHungry(map);
-        isDead();
 
         // decreases the timer on the stegosaurs that have been attacked by this allosaur.
         if (attackedStegosaurs != null && timeRemaining.size() != 0) {
