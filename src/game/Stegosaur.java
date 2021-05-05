@@ -14,7 +14,7 @@ public class Stegosaur extends Dinosaur {
 	private Behaviour behaviour;
 	private HashMap<Integer, Location> targets = new HashMap<>();
 
-	int age=0;
+	// int age=0;
 
 	/** 
 	 * Constructor.

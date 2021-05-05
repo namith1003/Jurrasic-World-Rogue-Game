@@ -12,6 +12,7 @@ public class Dinosaur extends Actor {
     protected int hungerLevel;
 
     protected int unconsciousCounter = 0;
+    protected int age = 0;
     /**
      * Constructor.
      *
@@ -68,6 +69,22 @@ public class Dinosaur extends Actor {
 
     public int getHitPoints(){
         return hitPoints;
+    }
+
+    public void setHitPoints(int newHitPoints) {
+        this.hitPoints = newHitPoints;
+    }
+
+    public void setDisplayChar(char newDisplayChar) {
+        this.displayChar = newDisplayChar;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int newAge) {
+        this.age = newAge;
     }
 
     public boolean isHungry(GameMap map){
