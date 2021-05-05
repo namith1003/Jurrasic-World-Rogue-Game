@@ -17,6 +17,21 @@ public class GrowingAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
+        Dinosaur dinosaur = (Dinosaur) actor;
+        switch (dinosaur.toString()) {
+            case "Stegosaur" -> {
+                map.locationOf(dinosaur).addActor(new Stegosaur("Stegosaur", true));
+                map.removeActor(dinosaur);
+            }
+            case "Brachiosaur" -> {
+                map.locationOf(dinosaur).addActor(new Brachiosaur("Brachiosaur", true));
+                map.removeActor(dinosaur);
+            }
+            case "Allosaur" -> {
+                map.locationOf(dinosaur).addActor(new Allosaur("Allosaur", true));
+                map.removeActor(dinosaur);
+            }
+        }
         return null;
     }
 

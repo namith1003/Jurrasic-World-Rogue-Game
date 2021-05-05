@@ -17,7 +17,7 @@ public class Brachiosaur extends Dinosaur{
      *
      */
     public Brachiosaur(String name) {
-        super(name, 'b', 50);
+        super(name, 'b', 10);
         maxHitPoints = 160;
         behaviour = new WanderBehaviour();
         diet = new String[]{"Fruit", "VegeMealKit"};
@@ -25,7 +25,15 @@ public class Brachiosaur extends Dinosaur{
     }
 
     public Brachiosaur(String name, String gender){
-        super(name, 'b', 50, gender);
+        super(name, 'b', 10,gender);
+        maxHitPoints = 160;
+        behaviour = new WanderBehaviour();
+        diet = new String[]{"Fruit", "VegeMealKit"};
+        hungerLevel = 140;
+    }
+
+    public Brachiosaur(String name, boolean isAdult) {
+        super(name, 'B', 50);
         maxHitPoints = 160;
         behaviour = new WanderBehaviour();
         diet = new String[]{"Fruit", "VegeMealKit"};

@@ -37,6 +37,16 @@ public class Allosaur extends Dinosaur{
         hungerLevel = 50;
     }
 
+    public Allosaur(String name, boolean isAdult) {
+        super(name, 'A', 50);
+        maxHitPoints = 100;
+        behaviour.add(new WanderBehaviour());
+        diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
+        hungerLevel = 50;
+
+    }
+
+
     @Override
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
         // if the allosaur is hungry it will find and attack a stegosaur

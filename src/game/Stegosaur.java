@@ -38,6 +38,14 @@ public class Stegosaur extends Dinosaur {
 		hungerLevel = 80;
 	}
 
+	public Stegosaur(String name, boolean isAdult) {
+		super(name, 'S', 50);
+		maxHitPoints = 100;
+		behaviour = new WanderBehaviour();
+		diet = new String[]{"Fruit", "VegeMealKit"};
+		hungerLevel = 80;
+	}
+
 	/**
 	 * Figure out what to do next.
 	 * 
