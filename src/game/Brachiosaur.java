@@ -2,7 +2,6 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Brachiosaur extends Dinosaur{
@@ -82,7 +81,6 @@ public class Brachiosaur extends Dinosaur{
             Location targetLocation;
             for (int x = 0; x < 80; x++) {
                 for (int y = 0; y < 25; y++) {
-                    ArrayList<Item> items = new ArrayList<>(map.at(x, y).getItems());
                     Ground trees = map.at(x, y).getGround();
 
                     if (trees != null) {

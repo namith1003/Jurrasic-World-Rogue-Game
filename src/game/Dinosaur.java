@@ -91,12 +91,12 @@ public class Dinosaur extends Actor {
 
     public boolean isHungry(GameMap map){
         Display display = new Display();
-        /*if (hitPoints >= hungerLevel){
+        if (hitPoints >= hungerLevel){
             int newHunger = hitPoints - 1;
             if (newHunger < hungerLevel) {
                 display.println(toString() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ") is getting hungry!");
             }
-        }*/
+        }
         hitPoints--;
         if (hitPoints < hungerLevel) {
             addCapability(BreedingStatus.CANNOT_BREED);

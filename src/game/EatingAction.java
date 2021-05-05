@@ -14,23 +14,36 @@ public class EatingAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         List<Item> items = targetLocation.getItems();
+        Ground thePlant = targetLocation.getGround();
+
         switch (actor.toString()) {
             case "Stegosaur" -> {
-                Ground theBush = targetLocation.getGround();
-                if(theBush.getFruits().size() != 0){
 
-                    FoodItem theFood = theBush.removeFruit();
-                    actor.heal(theFood.getHealValue());
-                    map.locationOf(actor).removeItem(theFood);
-                    return "Stegosaur has healed " + theFood.getHealValue();
+                if (thePlant.getFruits() != null) {
+                    if (thePlant.getFruits().size() != 0) {
 
+                        FoodItem theFood = thePlant.removeFruit();
+                        actor.heal(theFood.getHealValue());
+                        map.locationOf(actor).removeItem(theFood);
+                        return "Stegosaur has healed " + theFood.getHealValue();
+                    }
+                } else {
+                    for (Item item : items) {
+                        for (String food: Stegosaur.getDiet()){
+                            if (item.toString().equals(food)){
+                                FoodItem theFood = (FoodItem) item;
+                                actor.heal(theFood.getHealValue());
+                                map.locationOf(actor).removeItem(theFood);
+                                return "Stegosaur has healed " + theFood.getHealValue();
+                            }
+                        }
+                    }
                 }
             }
             case "Brachiosaur" -> {
-                Ground theTree = targetLocation.getGround();
-                if(theTree.getFruits().size() != 0){
+                if(thePlant.getFruits().size() != 0){
 
-                    FoodItem theFood = theTree.removeFruit();
+                    FoodItem theFood = thePlant.removeFruit();
                     actor.heal(theFood.getHealValue());
 
                     map.locationOf(actor).removeItem(theFood);
