@@ -50,6 +50,9 @@ public class Brachiosaur extends Dinosaur{
         hitPoints--;
 
         if (hitPoints < 90 && hitPoints > 0) {
+            addCapability(BreedingStatus.CANNOT_BREED);
+            removeCapability(BreedingStatus.CAN_BREED);
+
             Location targetLocation;
             for (int x = 0; x < 80; x++) {
                 for (int y = 0; y < 25; y++) {
@@ -88,6 +91,9 @@ public class Brachiosaur extends Dinosaur{
                 }
             }
         } else if (hitPoints >= 90){
+            removeCapability(BreedingStatus.CANNOT_BREED);
+            addCapability(BreedingStatus.CAN_BREED);
+
             return new BreedingBehaviour().getAction(this, map);
         }
 
