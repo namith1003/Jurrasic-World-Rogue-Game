@@ -2,6 +2,7 @@ package game;
 
 import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
+import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.GameMap;
 
 import java.util.Scanner;
@@ -21,8 +22,10 @@ public class VendingAction extends Action{
 
     @Override
     public String execute(Actor actor, GameMap map) {
+
+        Display choices = new Display();
         while (true) {
-            System.out.print("""
+            choices.println("""
                     ------------------------------------
                     It's a vending machine!
                     What do you want to buy?
@@ -43,20 +46,20 @@ public class VendingAction extends Action{
                             Insert item number here:
                             """);
 
-            int choice = scanner.nextInt();
+            int choice = Character.getNumericValue(choices.readChar());
 
             if (choice == 8) {
                 return "You've decided to walk away from the vending machine.";
             }
             else if (choice>=1 && choice<=7) {
-                System.out.print("How many of these do you need?\n" +
+                choices.println("How many of these do you need?\n" +
                         "You currently have " + Player.points.getPoints() + " EP."
                         + "\nYou can buy a maximum amount of " + Player.points.getPoints()/priceList[choice-1] + "."
                         + "\nInsert amount: ");
                 int amount = scanner.nextInt();
                 if (amount <= Player.points.getPoints()/priceList[choice-1]) {
                     Player.points.setPoints(-(priceList[choice-1]*amount));
-                    System.out.println("You have bought " + amount + " item(s). " +
+                    choices.println("You have bought " + amount + " item(s). " +
                             "\nYour EP balance now is: "+ Player.points.getPoints());
 
                     switch (choice){
@@ -98,11 +101,11 @@ public class VendingAction extends Action{
                     }
 
                 } else {
-                    System.out.println("You don't have enough points to buy these!");
+                    choices.println("You don't have enough points to buy these!");
                 }
             }
             else {
-                System.out.println("There is no such item! Try again.");
+                choices.println("There is no such item! Try again.");
             }
         }
     }

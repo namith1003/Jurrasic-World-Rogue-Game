@@ -20,7 +20,6 @@ public class BreedingBehaviour implements Behaviour {
                 for (int y = 0; y < 25; y++) {
                     Actor target = map.at(x, y).getActor();
                     // checks if the there is an actor at every position in the map and checks if the actor has all the conditions needed to breed.
-
                     if (target != null && (target.toString().equals(actor.toString())) && !target.hasCapability(BreedingStatus.IS_PREGNANT) && target.hasCapability(BreedingStatus.CAN_BREED)) {
                         Dinosaur dinosaurTarget = (Dinosaur) target;
                         Dinosaur dinosaur = (Dinosaur) actor;
@@ -32,7 +31,6 @@ public class BreedingBehaviour implements Behaviour {
                     }
                 }
             }
-
             // if there are dinosaurs that this dinosaur can breed with it will try to find the closest one from all the viable ones.
             if (dinosaurs.size() != 0) {
                 int lowestDistance = (int) dinosaurs.keySet().toArray()[0];
@@ -41,7 +39,6 @@ public class BreedingBehaviour implements Behaviour {
                         lowestDistance = keys;
                     }
                 }
-
                 // if the dinosaur can still move toward the targeted closest dinosaur.
                 if (new FollowBehaviour(dinosaurs.get(lowestDistance)).getAction(actor, map) != null) {
                     return new FollowBehaviour(dinosaurs.get(lowestDistance)).getAction(actor, map);
@@ -49,7 +46,6 @@ public class BreedingBehaviour implements Behaviour {
                     // if the dinosaur has come next to the targeted closest dinosaur.
                     for (Exit exits : map.locationOf(actor).getExits()) {
                         if (exits.getDestination() == map.locationOf(dinosaurs.get(lowestDistance))) {
-                            System.out.println("breeding bout to start");
                             return new BreedingAction(dinosaurs.remove(lowestDistance));
                         }
                     }
