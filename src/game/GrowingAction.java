@@ -32,7 +32,7 @@ public class GrowingAction extends Action {
                 map.removeActor(dinosaur);
             }
         }
-        return null;
+        return dinosaur.toString() + "has grown up!";
     }
 
     @Override
