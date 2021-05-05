@@ -23,7 +23,7 @@ public class Stegosaur extends Dinosaur {
 	 * @param name the name of this Stegosaur
 	 */
 	public Stegosaur(String name) {
-		super(name, 'S', 50);
+		super(name, 's', 10);
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
@@ -31,7 +31,7 @@ public class Stegosaur extends Dinosaur {
 	}
 
 	public Stegosaur(String name, String gender){
-		super(name, 'S', 50, gender);
+		super(name, 's', 10, gender);
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};

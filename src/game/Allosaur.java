@@ -20,7 +20,7 @@ public class Allosaur extends Dinosaur{
      *
      */
     public Allosaur(String name) {
-        super(name, 'A', 20);
+        super(name, 'a', 20);
         maxHitPoints = 100;
         behaviour.add(new WanderBehaviour());
         diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
@@ -29,7 +29,7 @@ public class Allosaur extends Dinosaur{
     }
 
     public Allosaur(String name, String gender){
-        super(name, 'A', 20, gender);
+        super(name, 'a', 20, gender);
         maxHitPoints = 100;
         behaviour.add(new WanderBehaviour());
         diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
@@ -37,14 +37,6 @@ public class Allosaur extends Dinosaur{
         hungerLevel = 50;
     }
 
-    /**
-     * Figure out what to do next.
-     *
-     * FIXME: Stegosaur wanders around at random, or if no suitable MoveActions are available, it
-     * just stands there.  That's boring.
-     *
-     * @see edu.monash.fit2099.engine.Actor#playTurn(Actions, Action, GameMap, Display)
-     */
     @Override
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
         // if the allosaur is hungry it will find and attack a stegosaur
