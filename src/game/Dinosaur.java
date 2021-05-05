@@ -9,6 +9,7 @@ public class Dinosaur extends Actor {
     protected static String[] diet = new String[0];
 
     protected String gender;
+    protected int hungerLevel;
     /**
      * Constructor.
      *
@@ -61,6 +62,10 @@ public class Dinosaur extends Actor {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public int getHitpoints(){
+        return hitPoints;
     }
 
 }

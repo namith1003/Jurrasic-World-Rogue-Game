@@ -21,12 +21,15 @@ public class Brachiosaur extends Dinosaur{
         maxHitPoints = 160;
         behaviour = new WanderBehaviour();
         diet = new String[]{"Fruit", "VegeMealKit"};
+        hungerLevel = 100;
     }
 
     public Brachiosaur(String name, String gender){
-        super(name, 'B', 100);
+        super(name, 'B', 100, gender);
         maxHitPoints = 160;
         behaviour = new WanderBehaviour();
+        diet = new String[]{"Fruit", "VegeMealKit"};
+        hungerLevel = 140;
     }
 
     /**
@@ -49,7 +52,7 @@ public class Brachiosaur extends Dinosaur{
 		}*/
         hitPoints--;
 
-        if (hitPoints < 90 && hitPoints > 0) {
+        if (hitPoints < hungerLevel && hitPoints > 0) {
             addCapability(BreedingStatus.CANNOT_BREED);
             removeCapability(BreedingStatus.CAN_BREED);
 
@@ -90,10 +93,9 @@ public class Brachiosaur extends Dinosaur{
                     return new EatingAction(targetLocation);
                 }
             }
-        } else if (hitPoints >= 90){
+        } else if (hitPoints >= hungerLevel){
             removeCapability(BreedingStatus.CANNOT_BREED);
             addCapability(BreedingStatus.CAN_BREED);
-
             return new BreedingBehaviour().getAction(this, map);
         }
 

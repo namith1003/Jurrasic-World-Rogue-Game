@@ -30,7 +30,7 @@ public class Stegosaur extends Dinosaur {
 	}
 
 	public Stegosaur(String name, String gender){
-		super(name, 'S', 50);
+		super(name, 'S', 50, gender);
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};

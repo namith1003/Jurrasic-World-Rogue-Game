@@ -34,6 +34,7 @@ public class EatingAction extends Action {
 
                     FoodItem theFood = theTree.removeFruit();
                     brachiosaur.heal(theFood.getHealValue());
+
                     map.locationOf(actor).removeItem(theFood);
                     return "Brachiosaur has healed " + theFood.getHealValue();
 
