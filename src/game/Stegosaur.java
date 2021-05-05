@@ -91,8 +91,7 @@ public class Stegosaur extends Dinosaur {
 					if (bushes != null) {
 						targetLocation = map.at(x, y);
 						if (bushes.getDisplayChar() == '*') {
-							Bushes bush = (Bushes) bushes;
-							if (bush.getFruits().size() != 0) {
+							if (bushes.getFruits().size() != 0) {
 								Location here = map.locationOf(this);
 								int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
 								targets.put(distance, targetLocation);

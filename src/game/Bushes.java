@@ -45,10 +45,12 @@ public class Bushes extends Ground {
         return fruit;
     }
 
+    @Override
     public ArrayList<Fruit> getFruits() {
         return fruits;
     }
 
+    @Override
     public Fruit removeFruit(){
         if (fruits.size() != 0) {
             return fruits.remove(fruits.size() - 1);

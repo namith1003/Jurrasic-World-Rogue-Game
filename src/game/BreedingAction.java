@@ -5,8 +5,8 @@ import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 
 public class BreedingAction extends Action {
-    private Dinosaur target;
-    public BreedingAction(Dinosaur dinosaur) {
+    private Actor target;
+    public BreedingAction(Actor dinosaur) {
         target = dinosaur;
     }
 

@@ -9,7 +9,7 @@ public class BreedingBehaviour implements Behaviour {
     /**
      * Stores the list of all dinosaurs that the acting dinosaur is capable to breed with
      */
-    private HashMap<Integer, Dinosaur> dinosaurs = new HashMap<>();
+    private HashMap<Integer, Actor> dinosaurs = new HashMap<>();
 
     @Override
     public Action getAction(Actor actor, GameMap map) {
@@ -21,11 +21,9 @@ public class BreedingBehaviour implements Behaviour {
                     Actor target = map.at(x, y).getActor();
                     // checks if the there is an actor at every position in the map and checks if the actor has all the conditions needed to breed.
                     if (target != null && (target.toString().equals(actor.toString())) && !target.hasCapability(BreedingStatus.IS_PREGNANT) && target.hasCapability(BreedingStatus.CAN_BREED)) {
-                        Dinosaur dinosaurTarget = (Dinosaur) target;
-                        Dinosaur dinosaur = (Dinosaur) actor;
-                        if (!dinosaur.getGender().equals(dinosaurTarget.getGender())) {
-                            int distance = new FollowBehaviour(actor).distance(map.locationOf(dinosaur), map.locationOf(dinosaurTarget));
-                            dinosaurs.put(distance, dinosaurTarget);
+                        if (!actor.getGender().equals(target.getGender())) {
+                            int distance = new FollowBehaviour(actor).distance(map.locationOf(actor), map.locationOf(target));
+                            dinosaurs.put(distance, target);
                         }
 
                     }

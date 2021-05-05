@@ -16,24 +16,22 @@ public class EatingAction extends Action {
         List<Item> items = targetLocation.getItems();
         switch (actor.toString()) {
             case "Stegosaur" -> {
-                Stegosaur stegosaur = (Stegosaur) actor;
-                Bushes theBush = (Bushes) targetLocation.getGround();
+                Ground theBush = targetLocation.getGround();
                 if(theBush.getFruits().size() != 0){
 
                     FoodItem theFood = theBush.removeFruit();
-                    stegosaur.heal(theFood.getHealValue());
+                    actor.heal(theFood.getHealValue());
                     map.locationOf(actor).removeItem(theFood);
                     return "Stegosaur has healed " + theFood.getHealValue();
 
                 }
             }
             case "Brachiosaur" -> {
-                Brachiosaur brachiosaur = (Brachiosaur) actor;
-                Tree theTree = (Tree) targetLocation.getGround();
+                Ground theTree = targetLocation.getGround();
                 if(theTree.getFruits().size() != 0){
 
                     FoodItem theFood = theTree.removeFruit();
-                    brachiosaur.heal(theFood.getHealValue());
+                    actor.heal(theFood.getHealValue());
 
                     map.locationOf(actor).removeItem(theFood);
                     return "Brachiosaur has healed " + theFood.getHealValue();
@@ -41,12 +39,11 @@ public class EatingAction extends Action {
                 }
             }
             case "Allosaur" -> {
-                Allosaur allosaur = (Allosaur) actor;
                 for (Item item : items) {
                     for (String food: Allosaur.getDiet()){
                         if (item.toString().equals(food)){
                             FoodItem theFood = (FoodItem) item;
-                            allosaur.heal(theFood.getHealValue());
+                            actor.heal(theFood.getHealValue());
                             map.locationOf(actor).removeItem(theFood);
                             return "Allosaur has healed " + theFood.getHealValue();
                         }

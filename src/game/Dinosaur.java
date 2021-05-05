@@ -60,6 +60,7 @@ public class Dinosaur extends Actor {
         Dinosaur.diet = diet;
     }
 
+    @Override
     public String getGender() {
         return gender;
     }
@@ -108,14 +109,17 @@ public class Dinosaur extends Actor {
         }
     }
 
+    @Override
     public int getUnconsciousCounter() {
         return unconsciousCounter;
     }
 
+    @Override
     public void setUnconsciousCounter(int unconsciousCounter) {
         this.unconsciousCounter = unconsciousCounter;
     }
 
+    @Override
     public void increaseUnconsciousCounter(){
         this.unconsciousCounter++;
     }

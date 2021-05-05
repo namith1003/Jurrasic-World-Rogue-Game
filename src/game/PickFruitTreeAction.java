@@ -17,7 +17,7 @@ public class PickFruitTreeAction extends Action {
     public String execute(Actor actor, GameMap map) {
         if (new Random().nextInt(10) < 4 && theTree.fruits.size() != 0){
             Fruit fruit = theTree.fruits.remove(theTree.fruits.size() - 1);
-            fruit.removeCapability(FruitStatus.ON_BUSH);
+            fruit.removeCapability(FruitStatus.ON_TREE);
             fruit.addCapability(FruitStatus.IN_INVENTORY);
             Player.points.setPoints(10);
             actor.addItemToInventory(theTree.fruits.remove(theTree.fruits.size() - 1));

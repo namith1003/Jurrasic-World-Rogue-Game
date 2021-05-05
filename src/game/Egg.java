@@ -45,7 +45,6 @@ public class Egg extends FoodItem {
                 if (eggFloorCounter >= 20){
                     dinosaur = new Brachiosaur("Brachiosaur");
                     currentLocation.addActor(dinosaur);
-                    System.out.println("Brach egg hatched, " + this.eggFloorCounter);
                     currentLocation.removeItem(this);
                     Player.points.setPoints(1000);
                 }

@@ -26,4 +26,16 @@ public interface ActorInterface {
     default void setPregnantTime(int pregnantTime){
     }
 
+    default String getGender(){
+        return null;
+    }
+
+    default int getUnconsciousCounter(){
+        return 0;
+    }
+
+    default void increaseUnconsciousCounter(){
+    }
+    default void setUnconsciousCounter(int unconsciousCounter){
+    }
 }

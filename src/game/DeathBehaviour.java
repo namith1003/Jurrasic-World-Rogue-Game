@@ -8,12 +8,11 @@ import edu.monash.fit2099.engine.GameMap;
 public class DeathBehaviour implements Behaviour {
     @Override
     public Action getAction(Actor actor, GameMap map) {
-        Dinosaur dinosaur = (Dinosaur) actor;
-        int unconsciousCounter = dinosaur.getUnconsciousCounter();
-        boolean isConscious = dinosaur.isConscious();
+        int unconsciousCounter = actor.getUnconsciousCounter();
+        boolean isConscious = actor.isConscious();
         if (!isConscious){
-            dinosaur.increaseUnconsciousCounter();
-            switch (dinosaur.toString()){
+            actor.increaseUnconsciousCounter();
+            switch (actor.toString()){
                 case "Stegosaur", "Allosaur" ->{
                     if (unconsciousCounter >= 20){
                         return new DeathAction();
@@ -27,7 +26,7 @@ public class DeathBehaviour implements Behaviour {
             }
             return new DoNothingAction();
         }
-        dinosaur.setUnconsciousCounter(0);
+        actor.setUnconsciousCounter(0);
         return null;
     }
 }

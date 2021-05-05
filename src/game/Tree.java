@@ -63,6 +63,7 @@ public class Tree extends Ground {
 		}
 	}
 
+	@Override
 	public ArrayList<Fruit> getFruits() {
 		return fruits;
 	}
