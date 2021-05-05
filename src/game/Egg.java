@@ -7,8 +7,8 @@ public class Egg extends FoodItem {
 
     private int eggFloorCounter = 0;
     private String dinoName;
-    public Egg(String name, String dinoName, char displayChar) {
-        super(name, displayChar);
+    public Egg(String dinoName, char displayChar) {
+        super("Egg", displayChar);
         this.dinoName = dinoName;
         this.healValue = 10;
     }
@@ -45,6 +45,7 @@ public class Egg extends FoodItem {
                 if (eggFloorCounter >= 20){
                     dinosaur = new Brachiosaur("Brachiosaur");
                     currentLocation.addActor(dinosaur);
+                    System.out.println("Brach egg hatched, " + this.eggFloorCounter);
                     currentLocation.removeItem(this);
                     Player.points.setPoints(1000);
                 }

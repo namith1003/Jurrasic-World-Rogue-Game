@@ -19,7 +19,7 @@ public class BreedingAction extends Action {
             actor.addCapability(BreedingStatus.IS_PREGNANT);
             actor.removeCapability(BreedingStatus.CAN_BREED);
         }
-        return "Dinosaur breeds";
+        return actor.toString() + " breeds";
     }
 
     @Override

@@ -80,17 +80,17 @@ public class VendingAction extends Action{
                         }
                         case 4 -> {
                             for (int i = 0; i < amount; i++) {
-                                actor.addItemToInventory(new Egg("Egg", "Stegosaur", 'o'));
+                                actor.addItemToInventory(new Egg( "Stegosaur", 'o'));
                             }
                         }
                         case 5 -> {
                             for (int i = 0; i < amount; i++) {
-                                actor.addItemToInventory(new Egg("Egg", "Brachiosaur", 'O'));
+                                actor.addItemToInventory(new Egg("Brachiosaur", 'O'));
                             }
                         }
                         case 6 -> {
                             for (int i = 0; i < amount; i++) {
-                                actor.addItemToInventory(new Egg("Egg", "Allosaur", '0'));
+                                actor.addItemToInventory(new Egg("Allosaur", '0'));
                             }
                         }
                         case 7 -> {

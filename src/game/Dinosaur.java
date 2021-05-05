@@ -10,9 +10,10 @@ public class Dinosaur extends Actor {
 
     protected String gender;
     protected int hungerLevel;
-
+    protected int pregnantCounter = 0;
     protected int unconsciousCounter = 0;
     protected int age = 0;
+    protected int pregnantTime = 0;
     /**
      * Constructor.
      *
@@ -89,12 +90,12 @@ public class Dinosaur extends Actor {
 
     public boolean isHungry(GameMap map){
         Display display = new Display();
-        if (hitPoints >= hungerLevel){
+        /*if (hitPoints >= hungerLevel){
             int newHunger = hitPoints - 1;
             if (newHunger < hungerLevel) {
                 display.println(toString() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ") is getting hungry!");
             }
-        }
+        }*/
         hitPoints--;
         if (hitPoints < hungerLevel) {
             addCapability(BreedingStatus.CANNOT_BREED);
@@ -117,6 +118,31 @@ public class Dinosaur extends Actor {
 
     public void increaseUnconsciousCounter(){
         this.unconsciousCounter++;
+    }
+
+    @Override
+    public int getPregnantCounter() {
+        return pregnantCounter;
+    }
+
+    @Override
+    public void setPregnantCounter(int pregnantCounter) {
+        this.pregnantCounter = pregnantCounter;
+    }
+
+    @Override
+    public int getPregnantTime(){
+        return pregnantTime;
+    }
+
+    @Override
+    public void setPregnantTime(int pregnantTime){
+        this.pregnantTime = pregnantTime;
+    }
+
+    @Override
+    public void updatePregnantCounter() {
+        this.pregnantCounter++;
     }
 
 }

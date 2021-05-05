@@ -25,6 +25,7 @@ public class Allosaur extends Dinosaur{
         behaviour.add(new WanderBehaviour());
         diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
         hungerLevel = 50;
+        pregnantTime = 20;
 
     }
 
@@ -33,8 +34,8 @@ public class Allosaur extends Dinosaur{
         maxHitPoints = 100;
         behaviour.add(new WanderBehaviour());
         diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
-        /*behaviour.add(new FollowBehaviour());*/
         hungerLevel = 50;
+        pregnantTime = 20;
     }
 
     public Allosaur(String name, boolean isAdult) {
@@ -54,6 +55,17 @@ public class Allosaur extends Dinosaur{
         targets = new HashMap<>();
 
         boolean isHungry = isHungry(map);
+
+        // checks if the stegosaur is unconscious and bout to die
+        Action death = new DeathBehaviour().getAction(this, map);
+        if (death != null){
+            return death;
+        }
+        // checks if the dinosaur meets the conditions to lay an egg and if yes lays it
+        Action layEgg = new LayEggBehaviour().getAction(this,map);
+        if (layEgg != null){
+            return layEgg;
+        }
 
         // decreases the timer on the stegosaurs that have been attacked by this allosaur.
         if (attackedStegosaurs != null && timeRemaining.size() != 0) {

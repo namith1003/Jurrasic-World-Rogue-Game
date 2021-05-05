@@ -28,6 +28,7 @@ public class Stegosaur extends Dinosaur {
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
 		hungerLevel = 80;
+		pregnantTime = 10;
 	}
 
 	public Stegosaur(String name, String gender){
@@ -36,6 +37,7 @@ public class Stegosaur extends Dinosaur {
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
 		hungerLevel = 80;
+		pregnantTime = 15;
 	}
 
 	public Stegosaur(String name, boolean isAdult) {
@@ -44,6 +46,7 @@ public class Stegosaur extends Dinosaur {
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
 		hungerLevel = 80;
+		pregnantTime = 15;
 	}
 
 	/**
@@ -70,6 +73,12 @@ public class Stegosaur extends Dinosaur {
 		Action death = new DeathBehaviour().getAction(this, map);
 		if (death != null){
 			return death;
+		}
+
+		// checks if the dinosaur meets the conditions to lay an egg and if yes lays it
+		Action layEgg = new LayEggBehaviour().getAction(this,map);
+		if (layEgg != null){
+			return layEgg;
 		}
 
 		// searches for food if the dinosaur is hungry

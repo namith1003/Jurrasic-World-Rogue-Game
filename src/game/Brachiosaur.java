@@ -22,6 +22,8 @@ public class Brachiosaur extends Dinosaur{
         behaviour = new WanderBehaviour();
         diet = new String[]{"Fruit", "VegeMealKit"};
         hungerLevel = 140;
+        pregnantTime = 30;
+        pregnantCounter = 0;
     }
 
     public Brachiosaur(String name, String gender){
@@ -30,6 +32,8 @@ public class Brachiosaur extends Dinosaur{
         behaviour = new WanderBehaviour();
         diet = new String[]{"Fruit", "VegeMealKit"};
         hungerLevel = 140;
+        pregnantTime = 30;
+        pregnantCounter = 0;
     }
 
     public Brachiosaur(String name, boolean isAdult) {
@@ -38,6 +42,8 @@ public class Brachiosaur extends Dinosaur{
         behaviour = new WanderBehaviour();
         diet = new String[]{"Fruit", "VegeMealKit"};
         hungerLevel = 140;
+        pregnantTime = 30;
+        pregnantCounter = 0;
     }
 
     /**
@@ -60,6 +66,17 @@ public class Brachiosaur extends Dinosaur{
 		}*/
 
         boolean isHungry = isHungry(map);
+
+        // checks if the stegosaur is unconscious and bout to die
+        Action death = new DeathBehaviour().getAction(this, map);
+        if (death != null){
+            return death;
+        }
+        // checks if the dinosaur meets the conditions to lay an egg and if yes lays it
+        Action layEgg = new LayEggBehaviour().getAction(this,map);
+        if (layEgg != null){
+            return layEgg;
+        }
 
         if (isHungry) {
             Location targetLocation;
