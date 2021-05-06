@@ -6,7 +6,7 @@ public class LazerGun extends WeaponItem {
     /**
      * Constructor.
      *
-     * @param name        name of the item
+     * @param name name of the item
      *
      */
     public LazerGun(String name) {

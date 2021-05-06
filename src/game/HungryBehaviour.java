@@ -10,14 +10,32 @@ import java.util.HashMap;
  */
 public class HungryBehaviour implements Behaviour {
 
+    /**
+     * A HashMap to store the targets
+     */
     private HashMap<Integer, Location> targets = new HashMap<>();
+    /**
+     * A Location variable to store the coordinates of the target
+     */
     private Location targetLocation;
 
+    /**
+     * The constructor for HungryBehaviour
+     * @param target The target to attack
+     */
     public HungryBehaviour(Location target) {
         this.targetLocation = target;
     }
 
 
+    /**
+     * A method to scan the map for a target and determines if it is reachable.
+     * If the target is, calls the MoveActorAction to move the dinosaur to the target.
+     * @param actor the Actor acting
+     * @param map the GameMap containing the Actor
+     * @return An instance of MoveActorAction to move the actor to the target,
+     * or DoNothingAction to do nothing
+     */
     @Override
     public Action getAction(Actor actor, GameMap map) {
 
