@@ -22,7 +22,6 @@ public class Brachiosaur extends Dinosaur{
         diet = new String[]{"Fruit", "VegeMealKit"};
         hungerLevel = 140;
         pregnantTime = 30;
-        pregnantCounter = 0;
     }
 
     public Brachiosaur(String name, String gender){
@@ -32,7 +31,6 @@ public class Brachiosaur extends Dinosaur{
         diet = new String[]{"Fruit", "VegeMealKit"};
         hungerLevel = 140;
         pregnantTime = 30;
-        pregnantCounter = 0;
     }
 
     public Brachiosaur(String name, boolean isAdult) {
@@ -42,7 +40,6 @@ public class Brachiosaur extends Dinosaur{
         diet = new String[]{"Fruit", "VegeMealKit"};
         hungerLevel = 140;
         pregnantTime = 30;
-        pregnantCounter = 0;
     }
 
     /**

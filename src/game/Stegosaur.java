@@ -29,7 +29,7 @@ public class Stegosaur extends Dinosaur {
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
 		hungerLevel = 80;
-		pregnantTime = 10;
+		pregnantTime = 15;
 	}
 
 	public Stegosaur(String name, String gender){

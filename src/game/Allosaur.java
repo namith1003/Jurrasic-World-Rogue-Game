@@ -44,6 +44,7 @@ public class Allosaur extends Dinosaur{
         behaviour.add(new WanderBehaviour());
         diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
         hungerLevel = 50;
+        pregnantTime = 20;
 
     }
 

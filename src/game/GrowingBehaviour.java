@@ -8,18 +8,17 @@ public class GrowingBehaviour implements Behaviour{
 
     @Override
     public Action getAction(Actor actor, GameMap map) {
-        Dinosaur dinosaur = (Dinosaur) actor;
         // still WIP!!
-        switch (dinosaur.toString()){
+        switch (actor.toString()){
             case "Stegosaur" -> {
-                if (dinosaur.getAge() == 30) {
+                if (actor.getAge() == 30) {
                     // todo: delete instance and replace with grown up
-                    return new GrowingAction(dinosaur);
+                    return new GrowingAction(actor);
                 }
             }
             case "Brachiosaur", "Allosaur" -> {
-                if (dinosaur.getAge() == 50) {
-                    return new GrowingAction(dinosaur);
+                if (actor.getAge() == 50) {
+                    return new GrowingAction(actor);
                 }
             }
         }

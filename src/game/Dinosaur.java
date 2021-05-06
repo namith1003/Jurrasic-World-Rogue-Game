@@ -60,10 +60,6 @@ public class Dinosaur extends Actor {
         Dinosaur.diet = diet;
     }
 
-    @Override
-    public String getGender() {
-        return gender;
-    }
 
     public void setGender(String gender) {
         this.gender = gender;
@@ -79,14 +75,6 @@ public class Dinosaur extends Actor {
 
     public void setDisplayChar(char newDisplayChar) {
         this.displayChar = newDisplayChar;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int newAge) {
-        this.age = newAge;
     }
 
     public boolean isHungry(GameMap map){
@@ -107,6 +95,21 @@ public class Dinosaur extends Actor {
             addCapability(BreedingStatus.CAN_BREED);
             return false;
         }
+    }
+
+    @Override
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public void setAge(int newAge) {
+        this.age = newAge;
+    }
+
+    @Override
+    public String getGender() {
+        return gender;
     }
 
     @Override
