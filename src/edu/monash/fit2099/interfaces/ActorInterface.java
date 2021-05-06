@@ -36,6 +36,14 @@ public interface ActorInterface {
 
     default void increaseUnconsciousCounter(){
     }
+
     default void setUnconsciousCounter(int unconsciousCounter){
+    }
+
+    default int getAge() {
+        return 0;
+    }
+
+    default void setAge(int newAge) {
     }
 }
