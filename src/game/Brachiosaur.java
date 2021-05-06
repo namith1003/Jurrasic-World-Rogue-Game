@@ -43,6 +43,7 @@ public class Brachiosaur extends Dinosaur{
         hungerLevel = 140;
         pregnantTime = 30;
         pregnantCounter = 0;
+        adultForm = isAdult;
     }
 
     /**

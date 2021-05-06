@@ -14,6 +14,7 @@ public class Dinosaur extends Actor {
     protected int unconsciousCounter = 0;
     protected int age = 0;
     protected int pregnantTime = 0;
+    protected boolean adultForm = false;
     /**
      * Constructor.
      *

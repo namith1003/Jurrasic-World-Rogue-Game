@@ -48,16 +48,10 @@ public class Stegosaur extends Dinosaur {
 		diet = new String[]{"Fruit", "VegeMealKit"};
 		hungerLevel = 80;
 		pregnantTime = 15;
+		adultForm = isAdult;
 	}
 
-	/**
-	 * Figure out what to do next.
-	 * 
-	 * FIXME: Stegosaur wanders around at random, or if no suitable MoveActions are available, it
-	 * just stands there.  That's boring.
-	 * 
-	 * @see edu.monash.fit2099.engine.Actor#playTurn(Actions, Action, GameMap, Display)
-	 */
+
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		targets = new HashMap<>();
