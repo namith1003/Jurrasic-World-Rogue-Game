@@ -9,8 +9,14 @@ import edu.monash.fit2099.engine.Exit;
 import edu.monash.fit2099.engine.GameMap;
 import edu.monash.fit2099.engine.Location;
 
+/**
+ * A WanderBehaviour class
+ */
 public class WanderBehaviour implements Behaviour {
-	
+
+	/**
+	 * A random object
+	 */
 	private Random random = new Random();
 
 

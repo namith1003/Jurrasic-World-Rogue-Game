@@ -11,20 +11,29 @@ import java.util.HashMap;
  *
  */
 public class Stegosaur extends Dinosaur {
+	/**
+	 * A variable to store the available behaviours for the Stegosaur
+	 */
 	// Will need to change this to a collection if Stegosaur gets additional Behaviours.
 	private Behaviour behaviour;
+	/**
+	 * A HashMap to store the location of targets
+	 */
 	private HashMap<Integer, Location> targets = new HashMap<>();
+	/**
+	 * A HashMap to store the location of foods
+	 */
 	private HashMap<Integer, Location> food = new HashMap<>();
 	// int age=0;
 
 	/** 
 	 * Constructor.
-	 * All Stegosaurs are represented by a 'd' and have 100 hit points.
+	 * All Stegosaurs are represented by a 's' and have 50 hit points.
 	 * 
 	 * @param name the name of this Stegosaur
 	 */
 	public Stegosaur(String name) {
-		super(name, 's', 50);
+		super(name, 's', 10);
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
@@ -39,7 +48,7 @@ public class Stegosaur extends Dinosaur {
 	 * @param name the name of this Stegosaur
 	 */
 	public Stegosaur(String name, String gender){
-		super(name, 's', 50, gender);
+		super(name, 's', 10, gender);
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
@@ -64,6 +73,14 @@ public class Stegosaur extends Dinosaur {
 	}
 
 
+	/**
+	 * Select and return an action to perform on the current turn for this Stegosaur.
+	 * @param actions    collection of possible Actions for this Actor
+	 * @param lastAction The Action this Actor took last turn. Can do interesting things in conjunction with Action.getNextAction()
+	 * @param map        the map containing the Actor
+	 * @param display    the I/O object to which messages may be written
+	 * @return the Action to be performed
+	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		targets = new HashMap<>();

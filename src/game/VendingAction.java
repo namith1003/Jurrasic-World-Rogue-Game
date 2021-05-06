@@ -13,13 +13,37 @@ public class VendingAction extends Action{
      * The vending machine that is accessed
      */
     protected VendingMachine vendingMachine;
+    /**
+     * A scanner object to read in the player's input
+     */
     Scanner scanner = new Scanner(System.in);
-    private final int[] priceList = {30, 100, 500, 200, 500, 1000, 500};
+    /**
+     * A static and final price list to indicate the prices of the items.
+     * The items are as such:
+     * 1. Fruit [30 EP]
+     * 2. Vegetarian Meal Kit [100 EP]
+     * 3. Carnivore Meal Kit [500 EP]
+     * 4. Stegosaur Egg [200 EP]
+     * 5. Brachiosaur Egg [500 EP]
+     * 6. Allosaur Egg [1000 EP]
+     * 7. Laser Gun [500 EP]
+     */
+    private static final int[] priceList = {30, 100, 500, 200, 500, 1000, 500};
 
+    /**
+     * Constructor for vending action
+     * @param vendingMachine the vending machine object to interact with
+     */
     public VendingAction(VendingMachine vendingMachine) {
         this.vendingMachine = vendingMachine;
     }
 
+    /**
+     * The main method for the player to interact with the vending machine.
+     * @param actor The actor performing the action.
+     * @param map The map the actor is on.
+     * @return A string to indicate the player has interacted with the vending machine
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
 
@@ -110,6 +134,11 @@ public class VendingAction extends Action{
         }
     }
 
+    /**
+     * A method to show the choice for the player to interact with the vending machine.
+     * @param actor The actor performing the action.
+     * @return A string to indicate the player has accessed the vending machine
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " access " + "Vending Machine";
