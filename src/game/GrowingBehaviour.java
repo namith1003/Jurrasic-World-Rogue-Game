@@ -12,7 +12,6 @@ public class GrowingBehaviour implements Behaviour{
         switch (actor.toString()){
             case "Stegosaur" -> {
                 if (actor.getAge() == 30) {
-                    // todo: delete instance and replace with grown up
                     return new GrowingAction(actor);
                 }
             }
