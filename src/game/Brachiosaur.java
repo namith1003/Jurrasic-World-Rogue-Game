@@ -4,9 +4,18 @@ import edu.monash.fit2099.engine.*;
 
 import java.util.HashMap;
 
+/**
+ * Class for the Herbivore dinosaur Brachiosaur which only eats fruits fed to it and ripe fruits on trees
+ */
 public class Brachiosaur extends Dinosaur{
-    // Will need to change this to a collection if Stegosaur gets additional Behaviours.
+
+    /**
+     * All the behaviours that the brachiosaur has
+     */
     private Behaviour behaviour;
+    /**
+     * all the fruits on the map that the brachiosaur can target
+     */
     private HashMap<Integer, Location> targets = new HashMap<>();
 
     /**
@@ -47,12 +56,13 @@ public class Brachiosaur extends Dinosaur{
     }
 
     /**
-     * Figure out what to do next.
+     * Select and return an action to perform on the current turn for this Brachiosaur.
      *
-     * FIXME: Stegosaur wanders around at random, or if no suitable MoveActions are available, it
-     * just stands there.  That's boring.
-     *
-     * @see edu.monash.fit2099.engine.Actor#playTurn(Actions, Action, GameMap, Display)
+     * @param actions    collection of possible Actions for this Actor
+     * @param lastAction The Action this Actor took last turn. Can do interesting things in conjunction with Action.getNextAction()
+     * @param map        the map containing the Actor
+     * @param display    the I/O object to which messages may be written
+     * @return the Action to be performed
      */
     @Override
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
@@ -78,6 +88,7 @@ public class Brachiosaur extends Dinosaur{
             return layEgg;
         }
 
+        // if the brachiosaur is hungry it will try to find the closest tree that has ripe fruits on it.
         if (isHungry) {
             Location targetLocation;
             for (int x = 0; x < 80; x++) {
@@ -98,6 +109,7 @@ public class Brachiosaur extends Dinosaur{
                 }
             }
 
+            // if there are trees with ripe fruits on it on the map then it will try to find the closest one and go towards it
             if (targets.size() != 0) {
                 int lowestItemDistance = (int) targets.keySet().toArray()[0];
                 for (int keys : targets.keySet()) {
@@ -106,18 +118,24 @@ public class Brachiosaur extends Dinosaur{
                     }
                 }
 
+                // if it has not reached the targeted tree then it will keep on following
                 if (lowestItemDistance > 0) {
                     targetLocation = targets.get(lowestItemDistance);
                     return new HungryBehaviour(targetLocation).getAction(this, map);
-                } else {
+                }
+                // if it has reached the tree it will call the eating action which helps it eat the fruit from the tree
+                else {
                     targetLocation = targets.get(lowestItemDistance);
                     return new EatingAction(targetLocation);
                 }
             }
-        } else {
+        }
+        // if dinosaur is not hungry it will find a partner to breed with.
+        else {
             return new BreedingBehaviour().getAction(this, map);
         }
 
+        // if none of the above occurs it will wander around or do nothing
         Action wander = behaviour.getAction(this, map);
         if (wander != null)
             return wander;

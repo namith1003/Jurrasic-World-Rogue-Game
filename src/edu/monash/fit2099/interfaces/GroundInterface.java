@@ -11,12 +11,18 @@ import java.util.ArrayList;
 
 public interface GroundInterface {
 
+    /**
+     * gets the list of fruits that are in the bush
+     * @return the array list of all the fruits on this bush
+     */
     default ArrayList<Fruit> getFruits() {
         return null;
     }
 
-    default Fruit removeFruit(){
-        return null;
-    }
+    /**
+     * removes a fruit from the bush once it may be plucked or eaten from the bush
+     * @return the fruit that was removed from the list of fruits on the bush
+     */
+    default Fruit removeFruit(){return null;}
 
 }

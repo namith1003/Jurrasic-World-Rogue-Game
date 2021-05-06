@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * A herbivorous dinosaur.
+ * A herbivorous dinosaur called Stegosaur that eats only the fruits on the ground and ripe fruits on the bushes.
  *
  */
 public class Stegosaur extends Dinosaur {
@@ -32,6 +32,12 @@ public class Stegosaur extends Dinosaur {
 		pregnantTime = 15;
 	}
 
+	/**
+	 * Constructor.
+	 * All Stegosaurs are represented by a 'd' and have 100 hit points.
+	 *
+	 * @param name the name of this Stegosaur
+	 */
 	public Stegosaur(String name, String gender){
 		super(name, 's', 50, gender);
 		maxHitPoints = 100;
@@ -41,6 +47,12 @@ public class Stegosaur extends Dinosaur {
 		pregnantTime = 15;
 	}
 
+	/**
+	 * Constructor.
+	 * All Stegosaurs are represented by a 'd' and have 100 hit points.
+	 *
+	 * @param name the name of this Stegosaur
+	 */
 	public Stegosaur(String name, boolean isAdult) {
 		super(name, 'S', 50);
 		maxHitPoints = 100;
@@ -56,13 +68,7 @@ public class Stegosaur extends Dinosaur {
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		targets = new HashMap<>();
 		food = new HashMap<>();
-		/*age++;
-		if (age > 10){
 
-			map.locationOf(this).addItem(new DinoCorpse("Stegosaur", 'X'));
-			map.removeActor(this);
-			return new DoNothingAction();
-		}*/
 		boolean isHungry = isHungry(map);
 
 		// checks if the stegosaur is unconscious and bout to die

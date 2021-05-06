@@ -4,6 +4,11 @@ import edu.monash.fit2099.engine.*;
 
 import java.util.HashMap;
 
+/**
+ * This is the behaviour of the dinosaurs where they actively check if there are suitable targets for the breeding process too occur
+ * and whether this actor can breed with another, this checks if there are target that are viable to breed with and whether
+ * the target is already pregnant or is a baby
+ */
 public class BreedingBehaviour implements Behaviour {
 
     /**
@@ -11,6 +16,13 @@ public class BreedingBehaviour implements Behaviour {
      */
     private HashMap<Integer, Actor> dinosaurs = new HashMap<>();
 
+    /**
+     * The behaviour of the actor to search and follow a dinosaur that is viable to breed with and checks if all the statuses
+     * for the actor and the target are viable for the breeding( they are not babies and are not pregnant or hungry)
+     * @param actor the Actor acting
+     * @param map the GameMap containing the Actor
+     * @return an Breeding Action that the actor can perform with the target, does nothing if not possible.
+     */
     @Override
     public Action getAction(Actor actor, GameMap map) {
 

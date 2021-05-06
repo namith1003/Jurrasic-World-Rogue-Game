@@ -7,6 +7,9 @@ import edu.monash.fit2099.engine.Ground;
  */
 public class Floor extends Ground {
 
+	/**
+	 * constructor for the floor objects
+	 */
 	public Floor() {
 		super('_');
 	}

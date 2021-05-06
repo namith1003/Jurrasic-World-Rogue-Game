@@ -27,6 +27,12 @@ public class AttackAction extends Action {
 		this.target = target;
 	}
 
+	/**
+	 * executes the attack action by the actor onto the target.
+	 * @param actor The actor performing the attack action.
+	 * @param map The map the actor is on.
+	 * @return the result of the interaction
+	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
 
@@ -57,6 +63,11 @@ public class AttackAction extends Action {
 		return result;
 	}
 
+	/**
+	 * displays the menu option for the user to select ot attack the dinosaur.
+	 * @param actor The actor performing the action.
+	 * @return the menu option the user can use to attack.
+	 */
 	@Override
 	public String menuDescription(Actor actor) {
 		return actor + " attacks " + target;
