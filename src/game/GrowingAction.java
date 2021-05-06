@@ -4,6 +4,9 @@ import edu.monash.fit2099.engine.Action;
 import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.GameMap;
 
+/**
+ * The class that "grows" the input dinosaur.
+ */
 public class GrowingAction extends Action {
 
     /**

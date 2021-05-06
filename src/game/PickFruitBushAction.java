@@ -6,13 +6,32 @@ import edu.monash.fit2099.engine.GameMap;
 
 import java.util.Random;
 
+/**
+ * A class to pick a fruit from the bush directly.
+ */
 public class PickFruitBushAction extends Action {
+    /**
+     * A variable to store the target bush
+     */
     protected Bushes theBush;
 
+    /**
+     * The constructor for PickFruitBushAction
+     * @param theBush the target bush to pick a fruit from.
+     */
     public PickFruitBushAction(Bushes theBush) {
         this.theBush = theBush;
     }
 
+    /**
+     * The method to pick a fruit from the bush,
+     * given if there are fruits in the bush and a simple RNG generator hits 4/10.
+     * The fruit is removed from the bush and added to the player's inventory.
+     * The player's points is also increased.
+     * @param actor The actor performing the action.
+     * @param map The map the actor is on.
+     * @return A string to indicate if a fruit is successfully picked or not.
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         if (new Random().nextInt(10) < 4 && theBush.fruits.size() > 0){
@@ -28,6 +47,12 @@ public class PickFruitBushAction extends Action {
         }
     }
 
+    /**
+     * A function to return a string for the player to do something.
+     * But does nothing here since this class isn't supposed to be accessible to players.
+     * @param actor The actor performing the action.
+     * @return null.
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " picks fruit from " + "Bush";
