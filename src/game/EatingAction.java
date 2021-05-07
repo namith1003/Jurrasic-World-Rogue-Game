@@ -63,14 +63,15 @@ public class EatingAction extends Action {
                 }
             }
             case "Brachiosaur" -> {
-                // will search the tree it has found and will eat a ripe fruit on the tree
+                // will search the tree it has found and will eat a ripe fruit on the tree, since the brachiosaur
+                // has a weka digestive system it wil not heal the full amount a fruit can give and heals only 5 hp.
                 if(thePlant.getFruits().size() != 0){
 
                     FoodItem theFood = thePlant.removeFruit();
-                    actor.heal(theFood.getHealValue());
+                    actor.heal(5);
 
                     map.locationOf(actor).removeItem(theFood);
-                    return "Brachiosaur has healed " + theFood.getHealValue();
+                    return "Brachiosaur has healed " + 5;
 
                 }
             }

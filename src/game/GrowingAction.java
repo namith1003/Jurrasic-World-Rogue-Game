@@ -23,27 +23,31 @@ public class GrowingAction extends Action {
     }
 
     /**
-     * The function to "grow" the actor by removing the current instance of the actor and
-     * creating a new instance of the same actor type with higher health at the location
-     * of the previous actor.
+     * The function to "grow" the actor by calling the actor here all actors passed in
+     * will be dinosaurs and will call their becomeAdult method which turns them into an adult.
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
      * @return A string to indicate that the dinosaur has "grown up"
      */
     @Override
     public String execute(Actor actor, GameMap map) {
+        actor.setIsAdult(true);
         switch (actor.toString()) {
             case "Stegosaur" -> {
-                map.locationOf(actor).addActor(new Stegosaur("Stegosaur", true));
-                map.removeActor(actor);
+                actor.setHitPoints(50);
+                actor.setDisplayChar('S');
+                actor.setPregnantCounter(0);
             }
             case "Brachiosaur" -> {
-                map.locationOf(actor).addActor(new Brachiosaur("Brachiosaur", true));
-                map.removeActor(actor);
+                actor.setHitPoints(100);
+                actor.setDisplayChar('B');
+                actor.setPregnantCounter(0);
             }
             case "Allosaur" -> {
-                map.locationOf(actor).addActor(new Allosaur("Allosaur", true));
-                map.removeActor(actor);
+                actor.setHitPoints(50);
+                actor.setDisplayChar('A');
+                actor.setPregnantCounter(0);
+
             }
         }
         return actor.toString() + "has grown up!";

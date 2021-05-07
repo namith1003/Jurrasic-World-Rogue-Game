@@ -40,12 +40,13 @@ public class Bushes extends Ground {
 
     /**
      * the passage of time for this bush through each turn and what the bush does in each turn, it only tries to ripen a fruit
-     * on each turn
+     * on each turn, and it checks if a brachiosaur currently stepped on it and will have a 50% chance to kill the bush.
      * @param location The location of the Ground
      */
     @Override
     public void tick(Location location) {
         ripening();
+        killBush(location);
     }
 
     /**
@@ -92,6 +93,17 @@ public class Bushes extends Ground {
             return fruits.remove(fruits.size() - 1);
         }
         return null;
+    }
+
+    /**
+     * checks whether a brachiosaur is on this bush and is called on every turn if there is a brachiosaur on the bush
+     * there is 50% chance that the bush dies.
+     * @param location the current location of the bush
+     */
+    public void killBush(Location location){
+        if (location.getActor() != null && location.getActor().toString().equals("Brachiosaur") && new Random().nextInt(2) == 0){
+            location.setGround(new Dirt());
+        }
     }
 
 }

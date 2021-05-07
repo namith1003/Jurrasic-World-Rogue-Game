@@ -6,12 +6,6 @@ import edu.monash.fit2099.engine.*;
  * A class to determine if a dinosaur should grow into its adult form.
  */
 public class GrowingBehaviour implements Behaviour{
-    // private int turnCounter = 0;
-
-    /**
-     * The constructor for GrowingBehvaiour.
-     */
-    public GrowingBehaviour(){};
 
     /**
      * The method to check the actor's age.

@@ -44,17 +44,6 @@ public class Brachiosaur extends Dinosaur{
         pregnantCounter = 0;
     }
 
-    public Brachiosaur(String name, boolean isAdult) {
-        super(name, 'B', 50);
-        maxHitPoints = 160;
-        behaviour = new WanderBehaviour();
-        diet = new String[]{"Fruit", "VegeMealKit"};
-        hungerLevel = 140;
-        pregnantTime = 30;
-        pregnantCounter = 0;
-        adultForm = isAdult;
-    }
-
     /**
      * Select and return an action to perform on the current turn for this Brachiosaur.
      *
@@ -66,23 +55,24 @@ public class Brachiosaur extends Dinosaur{
      */
     @Override
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+        age++;
         targets = new HashMap<>();
-		/*age++;
-		if (age > 10){
-
-			map.locationOf(this).addItem(new DinoCorpse("Stegosaur", 'X'));
-			map.removeActor(this);
-			return new DoNothingAction();
-		}*/
 
         boolean isHungry = isHungry(map);
 
-        // checks if the stegosaur is unconscious and bout to die
+        // checks if the brachiosaur is unconscious and bout to die
         Action death = new DeathBehaviour().getAction(this, map);
         if (death != null){
             return death;
         }
-        // checks if the dinosaur meets the conditions to lay an egg and if yes lays it
+
+        // checks if the brachiosaur has been there for the right amount of turns for it to turn into an adult
+        Action grow = new GrowingBehaviour().getAction(this, map);
+        if (grow != null){
+            return grow;
+        }
+
+        // checks if the brachiosaur meets the conditions to lay an egg and if yes lays it
         Action layEgg = new LayEggBehaviour().getAction(this,map);
         if (layEgg != null){
             return layEgg;

@@ -1,5 +1,6 @@
 package game;
 
+import edu.monash.fit2099.engine.Display;
 import edu.monash.fit2099.engine.Location;
 
 /**
@@ -17,6 +18,8 @@ public class Egg extends FoodItem {
      * the name of the species of dinosaur that laid the egg.
      */
     private String dinoName;
+
+    private Display display = new Display();
 
     /**
      * constructor for initializing the variables of the egg when created.
@@ -63,6 +66,7 @@ public class Egg extends FoodItem {
                 if (eggFloorCounter >= 10){
                     dinosaur = new Stegosaur("Stegosaur");
                     currentLocation.addActor(dinosaur);
+                    display.println("Stegosaur was born");
                     currentLocation.removeItem(this);
                     Player.points.setPoints(100);
                 }
@@ -71,6 +75,7 @@ public class Egg extends FoodItem {
                 if (eggFloorCounter >= 20){
                     dinosaur = new Brachiosaur("Brachiosaur");
                     currentLocation.addActor(dinosaur);
+                    display.println("Brachiosaur was born");
                     currentLocation.removeItem(this);
                     Player.points.setPoints(1000);
                 }
@@ -79,6 +84,7 @@ public class Egg extends FoodItem {
                 if (eggFloorCounter >= 50){
                     dinosaur = new Allosaur("Allosaur");
                     currentLocation.addActor(dinosaur);
+                    display.println("Allosaur was born");
                     currentLocation.removeItem(this);
                     Player.points.setPoints(1000);
                 }

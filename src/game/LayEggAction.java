@@ -10,7 +10,8 @@ import edu.monash.fit2099.engine.GameMap;
 public class LayEggAction extends Action {
     /**
      * A method for the dinosaurs to lay an egg if the conditions are met.
-     * Creates an egg on the current location of the mother dinosaur.
+     * Creates an egg on the current location of the mother dinosaur and resets
+     * mothers pregnant counter.
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
      * @return A string to indicate that an egg has been laid.

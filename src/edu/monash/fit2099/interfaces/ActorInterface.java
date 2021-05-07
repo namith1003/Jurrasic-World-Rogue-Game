@@ -81,4 +81,14 @@ public interface ActorInterface {
      * @param newAge the new value to set the current age of the dinosaur to
      */
     default void setAge(int newAge) {}
+
+    default void setHitPoints(int hitPoints){}
+
+    default void setDisplayChar(char displayChar){}
+
+    default void setIsAdult(boolean isAdult) {}
+
+    default boolean getIsAdult() {
+        return false;
+    }
 }

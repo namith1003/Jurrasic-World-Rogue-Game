@@ -52,15 +52,6 @@ public class Allosaur extends Dinosaur{
         pregnantTime = 20;
     }
 
-    public Allosaur(String name, boolean isAdult) {
-        super(name, 'A', 50);
-        maxHitPoints = 100;
-        behaviour.add(new WanderBehaviour());
-        diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
-        hungerLevel = 50;
-        adultForm = isAdult;
-    }
-
 
     /**
      * Select and return an action to perform on the current turn for this Allosaur.
@@ -74,6 +65,7 @@ public class Allosaur extends Dinosaur{
     @Override
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
         // if the allosaur is hungry it will find and attack a stegosaur
+        age++;
         stegosaurs = new HashMap<>();
         targets = new HashMap<>();
 
@@ -84,6 +76,13 @@ public class Allosaur extends Dinosaur{
         if (death != null){
             return death;
         }
+
+        // checks if the brachiosaur has been there for the right amount of turns for it to turn into an adult
+        Action grow = new GrowingBehaviour().getAction(this, map);
+        if (grow != null){
+            return grow;
+        }
+
         // checks if the dinosaur meets the conditions to lay an egg and if yes lays it
         Action layEgg = new LayEggBehaviour().getAction(this,map);
         if (layEgg != null){

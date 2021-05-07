@@ -41,7 +41,9 @@ public class Dinosaur extends Actor {
     /**
      * whether the dinosaur is an adult or baby
      */
-    protected boolean adultForm = false;
+    protected boolean isAdult = false;
+
+
 
     /**
      * Constructor for the general dinosaurs, shared by all the species of dinosaur that extend this class.
@@ -134,6 +136,7 @@ public class Dinosaur extends Actor {
      * set the hit points / food level of the dinosaur
      * @param newHitPoints the new hit points of the dinosaur to be set to
      */
+    @Override
     public void setHitPoints(int newHitPoints) {
         this.hitPoints = newHitPoints;
     }
@@ -142,6 +145,7 @@ public class Dinosaur extends Actor {
      * sets the new display character that represents the dinosaur on the map
      * @param newDisplayChar the new display character that represents the dinosaur on the map
      */
+    @Override
     public void setDisplayChar(char newDisplayChar) {
         this.displayChar = newDisplayChar;
     }
@@ -171,6 +175,19 @@ public class Dinosaur extends Actor {
             addCapability(BreedingStatus.CAN_BREED);
             return false;
         }
+    }
+
+    /**
+     * sets the boolean representing whether or not the dinosaur is an adult
+     */
+    @Override
+    public void setIsAdult(boolean isAdult) {
+        this.isAdult = isAdult;
+    }
+
+    @Override
+    public boolean getIsAdult() {
+        return isAdult;
     }
 
     /**
