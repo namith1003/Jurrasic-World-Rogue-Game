@@ -19,39 +19,53 @@ public class Stegosaur extends Dinosaur {
 
 	/** 
 	 * Constructor.
-	 * All Stegosaurs are represented by a 's' and have 100 max hit points.
+	 * All Stegosaurs are represented by a 'd' and have 100 hit points.
 	 * 
 	 * @param name the name of this Stegosaur
 	 */
 	public Stegosaur(String name) {
-		super(name, 's', 10);
+		super(name, 's', 50);
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
 		hungerLevel = 80;
 		pregnantTime = 15;
-		isAdult = false;
 	}
 
 	/**
 	 * Constructor.
-	 * All Stegosaurs are represented by a 's' and have max 100 hit points.
+	 * All Stegosaurs are represented by a 'd' and have 100 hit points.
 	 *
 	 * @param name the name of this Stegosaur
 	 */
 	public Stegosaur(String name, String gender){
-		super(name, 's', 10, gender);
+		super(name, 's', 50, gender);
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
 		hungerLevel = 80;
 		pregnantTime = 15;
-		isAdult = false;
 	}
+
+	/**
+	 * Constructor.
+	 * All Stegosaurs are represented by a 'd' and have 100 hit points.
+	 *
+	 * @param name the name of this Stegosaur
+	 */
+	public Stegosaur(String name, boolean isAdult) {
+		super(name, 'S', 50);
+		maxHitPoints = 100;
+		behaviour = new WanderBehaviour();
+		diet = new String[]{"Fruit", "VegeMealKit"};
+		hungerLevel = 80;
+		pregnantTime = 15;
+		adultForm = isAdult;
+	}
+
 
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-		age++;
 		targets = new HashMap<>();
 		food = new HashMap<>();
 
@@ -61,12 +75,6 @@ public class Stegosaur extends Dinosaur {
 		Action death = new DeathBehaviour().getAction(this, map);
 		if (death != null) {
 			return death;
-		}
-
-		// checks if the brachiosaur has been there for the right amount of turns for it to turn into an adult
-		Action grow = new GrowingBehaviour().getAction(this, map);
-		if (grow != null){
-			return grow;
 		}
 
 		// checks if the dinosaur meets the conditions to lay an egg and if yes lays it
