@@ -20,7 +20,8 @@ public class DeathAction extends Action {
     public String execute(Actor actor, GameMap map) {
 
         String dinosaurName = actor.toString();
-        map.locationOf(actor).addItem(new DinoCorpse(actor.toString()+ " Corpse"));
+        map.locationOf(actor).addItem(new DinoCorpse(actor.toString() + " Corpse"));
+        System.out.println(actor.toString() + " Corpse");
         map.removeActor(actor);
         return dinosaurName + " is dead";
     }

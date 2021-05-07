@@ -33,19 +33,19 @@ public class FeedAction extends Action {
             for (Item items: actor.getInventory()){
                 switch (items.toString()){
                     case "Eggs" ->{
-                        System.out.print("h");
+                        display.println("h");
                     }
                     case "Fruits" ->{
-                         System.out.print("hy");
+                        display.println("hy");
                     }
                     case "VegeMealKit" ->{
-                         System.out.print("yu");
+                        display.println("yu");
                     }
                     case "MeatMealKit" ->{
-                         System.out.print("uy");
+                        display.println("uy");
                     }
                     case "DinoCorpse" ->{
-                         System.out.print("yy");
+                        display.println("yy");
                     }
                 }
                 food.add(items.toString());
