@@ -61,7 +61,13 @@ public class Stegosaur extends Dinosaur {
 			return death;
 		}
 
-		// checks if the dinosaur meets the conditions to lay an egg and if yes lays it
+		// checks if the stegosaur has been there for the right amount of turns for it to turn into an adult
+		Action grow = new GrowingBehaviour().getAction(this, map);
+		if (grow != null){
+			return grow;
+		}
+
+		// checks if the stegosaur meets the conditions to lay an egg and if yes lays it
 		Action layEgg = new LayEggBehaviour().getAction(this, map);
 		if (layEgg != null) {
 			return layEgg;
