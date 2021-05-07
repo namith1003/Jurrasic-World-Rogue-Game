@@ -47,22 +47,6 @@ public class Stegosaur extends Dinosaur {
 		pregnantTime = 15;
 	}
 
-	/**
-	 * Constructor.
-	 * All Stegosaurs are represented by a 'd' and have 100 hit points.
-	 *
-	 * @param name the name of this Stegosaur
-	 */
-	public Stegosaur(String name, boolean isAdult) {
-		super(name, 'S', 50);
-		maxHitPoints = 100;
-		behaviour = new WanderBehaviour();
-		diet = new String[]{"Fruit", "VegeMealKit"};
-		hungerLevel = 80;
-		pregnantTime = 15;
-		adultForm = isAdult;
-	}
-
 
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
