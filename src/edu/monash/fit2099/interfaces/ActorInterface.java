@@ -96,6 +96,7 @@ public interface ActorInterface {
 
     /**
      * sets the boolean representing whether or not the dinosaur is an adult
+     * @param isAdult the boolean representing whether or not the dinosaur is an adult
      */
     default void setIsAdult(boolean isAdult) {}
 
@@ -107,10 +108,18 @@ public interface ActorInterface {
         return false;
     }
 
+    /**
+     * returns the diet of the Actor which usually is a Dinosaur
+     * @return the diet of the Actor
+     */
     default String[] getDiet() {
         return null;
     }
 
+    /**
+     * return the maximum hit points of the Actor.
+     * @return the maximum hit points of the actor.
+     */
     default int getMaximumHitPoints(){
         return 0;
     }

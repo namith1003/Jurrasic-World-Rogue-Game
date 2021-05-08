@@ -11,6 +11,9 @@ public abstract class FoodItem extends PortableItem{
      */
     protected int healValue;
 
+    /**
+     * the price of the food item in the vending machine
+     */
     protected int price;
 
     /**

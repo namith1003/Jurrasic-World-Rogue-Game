@@ -46,7 +46,9 @@ public class Dinosaur extends Actor {
 
 
     /**
-     * Constructor for the general dinosaurs, shared by all the species of dinosaur that extend this class.
+     * Constructor for the general dinosaurs, shared by all the species of dinosaur that extend this class and will
+     * set their name, display character and hit points and will also in random with a 50-50 chance the gender of the
+     * dinosaur as a male or female.
      *
      * @param name        the name of the Actor
      * @param displayChar the character that will represent the Actor in the display
@@ -61,6 +63,15 @@ public class Dinosaur extends Actor {
         }
     }
 
+    /**
+     * the admin class to create dinosaurs which create dinosaurs in the same way by setting their name, display char
+     * and hit points but unlike the three parameter constructor, it will allow direct setting of the gender of the
+     * dinosaur
+     * @param name the name of the dinosaur
+     * @param displayChar the display character for the dinosaur
+     * @param hitPoints the hit points during creation of the dinosaur
+     * @param gender the gender during creation of the dinosaur
+     */
     public Dinosaur(String name, char displayChar, int hitPoints, String gender) {
         super(name, displayChar, hitPoints);
         if (gender.equals("male")){
@@ -292,27 +303,67 @@ public class Dinosaur extends Actor {
         this.pregnantCounter++;
     }
 
+    /**
+     * return the maximum hit points of the Actor.
+     * @return the maximum hit points of the actor.
+     */
     @Override
     public int getMaximumHitPoints(){
         return this.maxHitPoints;
     }
 
+    /**
+     * calls the required behaviours of the dinosaur for it to grow, the behaviour checks all the attributes of the
+     * dinosaur and whether or not the requirements for it to grow are met, and returns the action for the dinosaur
+     * to grow and if requirements not met returns null.
+     * @param map the map that the actor is on
+     * @return the action for the dinosaur to grow
+     */
     public Action grows(GameMap map){
         return new GrowingBehaviour().getAction(this, map);
     }
 
+    /**
+     * calls the required behaviours of the dinosaur for it to lay an egg, the behaviour checks all the attributes of the
+     * dinosaur and whether or not the requirements for it to lay an egg are met, and returns the action for the dinosaur
+     * to lay an egg and if requirements not met returns null.
+     * @param map the map that the actor is on
+     * @return the action for the dinosaur to lay an egg
+     */
     public Action layEgg(GameMap map){
         return new LayEggBehaviour().getAction(this,map);
     }
 
+    /**
+     * calls the required behaviours of the dinosaur for it to die, the behaviour checks all the attributes of the
+     * dinosaur and whether or not the requirements for it to die are met, and returns the action for the dinosaur
+     * to die and if requirements not met returns null.
+     * @param map the map that the actor is on
+     * @return the action for the dinosaur to die
+     */
     public Action dies(GameMap map){
         return new DeathBehaviour().getAction(this, map);
     }
 
+    /**
+     * calls the required behaviours of the dinosaur for it to breed, the behaviour checks all the attributes of the
+     * dinosaur and whether or not the requirements for it to breed are met, and returns the action for the dinosaur
+     * to breed and if requirements not met returns null.
+     * @param map the map that the actor is on
+     * @return the action for the dinosaur to breed
+     */
     public Action breeding(GameMap map){
         return new BreedingBehaviour().getAction(this, map);
     }
 
+    /**
+     * calls the required behaviours of the dinosaur for it to find Food, the behaviour checks all the attributes of the
+     * dinosaur and whether or not the requirements for it to find Food are met, and returns the action for the dinosaur
+     * to find Food and if requirements are not met returns null.
+     * @param map the map that the actor is on
+     * @param targetLocation the location that the dinosaur is going to find its food
+     * @return the action for the dinosaur to find Food
+     */
     public Action findFood(GameMap map, Location targetLocation){
         return new HungryBehaviour(targetLocation).getAction(this, map);
     }

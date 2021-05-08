@@ -34,6 +34,7 @@ public class PickFruitBushAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
+        // player has a 60% chance to pick a ripe fruit from the bush
         if (new Random().nextInt(10) < 4 && theBush.fruits.size() > 0){
             Fruit fruit = theBush.fruits.remove(theBush.fruits.size() - 1);
             fruit.removeCapability(FruitStatus.ON_BUSH);

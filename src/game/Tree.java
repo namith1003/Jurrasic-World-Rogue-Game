@@ -67,6 +67,7 @@ public class Tree extends Ground {
 	 */
 	public boolean ripening(Location location){
 
+		// trees have a 50% chance of creating a ripe fruit
 		if (new Random().nextInt(2) == 0){
 			Fruit fruit = produceFruit(location);
 			fruits.add(fruit);
@@ -93,6 +94,7 @@ public class Tree extends Ground {
 	 * @param location The location of the tree
 	 */
 	public void dropsFruit(Location location){
+		// there is a small 5% chance that the tree drops a ripe fruit
 		if(new Random().nextInt(20) == 0 && fruits.size() != 0){
 			Fruit droppedFruit = fruits.remove(fruits.size() - 1);
 			droppedFruit.removeCapability(FruitStatus.ON_TREE);

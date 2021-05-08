@@ -7,6 +7,10 @@ import edu.monash.fit2099.engine.GameMap;
 
 import java.util.Scanner;
 
+/**
+ * class for the vending action that acts as a third party for the player to interact with the vending machine
+ * and buy items from what it has in store.
+ */
 public class VendingAction extends Action{
 
     /**
@@ -17,18 +21,6 @@ public class VendingAction extends Action{
      * A scanner object to read in the player's input
      */
     Scanner scanner = new Scanner(System.in);
-    /**
-     * A static and final price list to indicate the prices of the items.
-     * The items are as such:
-     * 1. Fruit [30 EP]
-     * 2. Vegetarian Meal Kit [100 EP]
-     * 3. Carnivore Meal Kit [500 EP]
-     * 4. Stegosaur Egg [200 EP]
-     * 5. Brachiosaur Egg [500 EP]
-     * 6. Allosaur Egg [1000 EP]
-     * 7. Laser Gun [500 EP]
-     */
-
 
     /**
      * Constructor for vending action

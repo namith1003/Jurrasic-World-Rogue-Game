@@ -33,6 +33,10 @@ public class FeedAction extends Action {
     int bCorpseCounter = 0;
     int aCorpseCounter = 0;
 
+    /**
+     * the constructor for the FeedAction class which saves the target actor the player will feed.
+     * @param target the target actor the player will feed.
+     */
     public FeedAction(Actor target) {
         this.target = target;
     }

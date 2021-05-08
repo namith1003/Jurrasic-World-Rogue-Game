@@ -6,14 +6,18 @@ package edu.monash.fit2099.interfaces;
  */
 public interface ItemInterface {
 
-    default int getOnFloorCounter() {
-        return 0;
-    }
-
+    /**
+     * return the amount that the item will heal for
+     * @return the amount that the item will heal for
+     */
     default int getHealValue() {
         return 0;
     }
 
+    /**
+     * returns the price of the food item
+     * @return the price of the food item
+     */
     default int getPrices(){return 0;}
 
 }

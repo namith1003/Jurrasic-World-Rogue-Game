@@ -5,5 +5,16 @@ package game;
  * is pregnant or not.
  */
 public enum BreedingStatus {
-    IS_PREGNANT, CAN_BREED, CANNOT_BREED
+    /**
+     * the enum value to state the dinosaur with this in its capabilities is pregnant
+     */
+    IS_PREGNANT,
+    /**
+     * the enum value to state the dinosaur with this in its capabilities is not hungry and can breed
+     */
+    CAN_BREED,
+    /**
+     * the enum value to state the dinosaur with this in its capabilities is hungry and cannot breed
+     */
+    CANNOT_BREED
 }

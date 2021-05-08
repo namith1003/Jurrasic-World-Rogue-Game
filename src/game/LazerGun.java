@@ -2,11 +2,17 @@ package game;
 
 import edu.monash.fit2099.engine.WeaponItem;
 
+/**
+ * class for the lazer gun weapon that the player may own.
+ */
 public class LazerGun extends WeaponItem {
 
+    /**
+     * stores the price of the lazer gun
+     */
     private int price;
     /**
-     * Constructor.
+     * Constructor to create the lazer gun weapon with a damage of 60 and a price of 500.
      *
      * @param name name of the item
      *

@@ -13,18 +13,23 @@ import java.util.HashMap;
 public class Stegosaur extends Dinosaur {
 	// Will need to change this to a collection if Stegosaur gets additional Behaviours.
 	private Behaviour behaviour;
+	/**
+	 * the list of target bushes that the stegosaur can find on the map with ripe fruits on them
+	 */
 	private HashMap<Integer, Location> targets = new HashMap<>();
+	/**
+	 * the list of target items on the ground of the map that the stegosaur can find
+	 */
 	private HashMap<Integer, Location> food = new HashMap<>();
 	// int age=0;
 
-	/** 
-	 * Constructor.
-	 * All Stegosaurs are represented by a 'd' and have 100 hit points.
-	 * 
-	 * @param name the name of this Stegosaur
+	/**
+	 * The constructor to create stegosaurs, they will be creates as babies, represented by 's' and
+	 * sets a random gender using the Dinosaur classes constructor and a health of 10.
+	 * @param name the name of the stegosaur.
 	 */
 	public Stegosaur(String name) {
-		super(name, 's', 50);
+		super(name, 's', 10);
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};
@@ -33,13 +38,13 @@ public class Stegosaur extends Dinosaur {
 	}
 
 	/**
-	 * Constructor.
-	 * All Stegosaurs are represented by a 'd' and have 100 hit points.
-	 *
-	 * @param name the name of this Stegosaur
+	 * The admin constructor for the stegosaur, it will create baby stegosaurs and the same things of the 1 parameter
+	 * constructor but will also let the user set the gender of the stegosaur without it being random.
+	 * @param name the name of the stegosaur
+	 * @param gender the gender of the stegosaur
 	 */
 	public Stegosaur(String name, String gender){
-		super(name, 's', 50, gender);
+		super(name, 's', 10, gender);
 		maxHitPoints = 100;
 		behaviour = new WanderBehaviour();
 		diet = new String[]{"Fruit", "VegeMealKit"};

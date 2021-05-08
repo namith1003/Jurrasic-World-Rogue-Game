@@ -19,7 +19,7 @@ public class EatingAction extends Action {
 
     /**
      * constructor for the eating action of the dinosaur
-     * @param targetLocation
+     * @param targetLocation the location of the dinosaur that is going to eat
      */
     public EatingAction(Location targetLocation) {
         this.targetLocation = targetLocation;

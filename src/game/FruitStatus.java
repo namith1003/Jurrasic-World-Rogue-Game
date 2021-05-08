@@ -5,5 +5,20 @@ package game;
  * on the floor.
  */
 public enum FruitStatus {
-    ON_FLOOR, ON_TREE, ON_BUSH, IN_INVENTORY
+    /**
+     * the enum value to state the fruit with this in its capabilities is on the floor
+     */
+    ON_FLOOR,
+    /**
+     * the enum value to state the fruit with this in its capabilities is on the tree
+     */
+    ON_TREE,
+    /**
+     * the enum value to state the fruit with this in its capabilities is on the bush
+     */
+    ON_BUSH,
+    /**
+     * the enum value to state the fruit with this in its capabilities is in the players inventory
+     */
+    IN_INVENTORY
 }

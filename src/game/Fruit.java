@@ -65,10 +65,4 @@ public class Fruit extends FoodItem{
         currentLocation.removeItem(this);
     }
 
-    @Override
-    public int getOnFloorCounter() {
-        return onFloorCounter;
-    }
-
-
 }

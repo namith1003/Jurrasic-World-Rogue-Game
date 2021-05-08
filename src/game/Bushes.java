@@ -56,6 +56,7 @@ public class Bushes extends Ground {
      */
     public boolean ripening(){
 
+        // bushes have a 10% chance to create a ripe fruit
         if (new Random().nextInt(10) == 0){
             Fruit fruit = produceFruit();
             fruits.add(fruit);
@@ -66,7 +67,7 @@ public class Bushes extends Ground {
 
     /**
      * produces a fruit on the bush
-     * @returns the fruit that was created
+     * @return the fruit that was created
      */
     public Fruit produceFruit(){
         Fruit fruit = new Fruit("Fruit");
@@ -101,6 +102,7 @@ public class Bushes extends Ground {
      * @param location the current location of the bush
      */
     public void killBush(Location location){
+        // there is a 50^ chance that the bush dies if the brachiosaur steps on it.
         if (location.getActor() != null && location.getActor().toString().equals("Brachiosaur") && new Random().nextInt(2) == 0){
             location.setGround(new Dirt());
         }

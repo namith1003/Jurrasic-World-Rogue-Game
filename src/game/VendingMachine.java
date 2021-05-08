@@ -8,7 +8,7 @@ import edu.monash.fit2099.engine.*;
 public class VendingMachine extends Ground {
 
     /**
-     * A final string list to store items the vending machine uses. Doesn't seem to be used tho.
+     * A final string list to store items the vending machine sells.
      */
     public static Item[] vendingItems = {new Fruit("Fruit"), new VegeMealKit("VegeMealKit"), new MeatMealKit("MeatMealKit"), new Egg( "Stegosaur", 'o'), new Egg("Brachiosaur", 'O'), new Egg("Allosaur", '0'), new LazerGun("LazerGun") };
 

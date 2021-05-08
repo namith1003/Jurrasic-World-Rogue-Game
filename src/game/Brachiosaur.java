@@ -19,10 +19,9 @@ public class Brachiosaur extends Dinosaur{
     private HashMap<Integer, Location> targets = new HashMap<>();
 
     /**
-     * Constructor.
-     *
-     * @param name the name of this Brachiosaur
-     *
+     * The constructor to create Brachiosaur, they will be creates as babies, represented by 'b' and
+     * sets a random gender using the Dinosaur classes constructor and a health of 10.
+     * @param name the name of the Brachiosaur.
      */
     public Brachiosaur(String name) {
         super(name, 'b', 10);
@@ -34,6 +33,12 @@ public class Brachiosaur extends Dinosaur{
         pregnantCounter = 0;
     }
 
+    /**
+     * The admin constructor for the Brachiosaur, it will create baby Brachiosaur and the same things of the 1 parameter
+     * constructor but will also let the user set the gender of the Brachiosaur without it being random.
+     * @param name the name of the Brachiosaur
+     * @param gender the gender of the Brachiosaur
+     */
     public Brachiosaur(String name, String gender){
         super(name, 'b', 10,gender);
         maxHitPoints = 160;

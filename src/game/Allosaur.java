@@ -5,6 +5,10 @@ import edu.monash.fit2099.engine.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * The class to create allosaurs the carnivorous dinosaur that finds and attacks stegosaurs and also will eat any form
+ * of meat, including the corpses, eggs and the meat meal kits.
+ */
 public class Allosaur extends Dinosaur{
     // Will need to change this to a collection if Stegosaur gets additional Behaviours.
     /**
@@ -29,10 +33,9 @@ public class Allosaur extends Dinosaur{
     private HashMap<Integer, Location> targets = new HashMap<>();
 
     /**
-     * Constructor.
-     *
-     * @param name the name of this Allosaur
-     *
+     * The constructor to create Allosaur, they will be creates as babies, represented by 'a' and
+     * sets a random gender using the Dinosaur classes constructor and a health of 10.
+     * @param name the name of the Allosaur.
      */
     public Allosaur(String name) {
         super(name, 'a', 20);
@@ -43,6 +46,12 @@ public class Allosaur extends Dinosaur{
         pregnantTime = 20;
     }
 
+    /**
+     * The admin constructor for the Allosaur, it will create baby Allosaur and the same things of the 1 parameter
+     * constructor but will also let the user set the gender of the Allosaur without it being random.
+     * @param name the name of the Allosaur
+     * @param gender the gender of the Allosaur
+     */
     public Allosaur(String name, String gender){
         super(name, 'a', 20, gender);
         maxHitPoints = 100;
