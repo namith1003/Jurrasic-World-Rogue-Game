@@ -49,14 +49,14 @@ public class Application {
 		world.addPlayer(player, gameMap.at(9, 4));
 		
 		// Place a pair of stegosaurs in the middle of the map
-		/*gameMap.at(11, 14).addActor(new Stegosaur("Stegosaur", "male"));
-		gameMap.at(48, 14).addActor(new Stegosaur("Stegosaur", "female"));*/
+		gameMap.at(38, 8).addActor(new Stegosaur("Stegosaur", "male"));
+		gameMap.at(48, 8).addActor(new Stegosaur("Stegosaur", "female"));
 
 		// Place 4 Brachiosaurs into the map
 		gameMap.at(48, 19).addActor(new Brachiosaur("Brachiosaur", "female"));
-		gameMap.at(60, 22).addActor(new Brachiosaur("Brachiosaur", "male"));
+		gameMap.at(60, 19).addActor(new Brachiosaur("Brachiosaur", "male"));
 		gameMap.at(18, 12).addActor(new Brachiosaur("Brachiosaur", "male"));
-		gameMap.at(24, 24).addActor(new Brachiosaur("Brachiosaur", "female"));
+		gameMap.at(12, 16).addActor(new Brachiosaur("Brachiosaur", "female"));
 
 		// Placing a vending machine to the map
 		gameMap.at(11, 6).setGround(new VendingMachine());

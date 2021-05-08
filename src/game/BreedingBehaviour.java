@@ -64,6 +64,6 @@ public class BreedingBehaviour implements Behaviour {
                 }
             }
         }
-        return new WanderBehaviour().getAction(actor,map);
+        return null;
     }
 }

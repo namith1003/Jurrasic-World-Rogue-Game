@@ -72,12 +72,6 @@ public class Brachiosaur extends Dinosaur{
             return grow;
         }
 
-        // checks if the brachiosaur meets the conditions to lay an egg and if yes lays it
-        Action layEgg = layEgg(map);
-        if (layEgg != null){
-            return layEgg;
-        }
-
         // if the brachiosaur is hungry it will try to find the closest tree that has ripe fruits on it.
         if (isHungry) {
             Location targetLocation;
@@ -122,7 +116,16 @@ public class Brachiosaur extends Dinosaur{
         }
         // if dinosaur is not hungry it will find a partner to breed with.
         else {
-            return breeding(map);
+            Action breed = breeding(map);
+            if (breed != null){
+                return breed;
+            }
+        }
+
+        // checks if the brachiosaur meets the conditions to lay an egg and if yes lays it
+        Action layEgg = layEgg(map);
+        if (layEgg != null){
+            return layEgg;
         }
 
         // if none of the above occurs it will wander around or do nothing

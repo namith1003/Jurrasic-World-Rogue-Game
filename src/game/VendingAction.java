@@ -136,7 +136,7 @@ public class VendingAction extends Action{
                 }
             }
             else {
-                return "There is no such item! Try again.";
+                choices.println("There is no such item! Try again.");
             }
         }
     }

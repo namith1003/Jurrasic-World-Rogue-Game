@@ -59,6 +59,7 @@ public class Stegosaur extends Dinosaur {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
+		age++;
 		targets = new HashMap<>();
 		food = new HashMap<>();
 
@@ -74,12 +75,6 @@ public class Stegosaur extends Dinosaur {
 		Action grow = grows(map);
 		if (grow != null){
 			return grow;
-		}
-
-		// checks if the stegosaur meets the conditions to lay an egg and if yes lays it
-		Action layEgg = layEgg(map);
-		if (layEgg != null) {
-			return layEgg;
 		}
 
 		Location targetLocation;
@@ -182,8 +177,18 @@ public class Stegosaur extends Dinosaur {
 					}
 				}
 			}
-		} else {
-			return breeding(map);
+		} // if dinosaur is not hungry it will find a partner to breed with.
+		else {
+			Action breed = breeding(map);
+			if (breed != null){
+				return breed;
+			}
+		}
+
+		// checks if the brachiosaur meets the conditions to lay an egg and if yes lays it
+		Action layEgg = layEgg(map);
+		if (layEgg != null){
+			return layEgg;
 		}
 
 			Action wander = behaviour.getAction(this, map);

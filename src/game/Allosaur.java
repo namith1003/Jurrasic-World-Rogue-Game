@@ -83,12 +83,6 @@ public class Allosaur extends Dinosaur{
             return grow;
         }
 
-        // checks if the allosaur meets the conditions to lay an egg and if yes lays it
-        Action layEgg = layEgg(map);
-        if (layEgg != null){
-            return layEgg;
-        }
-
         // decreases the timer on the stegosaurs that have been attacked by this allosaur.
         if (attackedStegosaurs != null && timeRemaining.size() != 0) {
             for (int i = 0; i < timeRemaining.size(); i++) {
@@ -220,9 +214,18 @@ public class Allosaur extends Dinosaur{
                 }
             }
         }
-        // if the allosaur is not hungry it will look for a partner to breed with
+        // if dinosaur is not hungry it will find a partner to breed with.
         else {
-            return breeding(map);
+            Action breed = breeding(map);
+            if (breed != null){
+                return breed;
+            }
+        }
+
+        // checks if the brachiosaur meets the conditions to lay an egg and if yes lays it
+        Action layEgg = layEgg(map);
+        if (layEgg != null){
+            return layEgg;
         }
 
         // if nothing else to do he will just wander around or do nothing
