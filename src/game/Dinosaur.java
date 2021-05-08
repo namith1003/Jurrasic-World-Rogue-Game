@@ -296,4 +296,24 @@ public class Dinosaur extends Actor {
     public int getMaximumHitPoints(){
         return this.maxHitPoints;
     }
+
+    public Action grows(GameMap map){
+        return new GrowingBehaviour().getAction(this, map);
+    }
+
+    public Action layEgg(GameMap map){
+        return new LayEggBehaviour().getAction(this,map);
+    }
+
+    public Action dies(GameMap map){
+        return new DeathBehaviour().getAction(this, map);
+    }
+
+    public Action breeding(GameMap map){
+        return new BreedingBehaviour().getAction(this, map);
+    }
+
+    public Action findFood(GameMap map, Location targetLocation){
+        return new HungryBehaviour(targetLocation).getAction(this, map);
+    }
 }

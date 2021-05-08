@@ -92,7 +92,8 @@ public class FeedAction extends Action {
             }
             display.println("""
                     What do you want to feed?
-                    (Enter item number to select food item.)""" +
+                    (Enter item number to select food item.)  
+                    Enter 'e' to not feed anything """ +
                     "\nYour Food Items in inventory: ");
 
             display.println("1) Fruit X " + food.get("Fruit") +
@@ -104,10 +105,16 @@ public class FeedAction extends Action {
                     "\n7) Stegosaur Corpse X " + food.get("Stegosaur Corpse")  +
                     "\n8) Brachiosaur Corpse X " + food.get("Brachiosaur Corpse")  +
                     "\n9) Allosaur Corpse X " + food.get("Allosaur Corpse") +
-                    "\n10) Do not feed");
+                    "\ne) Do not feed");
 
             display.println("\nInsert item number here: ");
-            int choice = Character.getNumericValue(display.readChar());
+
+            char choiceChar = display.readChar();
+
+            if (choiceChar == 'e'){
+                return "You've decided not to feed anything.";
+            }
+            int choice = Character.getNumericValue(choiceChar);
 
             String selectedItem = "";
             if (choice == 10) {

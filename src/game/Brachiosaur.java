@@ -61,19 +61,19 @@ public class Brachiosaur extends Dinosaur{
         boolean isHungry = isHungry(map);
 
         // checks if the brachiosaur is unconscious and bout to die
-        Action death = new DeathBehaviour().getAction(this, map);
+        Action death = dies(map);
         if (death != null){
             return death;
         }
 
         // checks if the brachiosaur has been there for the right amount of turns for it to turn into an adult
-        Action grow = new GrowingBehaviour().getAction(this, map);
+        Action grow = grows(map);
         if (grow != null){
             return grow;
         }
 
         // checks if the brachiosaur meets the conditions to lay an egg and if yes lays it
-        Action layEgg = new LayEggBehaviour().getAction(this,map);
+        Action layEgg = layEgg(map);
         if (layEgg != null){
             return layEgg;
         }
@@ -111,7 +111,7 @@ public class Brachiosaur extends Dinosaur{
                 // if it has not reached the targeted tree then it will keep on following
                 if (lowestItemDistance > 0) {
                     targetLocation = targets.get(lowestItemDistance);
-                    return new HungryBehaviour(targetLocation).getAction(this, map);
+                    return findFood(map, targetLocation);
                 }
                 // if it has reached the tree it will call the eating action which helps it eat the fruit from the tree
                 else {
@@ -122,7 +122,7 @@ public class Brachiosaur extends Dinosaur{
         }
         // if dinosaur is not hungry it will find a partner to breed with.
         else {
-            return new BreedingBehaviour().getAction(this, map);
+            return breeding(map);
         }
 
         // if none of the above occurs it will wander around or do nothing

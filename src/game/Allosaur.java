@@ -72,19 +72,19 @@ public class Allosaur extends Dinosaur{
         boolean isHungry = isHungry(map);
 
         // checks if the allosaur is unconscious and bout to die
-        Action death = new DeathBehaviour().getAction(this, map);
+        Action death = dies(map);
         if (death != null){
             return death;
         }
 
         // checks if the allosaur has been there for the right amount of turns for it to turn into an adult
-        Action grow = new GrowingBehaviour().getAction(this, map);
+        Action grow = grows(map);
         if (grow != null){
             return grow;
         }
 
         // checks if the allosaur meets the conditions to lay an egg and if yes lays it
-        Action layEgg = new LayEggBehaviour().getAction(this,map);
+        Action layEgg = layEgg(map);
         if (layEgg != null){
             return layEgg;
         }
@@ -207,7 +207,7 @@ public class Allosaur extends Dinosaur{
                 } else {
                     if (lowestItemDistance > 0) {
                         targetLocation = targets.get(lowestItemDistance);
-                        return new HungryBehaviour(targetLocation).getAction(this, map);
+                        return findFood(map, targetLocation);
                     } else {
                         targetLocation = targets.get(lowestItemDistance);
                         return new EatingAction(targetLocation);
@@ -217,7 +217,7 @@ public class Allosaur extends Dinosaur{
         }
         // if the allosaur is not hungry it will look for a partner to breed with
         else {
-            return new BreedingBehaviour().getAction(this, map);
+            return breeding(map);
         }
 
         // if nothing else to do he will just wander around or do nothing
