@@ -12,6 +12,17 @@ To complete this assignment, we have agreed to the following WBA:
 4. All tasks must be completed by April 23rd, 2021.
 
 
+Group Tute04Team160's Work Breakdown Agreement (WBA) for FIT2099 Assignment 2.
+
+To complete this assignment, we have agreed to the following WBA:
+1. Create class files as planned in the previous assignment, on top of a few extra ideas during implementation.
+    Both Namith and Jack creates half of the total required classes each.
+    Implemented classes will be reviewed by each other.
+2. Update a number of class and sequence diagrams to reflect the changes done.
+    This will be reviewed together.
+3. All tasks must be completed before the due date. (11:55pm AEST, May 8th, 2021)
+
+
 I accept this WBA.
 Jack Loh Enze, Group Tute04Team160
 
