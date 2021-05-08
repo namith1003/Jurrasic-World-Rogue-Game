@@ -21,6 +21,7 @@ public class Fruit extends FoodItem{
     public Fruit(String name) {
         super(name, 'f');
         healValue = 10;
+        price = 30;
     }
 
     /**
@@ -68,4 +69,6 @@ public class Fruit extends FoodItem{
     public int getOnFloorCounter() {
         return onFloorCounter;
     }
+
+
 }

@@ -3,6 +3,8 @@ package game;
 import edu.monash.fit2099.engine.WeaponItem;
 
 public class LazerGun extends WeaponItem {
+
+    private int price;
     /**
      * Constructor.
      *
@@ -11,6 +13,12 @@ public class LazerGun extends WeaponItem {
      */
     public LazerGun(String name) {
         super(name, '=', 60, "zaps");
+        price = 500;
+    }
+
+    @Override
+    public int getPrices(){
+        return price;
     }
 
 }

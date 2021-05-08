@@ -30,6 +30,12 @@ public class Egg extends FoodItem {
         super("Egg", displayChar);
         this.dinoName = dinoName;
         this.healValue = 10;
+
+        switch (dinoName) {
+            case "Stegosaur" -> price = 200;
+            case "Brachiosaur" -> price = 500;
+            case "Allosaur" -> price = 1000;
+        }
     }
 
     /**

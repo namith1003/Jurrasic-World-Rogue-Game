@@ -28,7 +28,7 @@ public class VendingAction extends Action{
      * 6. Allosaur Egg [1000 EP]
      * 7. Laser Gun [500 EP]
      */
-    private static final int[] priceList = {30, 100, 500, 200, 500, 1000, 500};
+
 
     /**
      * Constructor for vending action
@@ -78,54 +78,61 @@ public class VendingAction extends Action{
             else if (choice>=1 && choice<=7) {
                 choices.println("How many of these do you need?\n" +
                         "You currently have " + Player.points.getPoints() + " EP."
-                        + "\nYou can buy a maximum amount of " + Player.points.getPoints()/priceList[choice-1] + "."
+                        + "\nYou can buy a maximum amount of " + Player.points.getPoints()/VendingMachine.vendingItems[choice-1].getPrices() + "."
                         + "\nInsert amount: ");
                 int amount = scanner.nextInt();
-                if (amount <= Player.points.getPoints()/priceList[choice-1]) {
-                    Player.points.setPoints(-(priceList[choice-1]*amount));
+                if (amount <= Player.points.getPoints()/VendingMachine.vendingItems[choice-1].getPrices()) {
+                    Player.points.setPoints(-(VendingMachine.vendingItems[choice-1].getPrices()*amount));
                     choices.println("You have bought " + amount + " item(s). " +
-                            "\nYour EP balance now is: "+ Player.points.getPoints());
+                            "\nYour EP balance now is: "+ Player.points.getPoints() + "\n");
 
                     switch (choice){
                         case 1 -> {
                             for (int i = 0; i < amount; i++) {
                                 actor.addItemToInventory(new Fruit("Fruit"));
                             }
+                            return amount + " " + VendingMachine.vendingItems[choice-1].toString() +"(s) added to inventory";
                         }
                         case 2 -> {
                             for (int i = 0; i < amount; i++) {
-                                actor.addItemToInventory(new VegeMealKit("VegeMealKit", '^'));
+                                actor.addItemToInventory(new VegeMealKit("VegeMealKit"));
                             }
+                            return amount + " Vegetarian Meal Kits(s) added to inventory";
                         }
                         case 3 -> {
                             for (int i = 0; i < amount; i++) {
-                                actor.addItemToInventory(new MeatMealKit("MeatMealKit", '%'));
+                                actor.addItemToInventory(new MeatMealKit("MeatMealKit"));
                             }
+                            return amount + " Carnivorous Meal Kits(s) added to inventory";
                         }
                         case 4 -> {
                             for (int i = 0; i < amount; i++) {
                                 actor.addItemToInventory(new Egg( "Stegosaur", 'o'));
                             }
+                            return amount + " " + VendingMachine.vendingItems[choice-1].toString() +"(s) added to inventory";
                         }
                         case 5 -> {
                             for (int i = 0; i < amount; i++) {
                                 actor.addItemToInventory(new Egg("Brachiosaur", 'O'));
                             }
+                            return amount + " " + VendingMachine.vendingItems[choice-1].toString() +"(s) added to inventory";
                         }
                         case 6 -> {
                             for (int i = 0; i < amount; i++) {
                                 actor.addItemToInventory(new Egg("Allosaur", '0'));
                             }
+                            return amount + " " + VendingMachine.vendingItems[choice-1].toString() +"(s) added to inventory";
                         }
                         case 7 -> {
                             for (int i = 0; i < amount; i++) {
                                 actor.addItemToInventory(new LazerGun("LazerGun"));
                             }
+                            return amount + " " + VendingMachine.vendingItems[choice-1].toString() +"(s) added to inventory";
                         }
                     }
 
                 } else {
-                    choices.println("You don't have enough points to buy these!");
+                    return  "You do not have enough points to buy " + amount + " " + VendingMachine.vendingItems[choice-1].toString() + "(s)" ;
                 }
             }
             else {

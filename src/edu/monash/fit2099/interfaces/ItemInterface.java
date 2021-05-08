@@ -14,4 +14,6 @@ public interface ItemInterface {
         return 0;
     }
 
+    default int getPrices(){return 0;}
+
 }

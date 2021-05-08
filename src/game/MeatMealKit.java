@@ -12,10 +12,10 @@ public class MeatMealKit extends MealKit{
     /**
      * The constructor for the MeatMealKit.
      * @param name name of the carnivorous meal kits
-     * @param displayChar the display character for the meal kit
      */
-    public MeatMealKit(String name, char displayChar) {
-        super(name, displayChar);
+    public MeatMealKit(String name) {
+        super(name, '%');
+        price = 500;
     }
 
     /**

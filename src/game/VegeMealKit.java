@@ -12,10 +12,10 @@ public class VegeMealKit extends MealKit{
     /**
      * The constructor for the VegeMealKit
      * @param name name of the vegetarian meal kit
-     * @param displayChar the display character for the meal kit
      */
-    public VegeMealKit(String name, char displayChar) {
-        super(name, displayChar);
+    public VegeMealKit(String name) {
+        super(name, '^');
+        price = 100;
     }
 
     /**

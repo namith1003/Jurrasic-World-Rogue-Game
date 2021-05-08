@@ -1,9 +1,6 @@
 package game;
 
-import edu.monash.fit2099.engine.Actions;
-import edu.monash.fit2099.engine.Actor;
-import edu.monash.fit2099.engine.Ground;
-import edu.monash.fit2099.engine.Location;
+import edu.monash.fit2099.engine.*;
 
 /**
  * A vending machine class.
@@ -11,9 +8,10 @@ import edu.monash.fit2099.engine.Location;
 public class VendingMachine extends Ground {
 
     /**
-     * A final string list to store the name of the items. Doesn't seem to be used tho.
+     * A final string list to store items the vending machine uses. Doesn't seem to be used tho.
      */
-    private final String[] vendingItems = {"Fruit", "VegeMealKit", "MeatMealKit", "Egg", "LazerGun"};
+    public static Item[] vendingItems = {new Fruit("Fruit"), new VegeMealKit("VegeMealKit"), new MeatMealKit("MeatMealKit"), new Egg( "Stegosaur", 'o'), new Egg("Brachiosaur", 'O'), new Egg("Allosaur", '0'), new LazerGun("LazerGun") };
+
 
     /**
      * The constructor for the vending machine.

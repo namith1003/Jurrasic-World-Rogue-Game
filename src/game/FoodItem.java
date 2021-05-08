@@ -11,6 +11,8 @@ public abstract class FoodItem extends PortableItem{
      */
     protected int healValue;
 
+    protected int price;
+
     /**
      * constructor to create the food item
      * @param name the name of the food item
@@ -27,6 +29,11 @@ public abstract class FoodItem extends PortableItem{
     @Override
     public int getHealValue() {
         return healValue;
+    }
+
+    @Override
+    public int getPrices(){
+        return price;
     }
 
 }
