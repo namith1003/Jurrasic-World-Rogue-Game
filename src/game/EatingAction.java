@@ -51,12 +51,11 @@ public class EatingAction extends Action {
                 } else {
                     // stegosaur has found a food item on the map and will consume it.
                     for (Item item : items) {
-                        for (String food: Stegosaur.getDiet()){
+                        for (String food: actor.getDiet()){
                             if (item.toString().equals(food)){
-                                FoodItem theFood = (FoodItem) item;
-                                actor.heal(theFood.getHealValue());
-                                map.locationOf(actor).removeItem(theFood);
-                                return "Stegosaur has healed " + theFood.getHealValue();
+                                actor.heal(item.getHealValue());
+                                map.locationOf(actor).removeItem(item);
+                                return "Stegosaur has healed " + item.getHealValue();
                             }
                         }
                     }
@@ -78,12 +77,11 @@ public class EatingAction extends Action {
             case "Allosaur" -> {
                 // Allosaur has found a food item on the map and will consume it.
                 for (Item item : items) {
-                    for (String food: Allosaur.getDiet()){
+                    for (String food: actor.getDiet()){
                         if (item.toString().equals(food)){
-                            FoodItem theFood = (FoodItem) item;
-                            actor.heal(theFood.getHealValue());
-                            map.locationOf(actor).removeItem(theFood);
-                            return "Allosaur has healed " + theFood.getHealValue();
+                            actor.heal(item.getHealValue());
+                            map.locationOf(actor).removeItem(item);
+                            return "Allosaur has healed " + item.getHealValue();
                         }
                     }
                 }

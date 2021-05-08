@@ -8,7 +8,6 @@ import edu.monash.fit2099.engine.*;
 public class Player extends Actor {
 
 	private Menu menu = new Menu();
-    static Item holdItem;
 	static Points points = new Points();
 
 	/**

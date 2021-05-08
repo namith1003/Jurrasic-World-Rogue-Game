@@ -48,6 +48,15 @@ public class Stegosaur extends Dinosaur {
 	}
 
 
+	/**
+	 * Select and return an action to perform on the current turn for this Stegosaur.
+	 *
+	 * @param actions    collection of possible Actions for this Stegosaur
+	 * @param lastAction The Action this Stegosaur took last turn. Can do interesting things in conjunction with Action.getNextAction()
+	 * @param map        the map containing the Stegosaur
+	 * @param display    the I/O object to which messages may be written
+	 * @return the Action to be performed
+	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
 		targets = new HashMap<>();

@@ -63,4 +63,9 @@ public class Fruit extends FoodItem{
     public void rot(Location currentLocation) {
         currentLocation.removeItem(this);
     }
+
+    @Override
+    public int getOnFloorCounter() {
+        return onFloorCounter;
+    }
 }

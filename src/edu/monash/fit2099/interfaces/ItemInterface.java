@@ -6,4 +6,12 @@ package edu.monash.fit2099.interfaces;
  */
 public interface ItemInterface {
 
+    default int getOnFloorCounter() {
+        return 0;
+    }
+
+    default int getHealValue() {
+        return 0;
+    }
+
 }

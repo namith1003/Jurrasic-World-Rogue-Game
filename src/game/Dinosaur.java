@@ -104,7 +104,8 @@ public class Dinosaur extends Actor {
      * gets the list of the food items that the dinosaur can eat and is in its diet
      * @return the list of food items in the dinosaurs diet
      */
-    public static String[] getDiet() {
+    @Override
+    public String[] getDiet() {
         return diet;
     }
 
@@ -185,6 +186,10 @@ public class Dinosaur extends Actor {
         this.isAdult = isAdult;
     }
 
+    /**
+     * returns the boolean value representing whether or not the dinosaur is an adult
+     * @return the boolean value representing whether or not the dinosaur is an adult
+     */
     @Override
     public boolean getIsAdult() {
         return isAdult;
@@ -287,4 +292,8 @@ public class Dinosaur extends Actor {
         this.pregnantCounter++;
     }
 
+    @Override
+    public int getMaximumHitPoints(){
+        return this.maxHitPoints;
+    }
 }

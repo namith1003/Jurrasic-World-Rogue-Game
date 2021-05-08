@@ -47,9 +47,9 @@ public class Brachiosaur extends Dinosaur{
     /**
      * Select and return an action to perform on the current turn for this Brachiosaur.
      *
-     * @param actions    collection of possible Actions for this Actor
-     * @param lastAction The Action this Actor took last turn. Can do interesting things in conjunction with Action.getNextAction()
-     * @param map        the map containing the Actor
+     * @param actions    collection of possible Actions for this Brachiosaur
+     * @param lastAction The Action this Brachiosaur took last turn. Can do interesting things in conjunction with Action.getNextAction()
+     * @param map        the map containing the Brachiosaur
      * @param display    the I/O object to which messages may be written
      * @return the Action to be performed
      */

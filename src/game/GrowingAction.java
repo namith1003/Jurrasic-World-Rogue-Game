@@ -24,7 +24,8 @@ public class GrowingAction extends Action {
 
     /**
      * The function to "grow" the actor by calling the actor here all actors passed in
-     * will be dinosaurs and will call their becomeAdult method which turns them into an adult.
+     * will be dinosaurs and will set their properties to that of an adult and set their
+     * is adult varaible to true.
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
      * @return A string to indicate that the dinosaur has "grown up"

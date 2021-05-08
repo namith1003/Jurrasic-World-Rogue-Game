@@ -82,13 +82,36 @@ public interface ActorInterface {
      */
     default void setAge(int newAge) {}
 
+    /**
+     * set the hit points / food level of the dinosaur
+     * @param hitPoints the new hit points of the dinosaur to be set to
+     */
     default void setHitPoints(int hitPoints){}
 
+    /**
+     * sets the new display character that represents the dinosaur on the map
+     * @param displayChar the new display character that represents the dinosaur on the map
+     */
     default void setDisplayChar(char displayChar){}
 
+    /**
+     * sets the boolean representing whether or not the dinosaur is an adult
+     */
     default void setIsAdult(boolean isAdult) {}
 
+    /**
+     * returns the boolean value representing whether or not the dinosaur is an adult
+     * @return the boolean value representing whether or not the dinosaur is an adult
+     */
     default boolean getIsAdult() {
         return false;
+    }
+
+    default String[] getDiet() {
+        return null;
+    }
+
+    default int getMaximumHitPoints(){
+        return 0;
     }
 }

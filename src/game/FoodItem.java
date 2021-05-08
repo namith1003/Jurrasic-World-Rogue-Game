@@ -24,6 +24,7 @@ public abstract class FoodItem extends PortableItem{
      * get the value that the food item heals for
      * @return return the amount of food level that will be healed when this item is consumed.
      */
+    @Override
     public int getHealValue() {
         return healValue;
     }
