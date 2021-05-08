@@ -69,7 +69,7 @@ public class Egg extends FoodItem {
         Dinosaur dinosaur;
         switch (dinoName) {
             case "Stegosaur" -> {
-                if (eggFloorCounter >= 10){
+                if (eggFloorCounter >= 10 && currentLocation.getActor() == null){
                     dinosaur = new Stegosaur("Stegosaur");
                     currentLocation.addActor(dinosaur);
                     display.println("Stegosaur was born");
@@ -78,7 +78,7 @@ public class Egg extends FoodItem {
                 }
             }
             case "Brachiosaur" -> {
-                if (eggFloorCounter >= 20){
+                if (eggFloorCounter >= 20 && currentLocation.getActor() == null){
                     dinosaur = new Brachiosaur("Brachiosaur");
                     currentLocation.addActor(dinosaur);
                     display.println("Brachiosaur was born");
@@ -87,7 +87,7 @@ public class Egg extends FoodItem {
                 }
             }
             case "Allosaur" -> {
-                if (eggFloorCounter >= 50){
+                if (eggFloorCounter >= 50 && currentLocation.getActor() == null){
                     dinosaur = new Allosaur("Allosaur");
                     currentLocation.addActor(dinosaur);
                     display.println("Allosaur was born");
