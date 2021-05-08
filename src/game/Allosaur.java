@@ -197,7 +197,12 @@ public class Allosaur extends Dinosaur{
                             if (exits.getDestination() == map.locationOf(stegosaurs.get(lowestDistance))) {
                                 attackedStegosaurs.add(stegosaurs.get(lowestDistance));
                                 timeRemaining.add(20);
-                                heal(20);
+                                if (isAdult){
+                                    heal(20);
+                                } else{
+                                    heal(10);
+                                }
+
                                 return new AttackAction(stegosaurs.remove(lowestDistance));
                             }
                         }

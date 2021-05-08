@@ -73,7 +73,7 @@ public class VendingAction extends Action{
             int choice = Character.getNumericValue(choices.readChar());
 
             if (choice == 8) {
-                return "You've decided to walk away from the vending machine.";
+                return "You decided to walk away from the vending machine";
             }
             else if (choice>=1 && choice<=7) {
                 choices.println("How many of these do you need?\n" +
@@ -136,7 +136,7 @@ public class VendingAction extends Action{
                 }
             }
             else {
-                choices.println("There is no such item! Try again.");
+                return "There is no such item! Try again.";
             }
         }
     }
