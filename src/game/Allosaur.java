@@ -97,6 +97,12 @@ public class Allosaur extends Dinosaur{
             return grow;
         }
 
+        // checks if the brachiosaur is thirsty and it will try to find the closest lake to drink if it is.
+        Action drink = drinks(map);
+        if (drink != null){
+            return drink;
+        }
+
         // decreases the timer on the stegosaurs that have been attacked by this allosaur.
         if (attackedStegosaurs != null && timeRemaining.size() != 0) {
             for (int i = 0; i < timeRemaining.size(); i++) {

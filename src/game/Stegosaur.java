@@ -87,6 +87,12 @@ public class Stegosaur extends Dinosaur {
 			return grow;
 		}
 
+		// checks if the brachiosaur is thirsty and it will try to find the closest lake to drink if it is.
+		Action drink = drinks(map);
+		if (drink != null){
+			return drink;
+		}
+
 		Location targetLocation;
 		// searches for food if the dinosaur is hungry
 		if (isHungry) {

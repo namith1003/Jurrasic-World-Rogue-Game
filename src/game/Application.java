@@ -63,9 +63,21 @@ public class Application {
 		gameMap.at(11, 6).setGround(new VendingMachine());
 
 		//placing Lakes on the map
-		gameMap.at(20,10).setGround(new Lake());
-		gameMap.at(21,10).setGround(new Lake());
 		gameMap.at(22,10).setGround(new Lake());
+		gameMap.at(11,20).setGround(new Lake());
+		gameMap.at(44,16).setGround(new Lake());
+		gameMap.at(22,11).setGround(new Lake());
+		gameMap.at(23,11).setGround(new Lake());
+		gameMap.at(60,6).setGround(new Lake());
+		gameMap.at(72,10).setGround(new Lake());
+		gameMap.at(68,22).setGround(new Lake());
+		gameMap.at(20,4).setGround(new Lake());
+		gameMap.at(40,5).setGround(new Lake());
+		gameMap.at(6,13).setGround(new Lake());
+		gameMap.at(40,23).setGround(new Lake());
+		gameMap.at(65,17).setGround(new Lake());
+		gameMap.at(47,9).setGround(new Lake());
+
 
 		gameMap.at(0,0).setGround(new Sky());
 
