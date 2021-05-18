@@ -44,6 +44,7 @@ public class Allosaur extends Dinosaur{
         diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
         hungerLevel = 50;
         pregnantTime = 20;
+        maxWaterLevel = 100;
     }
 
     /**
@@ -59,6 +60,7 @@ public class Allosaur extends Dinosaur{
         diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
         hungerLevel = 50;
         pregnantTime = 20;
+        maxWaterLevel = 100;
     }
 
 
@@ -79,6 +81,9 @@ public class Allosaur extends Dinosaur{
         targets = new HashMap<>();
 
         boolean isHungry = isHungry(map);
+        boolean isThirsty = isThirsty(map);
+
+        drinkRain();
 
         // checks if the allosaur is unconscious and bout to die
         Action death = dies(map);

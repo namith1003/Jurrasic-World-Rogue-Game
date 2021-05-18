@@ -1,5 +1,9 @@
 package edu.monash.fit2099.interfaces;
 
+import edu.monash.fit2099.engine.Action;
+import edu.monash.fit2099.engine.GameMap;
+import edu.monash.fit2099.engine.Location;
+
 /**
  * This interface provides the ability to add methods to Actor, without modifying code in the engine,
  * or downcasting references in the game.   
@@ -122,5 +126,15 @@ public interface ActorInterface {
      */
     default int getMaximumHitPoints(){
         return 0;
+    }
+
+    default boolean isConsciousThirst() {
+        return false;
+    }
+
+    default boolean isThirsty(GameMap map){return false;}
+
+    default Action findLake(GameMap map, Location targetLocation){
+        return null;
     }
 }

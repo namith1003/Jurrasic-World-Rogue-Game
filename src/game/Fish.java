@@ -10,7 +10,7 @@ public class Fish extends FoodItem{
      * @param name the name of the food item
      */
     public Fish(String name) {
-        super(name, '`');
+        super(name, '!');
         healValue = 5;
     }
 }

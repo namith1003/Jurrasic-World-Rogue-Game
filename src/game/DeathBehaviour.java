@@ -23,6 +23,7 @@ public class DeathBehaviour implements Behaviour {
         int unconsciousCounter = actor.getUnconsciousCounter();
         // checks if the actor is conscious
         boolean isConscious = actor.isConscious();
+        boolean isConsciousThirst = actor.isConsciousThirst();
         if (!isConscious){
             actor.increaseUnconsciousCounter();
             switch (actor.toString()){
@@ -38,6 +39,11 @@ public class DeathBehaviour implements Behaviour {
                 }
             }
             return new DoNothingAction();
+        } else if (!isConsciousThirst){
+            actor.increaseUnconsciousCounter();
+            if (unconsciousCounter >= 15){
+                return new DeathAction();
+            }
         }
         actor.setUnconsciousCounter(0);
         return null;

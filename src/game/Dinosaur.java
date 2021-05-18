@@ -23,6 +23,18 @@ public class Dinosaur extends Actor {
      */
     protected int hungerLevel;
     /**
+     * the water level that the dinosaur becomes thirsty at
+     */
+    protected int thirstLevel;
+    /**
+     * the water level that the dinosaur currently has
+     */
+    protected int waterLevel;
+    /**
+     * the maximum water level that the dinosaur can have
+     */
+    protected int maxWaterLevel;
+    /**
      * the number of turns that the dinosaur has been pregnant for
      */
     protected int pregnantCounter = 0;
@@ -44,7 +56,6 @@ public class Dinosaur extends Actor {
     protected boolean isAdult = false;
 
 
-
     /**
      * Constructor for the general dinosaurs, shared by all the species of dinosaur that extend this class and will
      * set their name, display character and hit points and will also in random with a 50-50 chance the gender of the
@@ -61,6 +72,8 @@ public class Dinosaur extends Actor {
         } else {
             this.gender="female";
         }
+        waterLevel = 60;
+        thirstLevel = 40;
     }
 
     /**
@@ -79,6 +92,8 @@ public class Dinosaur extends Actor {
         } else if (gender.equals("female") ){
             this.gender="female";
         }
+        waterLevel = 60;
+        thirstLevel = 40;
     }
 
     /**
@@ -187,6 +202,41 @@ public class Dinosaur extends Actor {
             addCapability(BreedingStatus.CAN_BREED);
             return false;
         }
+    }
+
+    /**
+     * checks if the dinosaurs water levels are under his thirst water level and returns whether or not the dinosaur is
+     * thirsty, it also sends a message to the player right when a dinosaur goes from being not thirsty to thirsty in
+     * this turn.
+     * @param map the map the dinosaurs are on
+     * @return boolean of whether the dinosaur is thirsty
+     */
+    @Override
+    public boolean isThirsty(GameMap map){
+        Display display = new Display();
+        if (waterLevel >= thirstLevel){
+            int newThirst = waterLevel - 1;
+            if (newThirst < thirstLevel) {
+                display.println(toString() + " at (" + map.locationOf(this).x() + ", " + map.locationOf(this).y() + ") is getting thirsty!");
+            }
+        }
+        //decreases the dinosaurs water level every turn until it goes to zero.
+        if (waterLevel > 0){
+            waterLevel--;
+        }
+
+        System.out.println(waterLevel);
+        // if dinosaur is thirsty it cannot breed and if not thirsty it can breed.
+        if (waterLevel < thirstLevel) {
+            addCapability(BreedingStatus.CANNOT_BREED);
+            removeCapability(BreedingStatus.CAN_BREED);
+            return true;
+        }else {
+            removeCapability(BreedingStatus.CANNOT_BREED);
+            addCapability(BreedingStatus.CAN_BREED);
+            return false;
+        }
+
     }
 
     /**
@@ -366,5 +416,22 @@ public class Dinosaur extends Actor {
      */
     public Action findFood(GameMap map, Location targetLocation){
         return new HungryBehaviour(targetLocation).getAction(this, map);
+    }
+
+    @Override
+    public Action findLake(GameMap map, Location targetLocation){
+        return new HungryBehaviour(targetLocation).getAction(this, map);
+    }
+
+    public boolean isConsciousThirst() {
+        return waterLevel > 0;
+    }
+
+    public void drinkRain(){
+        if (!isConsciousThirst()){
+            if (Sky.rainValue != 0){
+                this.waterLevel = 10;
+            }
+        }
     }
 }

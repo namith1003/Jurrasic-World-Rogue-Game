@@ -67,6 +67,8 @@ public class Application {
 		gameMap.at(21,10).setGround(new Lake());
 		gameMap.at(22,10).setGround(new Lake());
 
+		gameMap.at(0,0).setGround(new Sky());
+
 
 		world.run();
 	}

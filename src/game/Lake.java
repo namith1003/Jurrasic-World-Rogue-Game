@@ -20,12 +20,8 @@ public class Lake extends Ground {
     /**
      * Array List of all the fish in the lake
      */
-    private ArrayList<Fish> fish;
-    /**
-     * the number of turns since the last chance to rain for all the lakes, rain might happen every 10 turns
-     * for all lakes
-     */
-    private static int rainTurns = 0;
+    private ArrayList<Fish> fish = new ArrayList<>();
+
 
     /**
      * number of lakes that have been created
@@ -54,8 +50,7 @@ public class Lake extends Ground {
      */
     @Override
     public void tick(Location location) {
-        rain();
-        sips += rainValue;
+        sips += Sky.rainValue;
         System.out.println(sips);
         fishBorn();
     }
@@ -71,22 +66,11 @@ public class Lake extends Ground {
         }
     }
 
-    /**
-     * makes it rain for all the lakes every 10 turns with a 20% chance of raining
-     * and the lakes being refilled with sips
-     */
-    public static void rain(){
-        rainTurns++;
-        if (rainTurns == numOfLakes*9 + 1) {
-            if (new Random().nextInt(5) == 0){
-                double rainFall = (new Random().nextInt(6) + 1)*1.0/10;
-                rainValue = (int) (rainFall*20);
-            }
-        } else if (rainTurns > numOfLakes*10){
-            rainTurns = 1;
-            rainValue = 0;
-        }
+    public int getSips() {
+        return sips;
     }
 
-
+    public void setSips(int sips) {
+        this.sips = sips;
+    }
 }

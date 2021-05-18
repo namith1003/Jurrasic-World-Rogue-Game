@@ -18,6 +18,7 @@ public class Brachiosaur extends Dinosaur{
      */
     private HashMap<Integer, Location> targets = new HashMap<>();
 
+
     /**
      * The constructor to create Brachiosaur, they will be creates as babies, represented by 'b' and
      * sets a random gender using the Dinosaur classes constructor and a health of 10.
@@ -31,6 +32,7 @@ public class Brachiosaur extends Dinosaur{
         hungerLevel = 140;
         pregnantTime = 30;
         pregnantCounter = 0;
+        maxWaterLevel = 200;
     }
 
     /**
@@ -47,6 +49,7 @@ public class Brachiosaur extends Dinosaur{
         hungerLevel = 140;
         pregnantTime = 30;
         pregnantCounter = 0;
+        maxWaterLevel = 200;
     }
 
     /**
@@ -64,6 +67,9 @@ public class Brachiosaur extends Dinosaur{
         targets = new HashMap<>();
 
         boolean isHungry = isHungry(map);
+        boolean isThirsty = isThirsty(map);
+
+        drinkRain();
 
         // checks if the brachiosaur is unconscious and bout to die
         Action death = dies(map);
@@ -76,6 +82,7 @@ public class Brachiosaur extends Dinosaur{
         if (grow != null){
             return grow;
         }
+
 
         // if the brachiosaur is hungry it will try to find the closest tree that has ripe fruits on it.
         if (isHungry) {

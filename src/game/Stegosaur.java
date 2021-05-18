@@ -35,6 +35,7 @@ public class Stegosaur extends Dinosaur {
 		diet = new String[]{"Fruit", "VegeMealKit"};
 		hungerLevel = 80;
 		pregnantTime = 15;
+		maxWaterLevel = 100;
 	}
 
 	/**
@@ -50,6 +51,7 @@ public class Stegosaur extends Dinosaur {
 		diet = new String[]{"Fruit", "VegeMealKit"};
 		hungerLevel = 80;
 		pregnantTime = 15;
+		maxWaterLevel = 100;
 	}
 
 
@@ -69,6 +71,9 @@ public class Stegosaur extends Dinosaur {
 		food = new HashMap<>();
 
 		boolean isHungry = isHungry(map);
+		boolean isThirsty = isThirsty(map);
+
+		drinkRain();
 
 		// checks if the stegosaur is unconscious and bout to die
 		Action death = dies(map);
