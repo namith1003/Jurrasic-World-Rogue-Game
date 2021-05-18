@@ -57,9 +57,15 @@ public class Application {
 		gameMap.at(60, 19).addActor(new Brachiosaur("Brachiosaur", "male"));
 		gameMap.at(18, 12).addActor(new Brachiosaur("Brachiosaur", "male"));
 		gameMap.at(12, 16).addActor(new Brachiosaur("Brachiosaur", "female"));
+		gameMap.at(48,10).addActor(new Allosaur("Allosaur"));
 
 		// Placing a vending machine to the map
 		gameMap.at(11, 6).setGround(new VendingMachine());
+
+		//placing Lakes on the map
+		gameMap.at(20,10).setGround(new Lake());
+		gameMap.at(21,10).setGround(new Lake());
+		gameMap.at(22,10).setGround(new Lake());
 
 
 		world.run();
