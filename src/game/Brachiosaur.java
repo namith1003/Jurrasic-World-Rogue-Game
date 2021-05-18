@@ -67,7 +67,6 @@ public class Brachiosaur extends Dinosaur{
         targets = new HashMap<>();
 
         boolean isHungry = isHungry(map);
-        boolean isThirsty = isThirsty(map);
 
         drinkRain();
 

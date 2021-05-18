@@ -39,7 +39,7 @@ public class ThirstyBehaviour implements Behaviour{
                 }
 
                 // if it has not reached the targeted tree then it will keep on following
-                if (lowestItemDistance > 0) {
+                if (lowestItemDistance > 1) {
                     waterLocation = lakeTargets.get(lowestItemDistance);
                     return actor.findLake(map, waterLocation);
                 }

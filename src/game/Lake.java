@@ -1,5 +1,7 @@
 package game;
 
+import edu.monash.fit2099.engine.Actions;
+import edu.monash.fit2099.engine.Actor;
 import edu.monash.fit2099.engine.Ground;
 import edu.monash.fit2099.engine.Location;
 
@@ -51,7 +53,6 @@ public class Lake extends Ground {
     @Override
     public void tick(Location location) {
         sips += Sky.rainValue;
-        System.out.println(sips);
         fishBorn();
     }
 
@@ -77,5 +78,19 @@ public class Lake extends Ground {
 
     public void removeSip(){
         this.sips --;
+    }
+
+    @Override
+    public Actions allowableActions(Actor actor, Location location, String direction) {
+        return new Actions(new FishAction(this));
+    }
+
+    public Fish removeFish(){
+        // remove last fish in the array list for efficiency when shuffling
+        return fish.remove(fish.size() - 1);
+    }
+
+    public ArrayList<Fish> getFish() {
+        return fish;
     }
 }

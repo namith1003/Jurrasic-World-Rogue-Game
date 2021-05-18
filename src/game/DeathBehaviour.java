@@ -44,6 +44,7 @@ public class DeathBehaviour implements Behaviour {
             if (unconsciousCounter >= 15){
                 return new DeathAction();
             }
+            return new DoNothingAction();
         }
         actor.setUnconsciousCounter(0);
         return null;

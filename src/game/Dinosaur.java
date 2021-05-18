@@ -225,7 +225,6 @@ public class Dinosaur extends Actor {
             waterLevel--;
         }
 
-        System.out.println(waterLevel);
         // if dinosaur is thirsty it cannot breed and if not thirsty it can breed.
         if (waterLevel < thirstLevel) {
             addCapability(BreedingStatus.CANNOT_BREED);
@@ -432,9 +431,11 @@ public class Dinosaur extends Actor {
     }
 
     public void drinkRain(){
+        Display display = new Display();
         if (!isConsciousThirst()){
             if (Sky.rainValue != 0){
                 this.waterLevel = 10;
+                display.println(toString() + " has got rain water");
             }
         }
     }
