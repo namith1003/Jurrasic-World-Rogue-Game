@@ -137,4 +137,8 @@ public interface ActorInterface {
     default Action findLake(GameMap map, Location targetLocation){
         return null;
     }
+
+    default void drink(int waterValue){
+        return;
+    }
 }

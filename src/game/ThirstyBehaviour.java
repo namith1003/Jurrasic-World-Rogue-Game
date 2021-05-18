@@ -46,7 +46,7 @@ public class ThirstyBehaviour implements Behaviour{
                 // if it has reached the tree it will call the eating action which helps it eat the fruit from the tree
                 else {
                     waterLocation = lakeTargets.get(lowestItemDistance);
-                    return new EatingAction(waterLocation);
+                    return new DrinkingAction(waterLocation);
                 }
             }
         }

@@ -66,11 +66,16 @@ public class Lake extends Ground {
         }
     }
 
+    @Override
     public int getSips() {
         return sips;
     }
 
     public void setSips(int sips) {
         this.sips = sips;
+    }
+
+    public void removeSip(){
+        this.sips --;
     }
 }

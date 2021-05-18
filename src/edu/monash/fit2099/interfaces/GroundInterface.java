@@ -25,4 +25,7 @@ public interface GroundInterface {
      */
     default Fruit removeFruit(){return null;}
 
+    default int getSips() {return 0;}
+
+    default void removeSip(){}
 }

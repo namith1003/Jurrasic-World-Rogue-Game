@@ -83,6 +83,10 @@ public class Brachiosaur extends Dinosaur{
             return grow;
         }
 
+        Action drink = drinks(map);
+        if (drink != null){
+            return drink;
+        }
 
         // if the brachiosaur is hungry it will try to find the closest tree that has ripe fruits on it.
         if (isHungry) {

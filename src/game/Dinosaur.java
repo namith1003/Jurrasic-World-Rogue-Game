@@ -418,6 +418,10 @@ public class Dinosaur extends Actor {
         return new HungryBehaviour(targetLocation).getAction(this, map);
     }
 
+    public Action drinks(GameMap map){
+        return new ThirstyBehaviour().getAction(this, map);
+    }
+
     @Override
     public Action findLake(GameMap map, Location targetLocation){
         return new HungryBehaviour(targetLocation).getAction(this, map);
@@ -433,5 +437,10 @@ public class Dinosaur extends Actor {
                 this.waterLevel = 10;
             }
         }
+    }
+
+    @Override
+    public void drink(int waterValue){
+        this.waterLevel += waterValue;
     }
 }
