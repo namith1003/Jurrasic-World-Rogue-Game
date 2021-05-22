@@ -82,7 +82,7 @@ public class Player extends Actor {
 							------------------------------------
 							Insert Target Points to reach:
 							        """);
-					targetPoints = 2000; // change to be able to dynamically entered by the player
+					targetPoints = 1000; // change to be able to dynamically entered by the player
 
 					display.println("""
 							Insert Number of Turns to reach Target Points:
@@ -121,6 +121,15 @@ public class Player extends Actor {
 							Congratulations You have Completed the Challenge!
 							You May Try Another Game Mode or Try a new Challenge
 							------------------------------------
+							Target Points: """ + targetPoints + """
+														
+							Number of Turns Passed: """ + numberOfTurns + """
+																					
+							Points Reached: """ + Player.points.getPoints() + """
+																					
+							You May Retry a Challenge Or Try Another Game Mode
+							------------------------------------
+							       
 							""");
 					gameMode = 0;
 					continue;
