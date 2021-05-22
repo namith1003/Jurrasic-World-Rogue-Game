@@ -33,7 +33,7 @@ public class Egg extends FoodItem {
 
         switch (dinoName) {
             case "Stegosaur" -> price = 200;
-            case "Brachiosaur" -> price = 500;
+            case "Brachiosaur", "Pterodactyl" -> price = 500;
             case "Allosaur" -> price = 1000;
         }
     }
@@ -73,6 +73,15 @@ public class Egg extends FoodItem {
                     dinosaur = new Stegosaur("Stegosaur");
                     currentLocation.addActor(dinosaur);
                     display.println("Stegosaur was born");
+                    currentLocation.removeItem(this);
+                    Player.points.setPoints(100);
+                }
+            }
+            case "Pterodactyl" -> {
+                if (eggFloorCounter >= 10 && currentLocation.getActor() == null){
+                    dinosaur = new Pterodactyl("Pterodactyl");
+                    currentLocation.addActor(dinosaur);
+                    display.println("Pterodactyl was born");
                     currentLocation.removeItem(this);
                     Player.points.setPoints(100);
                 }

@@ -19,7 +19,7 @@ public class GrowingBehaviour implements Behaviour{
     @Override
     public Action getAction(Actor actor, GameMap map) {
         switch (actor.toString()){
-            case "Stegosaur" -> {
+            case "Stegosaur", "Pterodactyl" -> {
                 if (actor.getAge() == 30) {
                     return new GrowingAction(actor);
                 }

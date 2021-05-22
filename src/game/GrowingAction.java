@@ -48,7 +48,11 @@ public class GrowingAction extends Action {
                 actor.setHitPoints(50);
                 actor.setDisplayChar('A');
                 actor.setPregnantCounter(0);
-
+            }
+            case "Pterodactyl" -> {
+                actor.setHitPoints(50);
+                actor.setDisplayChar('P');
+                actor.setPregnantCounter(0);
             }
         }
         return actor.toString() + "has grown up!";

@@ -27,7 +27,7 @@ public class DeathBehaviour implements Behaviour {
         if (!isConscious){
             actor.increaseUnconsciousCounter();
             switch (actor.toString()){
-                case "Stegosaur", "Allosaur" ->{
+                case "Stegosaur", "Allosaur", "Pterodactyl" ->{
                     if (unconsciousCounter >= 20){
                         return new DeathAction();
                     }

@@ -21,7 +21,7 @@ public class Stegosaur extends Dinosaur {
 	 * the list of target items on the ground of the map that the stegosaur can find
 	 */
 	private HashMap<Integer, Location> food = new HashMap<>();
-	// int age=0;
+
 
 	/**
 	 * The constructor to create stegosaurs, they will be creates as babies, represented by 's' and
@@ -71,7 +71,6 @@ public class Stegosaur extends Dinosaur {
 		food = new HashMap<>();
 
 		boolean isHungry = isHungry(map);
-		boolean isThirsty = isThirsty(map);
 
 		drinkRain();
 

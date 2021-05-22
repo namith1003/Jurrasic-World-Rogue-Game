@@ -23,6 +23,7 @@ public class DinoCorpse extends FoodItem{
         switch (name){
             case "Stegosaur Corpse", "Allosaur Corpse" -> healValue = 50;
             case "Brachiosaur Corpse" -> healValue = 100;
+            case "Pterodactyl Corpse" -> healValue = 30;
         }
     }
 
@@ -43,7 +44,7 @@ public class DinoCorpse extends FoodItem{
     @Override
     public void tick(Location currentLocation) {
         switch (name){
-            case "Stegosaur Corpse", "Allosaur Corpse" -> {
+            case "Stegosaur Corpse", "Allosaur Corpse", "Pterodactyl Corpse" -> {
                 if (deadTime > 20){
                     decay(currentLocation);
                 }

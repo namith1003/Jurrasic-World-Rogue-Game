@@ -56,18 +56,19 @@ public class VendingAction extends Action{
                             4. Stegosaur Egg [200 EP]
                             5. Brachiosaur Egg [500 EP]
                             6. Allosaur Egg [1000 EP]
-                            7. Laser Gun [500 EP]
-                            8. Quit Buying
+                            7. Pterodactyl Egg [500 EP]
+                            8. Laser Gun [500 EP]
+                            9. Quit Buying
                             ------------------------------------
                             Insert item number here:
                             """);
 
             int choice = Character.getNumericValue(choices.readChar());
 
-            if (choice == 8) {
+            if (choice == 9) {
                 return "You decided to walk away from the vending machine";
             }
-            else if (choice>=1 && choice<=7) {
+            else if (choice>=1 && choice<=8) {
                 choices.println("How many of these do you need?\n" +
                         "You currently have " + Player.points.getPoints() + " EP."
                         + "\nYou can buy a maximum amount of " + Player.points.getPoints()/VendingMachine.vendingItems[choice-1].getPrices() + "."
@@ -116,6 +117,12 @@ public class VendingAction extends Action{
                             return amount + " " + VendingMachine.vendingItems[choice-1].toString() +"(s) added to inventory";
                         }
                         case 7 -> {
+                            for (int i = 0; i < amount; i++) {
+                                actor.addItemToInventory(new Egg("Pterodactyl", 'Q'));
+                            }
+                            return amount + " " + VendingMachine.vendingItems[choice-1].toString() +"(s) added to inventory";
+                        }
+                        case 8 -> {
                             for (int i = 0; i < amount; i++) {
                                 actor.addItemToInventory(new LazerGun("LazerGun"));
                             }

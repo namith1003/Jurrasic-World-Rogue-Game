@@ -36,9 +36,9 @@ public class Sky extends Ground {
      */
     public static void rain(){
         rainTurns++;
-        if (rainTurns == 2) {
+        if (rainTurns == 10) {
             rainTurns = 0;
-            if (new Random().nextInt(1) == 0){
+            if (new Random().nextInt(5) == 0){
                 double rainFall = (new Random().nextInt(6) + 1)*1.0/10;
                 rainValue = (int) (rainFall*20);
             }

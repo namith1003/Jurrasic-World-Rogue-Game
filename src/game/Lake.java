@@ -93,4 +93,14 @@ public class Lake extends Ground {
     public ArrayList<Fish> getFish() {
         return fish;
     }
+
+    /**
+     * A method for the actor to know that the vending machine counts as impassable terrain
+     * @param actor the Actor to check
+     * @return false
+     */
+    @Override
+    public boolean canActorEnter(Actor actor) {
+        return actor.toString().equals("Player") || actor.toString().equals("Pterodactyl");
+    }
 }

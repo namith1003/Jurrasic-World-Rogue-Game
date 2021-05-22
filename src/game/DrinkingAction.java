@@ -27,7 +27,7 @@ public class DrinkingAction extends Action {
         Ground lake = waterLocation.getGround();
 
         switch (actor.toString()) {
-            case "Stegosaur", "Allosaur" -> {
+            case "Stegosaur", "Allosaur", "Pterodactyl" -> {
                 if(lake.getSips() != 0){
 
                     lake.removeSip();

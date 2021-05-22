@@ -26,6 +26,7 @@ public class LayEggAction extends Action {
             case "Allosaur" -> egg = '0';
             case "Brachiosaur" -> egg = 'O';
             case "Stegosaur" -> egg = 'o';
+            case "Pterodactyl" -> egg = 'Q';
             default -> throw new IllegalStateException("Unexpected value: " + actor.toString());
         }
 

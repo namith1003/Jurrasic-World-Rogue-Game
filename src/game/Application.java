@@ -73,7 +73,7 @@ public class Application {
 				".....................~.........................................V#_____#.........",
 				"................................................................#######.........");
 		GameMap gameMapTwo = new GameMap(groundFactory, mapTwo );
-		world.addGameMap(gameMap);
+		world.addGameMap(gameMapTwo);
 
 		// adding the player to map one
 		Actor player = new Player("Player", '@', 100);

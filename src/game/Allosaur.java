@@ -41,7 +41,7 @@ public class Allosaur extends Dinosaur{
         super(name, 'a', 20);
         maxHitPoints = 100;
         behaviour.add(new WanderBehaviour());
-        diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
+        diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse", "Pterodactyl Corpse", "Pterodactyl"};
         hungerLevel = 50;
         pregnantTime = 20;
         maxWaterLevel = 100;
@@ -57,7 +57,7 @@ public class Allosaur extends Dinosaur{
         super(name, 'a', 20, gender);
         maxHitPoints = 100;
         behaviour.add(new WanderBehaviour());
-        diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
+        diet = new String[]{"MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse", "Pterodactyl"};
         hungerLevel = 50;
         pregnantTime = 20;
         maxWaterLevel = 100;

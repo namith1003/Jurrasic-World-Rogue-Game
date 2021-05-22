@@ -10,7 +10,7 @@ public class VendingMachine extends Ground {
     /**
      * A final string list to store items the vending machine sells.
      */
-    public static Item[] vendingItems = {new Fruit("Fruit"), new VegeMealKit("VegeMealKit"), new MeatMealKit("MeatMealKit"), new Egg( "Stegosaur", 'o'), new Egg("Brachiosaur", 'O'), new Egg("Allosaur", '0'), new LazerGun("LazerGun") };
+    public static Item[] vendingItems = {new Fruit("Fruit"), new VegeMealKit("VegeMealKit"), new MeatMealKit("MeatMealKit"), new Egg( "Stegosaur", 'o'), new Egg("Brachiosaur", 'O'), new Egg("Allosaur", '0'),new Egg("Pterodactyl", 'Q'), new LazerGun("LazerGun") };
 
 
     /**
