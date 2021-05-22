@@ -9,6 +9,10 @@ public class Player extends Actor {
 
 	private Menu menu = new Menu();
 	static Points points = new Points();
+	private int gameMode = 0;
+	private int numberOfTurns = 0;
+	private int targetPoints = 0;
+	private int targetTurns = 0;
 
 	/**
 	 * Constructor.
@@ -32,9 +36,107 @@ public class Player extends Actor {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-		// Handle multi-turn Actions
-		if (lastAction.getNextAction() != null)
-			return lastAction.getNextAction();
-		return menu.showMenu(this, actions, display);
+
+		while (gameMode != -1) {
+			if (gameMode == 0) {
+				numberOfTurns = 0;
+				Player.points = new Points();
+
+				display.println("""
+							------------------------------------
+							You have started the Game!
+							Pick Which Game Mode You Would Like To Play
+							------------------------------------
+							1. Challenge Game Mode
+							2. SandBox Game Mode
+							3. End Game
+							------------------------------------
+							Insert Valid Option here:
+							""");
+
+				gameMode = Character.getNumericValue(display.readChar());
+
+				while (gameMode <= 0 || gameMode >= 4) {
+					display.println("""
+							------------------------------------
+							You have Entered an Invalid Option!
+							Pick Which Game Mode You Would Like To Play
+							------------------------------------
+							1. Challenge Game Mode
+							2. SandBox Game Mode
+							3. End Game
+							------------------------------------
+							Insert Valid Option here:
+							""");
+
+					gameMode = Character.getNumericValue(display.readChar());
+				}
+
+				if (gameMode == 1) {
+					targetPoints = 0;
+					targetTurns = 0;
+					display.println("""
+							------------------------------------
+							You have started the Challenge Game Mode!
+							Enter Your Target Points and Number of Turns
+							------------------------------------
+							Insert Target Points to reach:
+							        """);
+					targetPoints = 2000; // change to be able to dynamically entered by the player
+
+					display.println("""
+							Insert Number of Turns to reach Target Points:
+							        """);
+
+					targetTurns = 20; // change to be able to dynamically entered by the player
+				}
+
+				if (gameMode == 3) {
+					break;
+				}
+			}
+
+			numberOfTurns++;
+
+			if (gameMode == 1) {
+				if (numberOfTurns > targetTurns) {
+					display.println("""
+							------------------------------------
+							You have failed to Complete the Challenge in the predicted Number of Turns!
+							Target Points: """ + targetPoints + """
+							
+							Number of Turns Passed: """ + numberOfTurns + """
+														
+							Points Reached: """ + Player.points.getPoints() + """
+														
+							You May Retry Or Try Another Game Mode
+							------------------------------------
+							""");
+					gameMode = 0;
+					continue;
+				}
+				if (Player.points.getPoints() > targetPoints) {
+					display.println("""
+							------------------------------------
+							Congratulations You have Completed the Challenge!
+							You May Try Another Game Mode or Try a new Challenge
+							------------------------------------
+							""");
+					gameMode = 0;
+					continue;
+				}
+
+			}
+
+			actions.add(new QuitGameAction(false));
+			// Handle multi-turn Actions
+			if (lastAction.getNextAction() != null)
+				return lastAction.getNextAction();
+			return menu.showMenu(this, actions, display);
+		}
+
+		return new QuitGameAction(true);
 	}
+
+
 }

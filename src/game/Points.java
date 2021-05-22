@@ -8,9 +8,7 @@ public class Points {
     /**
      * The base variable that stores the amount of points.
      */
-    // 10000 points right at the start of the game ONLY FOR TESTING PURPOSES
-    // PLS REVERT BEFORE SUBMISSION
-    private int points = 10000;
+    private int points = 0;
 
     /**
      * Getter method for points.
