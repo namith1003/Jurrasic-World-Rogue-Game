@@ -175,9 +175,7 @@ public class Pterodactyl extends Dinosaur{
                         targetLocation = food.get(lowestDistance);
                         return new EatingAction(targetLocation);
                     }
-            /*else if (new FollowBehaviour(stegosaurs.get(lowestDistance)).location.getActor().toString().equals("Stegosaur")){
-                return new AttackAction(stegosaurs.get(lowestDistance));
-            }*/
+
                 } else {
                     if (lowestItemDistance > 0) {
                         targetLocation = targets.get(lowestItemDistance);
