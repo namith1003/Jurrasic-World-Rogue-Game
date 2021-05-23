@@ -91,6 +91,8 @@ public class Application {
 			// adding the player to map one
 			Actor player = new Player("Player", '@', 100);
 			world.addPlayer(player, gameMap.at(9, 4));
+			gameMap.removeActor(player);
+			world.addPlayer(player, gameMapTwo.at(9, 4));
 			world.run();
 		}
 	}
