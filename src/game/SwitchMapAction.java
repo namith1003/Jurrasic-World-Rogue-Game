@@ -6,12 +6,12 @@ import edu.monash.fit2099.engine.GameMap;
 
 public class SwitchMapAction extends Action {
 
-    /*protected GameMap targetMap;
-    public SwitchMapAction(GameMap map2) { this.targetMap = map2; }*/
+    static int x;
 
     @Override
     public String execute(Actor actor, GameMap map) {
         if (map.locationOf(actor).y() == 0) {
+            x = map.locationOf(actor).x();
             map.removeActor(actor);
             return "Player has crossed to the other map!";
         }

@@ -97,10 +97,10 @@ public class Application {
 				world.run();
 				if (mapNum == 1){
 					mapNum = 2;
-					world.addPlayer(player, gameMap.at(9, 4));
+					world.addPlayer(player, gameMapTwo.at(SwitchMapAction.x, 0));
 				} else {
 					mapNum = 1;
-					world.addPlayer(player, gameMapTwo.at(9, 4));
+					world.addPlayer(player, gameMapTwo.at(SwitchMapAction.x, 24));
 				}
 			}
 		}
