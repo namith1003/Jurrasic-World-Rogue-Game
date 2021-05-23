@@ -34,16 +34,16 @@ public class EatingAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         List<Item> items = targetLocation.getItems();
-        Ground thePlant = targetLocation.getGround();
+        Ground theTile = targetLocation.getGround();
 
         switch (actor.toString()) {
             case "Stegosaur" -> {
 
                 // stegosaur searches the fruits on the bush that it has found and eats one
-                if (thePlant.getFruits() != null) {
-                    if (thePlant.getFruits().size() != 0) {
+                if (theTile.getFruits() != null) {
+                    if (theTile.getFruits().size() != 0) {
 
-                        FoodItem theFood = thePlant.removeFruit();
+                        FoodItem theFood = theTile.removeFruit();
                         actor.heal(theFood.getHealValue());
                         map.locationOf(actor).removeItem(theFood);
                         return "Stegosaur has healed " + theFood.getHealValue();
@@ -64,9 +64,9 @@ public class EatingAction extends Action {
             case "Brachiosaur" -> {
                 // will search the tree it has found and will eat a ripe fruit on the tree, since the brachiosaur
                 // has a weka digestive system it wil not heal the full amount a fruit can give and heals only 5 hp.
-                if(thePlant.getFruits().size() != 0){
+                if(theTile.getFruits().size() != 0){
 
-                    FoodItem theFood = thePlant.removeFruit();
+                    FoodItem theFood = theTile.removeFruit();
                     actor.heal(5);
 
                     map.locationOf(actor).removeItem(theFood);

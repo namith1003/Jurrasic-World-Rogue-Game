@@ -91,13 +91,13 @@ public class Pterodactyl extends Dinosaur{
         if (isHungry) {
             for (int x = 0; x < 80; x++) {
                 for (int y = 0; y < 25; y++) {
-                    Ground bushes = map.at(x, y).getGround();
+                    Ground lakes = map.at(x, y).getGround();
                     ArrayList<Item> items = new ArrayList<>(map.at(x, y).getItems());
 
-                    if (bushes != null) {
+                    if (lakes != null) {
                         targetLocation = map.at(x, y);
-                        if (bushes.getDisplayChar() == '*') {
-                            if (bushes.getFruits().size() != 0) {
+                        if (lakes.getDisplayChar() == '~') {
+                            if (lakes.getFish().size() != 0) {
                                 Location here = map.locationOf(this);
                                 int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
                                 targets.put(distance, targetLocation);
@@ -109,10 +109,12 @@ public class Pterodactyl extends Dinosaur{
                         targetLocation = map.at(x, y);
 
                         for (Item item : items) {
-                            if (item.toString().equals("Fruit")) {
-                                Location here = map.locationOf(this);
-                                int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
-                                food.put(distance, targetLocation);
+                            for (String foodItem: this.getDiet()) {
+                                if (item.toString().equals(foodItem)) {
+                                    Location here = map.locationOf(this);
+                                    int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
+                                    food.put(distance, targetLocation);
+                                }
                             }
                         }
                     }

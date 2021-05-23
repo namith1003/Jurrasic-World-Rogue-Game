@@ -1,5 +1,6 @@
 package edu.monash.fit2099.interfaces;
 
+import game.Fish;
 import game.Fruit;
 
 import java.util.ArrayList;
@@ -28,4 +29,8 @@ public interface GroundInterface {
     default int getSips() {return 0;}
 
     default void removeSip(){}
+
+    default ArrayList<Fish> getFish() {
+        return null;
+    }
 }

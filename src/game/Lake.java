@@ -90,6 +90,7 @@ public class Lake extends Ground {
         return fish.remove(fish.size() - 1);
     }
 
+    @Override
     public ArrayList<Fish> getFish() {
         return fish;
     }
