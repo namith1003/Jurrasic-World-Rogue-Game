@@ -19,8 +19,8 @@ public class Application {
 			FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Sky(), new Floor(), new Tree(), new Lake(), new VendingMachine());
 
 			List<String> map = Arrays.asList(
-					"................................................................................",
 					"`...............................................................................",
+					"................................................................................",
 					"................................................................................",
 					".....#######..........~.........................................................",
 					".....#_____#....................................................................",
@@ -79,17 +79,17 @@ public class Application {
 			GameMap gameMapTwo = new GameMap(groundFactory, mapTwo);
 			world.addGameMap(gameMapTwo);
 
-			/*for (int i = 0; i < gameMap.getXRange().max() + 1; i++) {
+			for (int i = 0; i < gameMap.getXRange().max() + 1; i++) {
 				// original map
 				SwitchMap originalMapGateway =
-						new SwitchMap(gameMapTwo.at(i, (gameMapTwo.getYRange().max()) - 1), " to next map");
+						new SwitchMap(gameMapTwo.at(i, (gameMapTwo.getYRange().max()) - 1));
 				gameMap.at(i, gameMap.getYRange().min()).setGround(originalMapGateway);
 
 				// second map
 				SwitchMap newMapGateway =
-						new SwitchMap(gameMap.at(i, (gameMap.getYRange().min()) + 1), " to previous map");
+						new SwitchMap(gameMap.at(i, (gameMap.getYRange().min()) + 1));
 				gameMapTwo.at(i, gameMapTwo.getYRange().max()).setGround(newMapGateway);
-			}*/
+			}
 
 
 			// Place a pair of stegosaurs in the middle of the map one
