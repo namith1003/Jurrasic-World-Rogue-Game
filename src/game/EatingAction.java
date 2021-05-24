@@ -36,6 +36,7 @@ public class EatingAction extends Action {
     public String execute(Actor actor, GameMap map) {
         List<Item> items = targetLocation.getItems();
         Ground theTile = targetLocation.getGround();
+        Actor target = targetLocation.getActor();
 
         switch (actor.toString()) {
             case "Stegosaur" -> {
@@ -76,16 +77,24 @@ public class EatingAction extends Action {
                 }
             }
             case "Allosaur" -> {
-                // Allosaur has found a food item on the map and will consume it.
-                for (Item item : items) {
-                    for (String food: actor.getDiet()){
-                        if (item.toString().equals(food)){
-                            actor.heal(item.getHealValue());
-                            map.locationOf(actor).removeItem(item);
-                            return "Allosaur has healed " + item.getHealValue();
+                if (items != null) {
+                    // Allosaur has found a food item on the map and will consume it.
+                    for (Item item : items) {
+                        for (String food: actor.getDiet()){
+                            if (item.toString().equals(food)){
+                                actor.heal(item.getHealValue());
+                                map.locationOf(actor).removeItem(item);
+                                return "Allosaur has healed " + item.getHealValue();
+                            }
                         }
                     }
                 }
+                if (target != null) {
+                    actor.heal(30);
+                    map.removeActor(target);
+                    return "Allosaur has healed 30";
+                }
+
             }
             case "Pterodactyl" -> {
 
@@ -120,9 +129,15 @@ public class EatingAction extends Action {
                     for (Item item : items) {
                         for (String food: actor.getDiet()){
                             if (item.toString().equals(food)){
-                                actor.heal(item.getHealValue());
-                                map.locationOf(actor).removeItem(item);
-                                return "Pterodactyl has healed " + item.getHealValue();
+                                if (item.toString().split(" ")[1].equals("Corpse")){
+                                    actor.heal(10);
+                                    item.setHealValue(item.getHealValue() - 10);
+                                    return "Pterodactyl has eaten a piece of corpse and healed 10";
+                                } else {
+                                    actor.heal(item.getHealValue());
+                                    map.locationOf(actor).removeItem(item);
+                                    return "Pterodactyl has healed " + item.getHealValue();
+                                }
                             }
                         }
                     }

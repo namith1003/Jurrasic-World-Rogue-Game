@@ -20,4 +20,6 @@ public interface ItemInterface {
      */
     default int getPrices(){return 0;}
 
+    default void setHealValue(int healValue) {}
+
 }

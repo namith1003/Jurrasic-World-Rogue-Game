@@ -18,7 +18,7 @@ public class Allosaur extends Dinosaur{
     /**
      * list of all the stegosaurs on the map that havent been attacked by this allosaur
      */
-    private HashMap<Integer, Stegosaur> stegosaurs = new HashMap<>();
+    private HashMap<Integer, Actor> targetDinosaurs = new HashMap<>();
     /**
      * list of all the stegosaurs that the Allosaur has attacked
      */
@@ -77,7 +77,7 @@ public class Allosaur extends Dinosaur{
     public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
         // if the allosaur is hungry it will find and attack a stegosaur
         age++;
-        stegosaurs = new HashMap<>();
+        targetDinosaurs = new HashMap<>();
         targets = new HashMap<>();
 
         boolean isHungry = isHungry(map);
@@ -123,15 +123,15 @@ public class Allosaur extends Dinosaur{
                     ArrayList<Item> items = new ArrayList<>(map.at(x, y).getItems());
 
                     // allosaur checks for stegosaur in all locations of the map
-                    if (actor != null && actor.toString().equals("Stegosaur") && !attackedStegosaurs.contains(actor) && actor.toString().equals("Pterodactyl")) {
+                    if (actor != null && ((actor.toString().equals("Stegosaur") && !attackedStegosaurs.contains(actor)) || (actor.toString().equals("Pterodactyl") && actor.hasCapability(FlyingStatus.WALKING)))) {
                         int distance = new FollowBehaviour(actor).distance(map.locationOf(actor), map.locationOf(this));
-                        stegosaurs.put(distance, (Stegosaur) actor);
+                        targetDinosaurs.put(distance, actor);
                     }
                     // allosaur checks for all of his diets food items in all the locations in the map
                     if (items.size() != 0) {
                         targetLocation = map.at(x, y);
                         for (Item item : items) {
-                            if ((item.toString().equals("Stegosaur Egg") || item.toString().equals("Brachiosaur Egg") || item.toString().equals("Allosaur Egg") || item.toString().equals("Stegosaur Corpse") || item.toString().equals("Brachiosaur Corpse") || item.toString().equals("Allosaur Corpse"))) {
+                            if ((item.toString().equals("Stegosaur Egg") || item.toString().equals("Brachiosaur Egg")|| item.toString().equals("Pterodactyl Egg") || item.toString().equals("Allosaur Egg") || item.toString().equals("Stegosaur Corpse") || item.toString().equals("Brachiosaur Corpse") || item.toString().equals("Allosaur Corpse") || item.toString().equals("Pterodactyl Corpse"))) {
                                 Location here = map.locationOf(this);
                                 int distance = new SearchBehaviour(targetLocation).distance(here, targetLocation);
                                 targets.put(distance, targetLocation);
@@ -141,25 +141,35 @@ public class Allosaur extends Dinosaur{
                 }
             }
             // if there are stegosaurs that the allosaur can feed on and no food items in the map, it takes the closest stegosaur to follow
-            if (stegosaurs.size() != 0 && targets.size() == 0) {
-                int lowestDistance = (int) stegosaurs.keySet().toArray()[0];
-                for (int keys : stegosaurs.keySet()) {
+            if (targetDinosaurs.size() != 0 && targets.size() == 0) {
+                int lowestDistance = (int) targetDinosaurs.keySet().toArray()[0];
+                for (int keys : targetDinosaurs.keySet()) {
                     if (keys < lowestDistance) {
                         lowestDistance = keys;
                     }
                 }
                 // allosaur will follow the closest stegosaur
-                if (new FollowBehaviour(stegosaurs.get(lowestDistance)).getAction(this, map) != null) {
-                    return new FollowBehaviour(stegosaurs.get(lowestDistance)).getAction(this, map);
+                if (new FollowBehaviour(targetDinosaurs.get(lowestDistance)).getAction(this, map) != null) {
+                    return new FollowBehaviour(targetDinosaurs.get(lowestDistance)).getAction(this, map);
                 }
                 // allosaur has reached the stegosaur and will attack it for hp
                 else {
                     for (Exit exits : map.locationOf(this).getExits()) {
-                        if (exits.getDestination() == map.locationOf(stegosaurs.get(lowestDistance))) {
-                            attackedStegosaurs.add(stegosaurs.get(lowestDistance));
-                            timeRemaining.add(20);
-                            heal(20);
-                            return new AttackAction(stegosaurs.remove(lowestDistance));
+                        if (exits.getDestination() == map.locationOf(targetDinosaurs.get(lowestDistance))) {
+                            if (targetDinosaurs.get(lowestDistance).toString().equals("Stegosaur")){
+                                attackedStegosaurs.add((Stegosaur) targetDinosaurs.get(lowestDistance));
+                                timeRemaining.add(20);
+                                if (isAdult) {
+                                    heal(20);
+                                } else {
+                                    heal(10);
+                                }
+                                return new AttackAction(targetDinosaurs.remove(lowestDistance));
+                            } else {
+
+                                return new EatingAction(map.locationOf(targetDinosaurs.remove(lowestDistance)));
+                            }
+
                         }
                     }
                     return new DoNothingAction();
@@ -167,7 +177,7 @@ public class Allosaur extends Dinosaur{
             }
             // if there are items on the map as a food source but no stegosaurs in the map that it hasn't attacked it will
             // find the closest food item as the food source
-            else if (targets.size() != 0 && stegosaurs.size() == 0) {
+            else if (targets.size() != 0 && targetDinosaurs.size() == 0) {
                 int lowestItemDistance = (int) targets.keySet().toArray()[0];
                 for (int keys : targets.keySet()) {
                     if (keys < lowestItemDistance) {
@@ -193,30 +203,35 @@ public class Allosaur extends Dinosaur{
                     }
                 }
 
-                int lowestDistance = (int) stegosaurs.keySet().toArray()[0];
-                for (int keys : stegosaurs.keySet()) {
+                int lowestDistance = (int) targetDinosaurs.keySet().toArray()[0];
+                for (int keys : targetDinosaurs.keySet()) {
                     if (keys < lowestDistance) {
                         lowestDistance = keys;
                     }
                 }
 
                 if (lowestDistance < lowestItemDistance) {
-                    if (new FollowBehaviour(stegosaurs.get(lowestDistance)).getAction(this, map) != null) {
-                        return new FollowBehaviour(stegosaurs.get(lowestDistance)).getAction(this, map);
+                    if (new FollowBehaviour(targetDinosaurs.get(lowestDistance)).getAction(this, map) != null) {
+                        return new FollowBehaviour(targetDinosaurs.get(lowestDistance)).getAction(this, map);
                     }
 
                     else {
                         for (Exit exits : map.locationOf(this).getExits()) {
-                            if (exits.getDestination() == map.locationOf(stegosaurs.get(lowestDistance))) {
-                                attackedStegosaurs.add(stegosaurs.get(lowestDistance));
-                                timeRemaining.add(20);
-                                if (isAdult){
-                                    heal(20);
-                                } else{
-                                    heal(10);
-                                }
+                            if (exits.getDestination() == map.locationOf(targetDinosaurs.get(lowestDistance))) {
+                                if (targetDinosaurs.get(lowestDistance).toString().equals("Stegosaur")) {
+                                    attackedStegosaurs.add((Stegosaur) targetDinosaurs.get(lowestDistance));
+                                    timeRemaining.add(20);
+                                    if (isAdult) {
+                                        heal(20);
+                                    } else {
+                                        heal(10);
+                                    }
 
-                                return new AttackAction(stegosaurs.remove(lowestDistance));
+                                    return new AttackAction(targetDinosaurs.remove(lowestDistance));
+                                } else {
+
+                                    return new EatingAction(map.locationOf(targetDinosaurs.remove(lowestDistance)));
+                                }
                             }
                         }
                         return new DoNothingAction();

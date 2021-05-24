@@ -26,10 +26,10 @@ public class Pterodactyl extends Dinosaur{
      * @param name the name of the stegosaur.
      */
     public Pterodactyl(String name) {
-        super(name, 'p', 80);
+        super(name, 'p', 10);
         maxHitPoints = 100;
         behaviour = new WanderBehaviour();
-        diet = new String[]{"Fish", "MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
+        diet = new String[]{"Fish", "MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse", "Pterodactyl Egg", "Pterodactyl Corpse"};
         hungerLevel = 80;
         pregnantTime = 15;
         maxWaterLevel = 100;
@@ -43,14 +43,15 @@ public class Pterodactyl extends Dinosaur{
      * @param gender the gender of the stegosaur
      */
     public Pterodactyl(String name, String gender){
-        super(name, 'p', 80, gender);
+        super(name, 'p', 10, gender);
         maxHitPoints = 100;
         behaviour = new WanderBehaviour();
-        diet = new String[]{"Fish", "MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
+        diet = new String[]{"Fish", "MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse", "Pterodactyl Egg", "Pterodactyl Corpse"};
         hungerLevel = 80;
         pregnantTime = 15;
         maxWaterLevel = 100;
         fuel = 30;
+
     }
 
     /**

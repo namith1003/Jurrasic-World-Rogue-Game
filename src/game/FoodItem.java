@@ -39,4 +39,8 @@ public abstract class FoodItem extends PortableItem{
         return price;
     }
 
+    @Override
+    public void setHealValue(int healValue) {
+        this.healValue = healValue;
+    }
 }

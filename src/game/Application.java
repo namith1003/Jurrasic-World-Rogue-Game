@@ -112,19 +112,6 @@ public class Application {
 			world.addPlayer(player, gameMap.at(9, 4));
 
 			world.run();
-			/*while (gameMap.locationOf(player) != null && gameMapTwo.locationOf(player) != null){
-				world.run();
-				if (mapNum == 1){
-					mapNum = 2;
-					world.addPlayer(player, gameMapTwo.at(SwitchMapAction.x, 0));
-				} else {
-					mapNum = 1;
-					world.addPlayer(player, gameMapTwo.at(SwitchMapAction.x, 24));
-				}
-			}*/
-
-
-
 		}
 	}
 }

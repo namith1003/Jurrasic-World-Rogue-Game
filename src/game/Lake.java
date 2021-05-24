@@ -53,7 +53,6 @@ public class Lake extends Ground {
     @Override
     public void tick(Location location) {
         sips += Sky.rainValue;
-        System.out.println(sips);
         fishBorn();
     }
 
