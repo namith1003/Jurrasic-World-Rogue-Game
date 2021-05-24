@@ -87,7 +87,11 @@ public class Application {
 			gameMap.at(60, 19).addActor(new Brachiosaur("Brachiosaur", "male"));
 			gameMap.at(18, 12).addActor(new Brachiosaur("Brachiosaur", "male"));
 			gameMap.at(12, 16).addActor(new Brachiosaur("Brachiosaur", "female"));
+
 			gameMap.at(48, 10).addActor(new Allosaur("Allosaur"));
+
+			gameMap.at(38, 7).addActor(new Pterodactyl("Pterodactyl", "female"));
+			gameMap.at(39, 13).addActor(new Pterodactyl("Pterodactyl", "male"));
 
 			// adding the player to map one
 			Actor player = new Player("Player", '@', 100);

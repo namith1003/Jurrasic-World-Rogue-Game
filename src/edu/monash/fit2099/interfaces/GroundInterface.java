@@ -33,4 +33,6 @@ public interface GroundInterface {
     default ArrayList<Fish> getFish() {
         return null;
     }
+
+    default Fish removeFish(){return null;}
 }

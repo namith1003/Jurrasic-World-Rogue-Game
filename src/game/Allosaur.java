@@ -131,7 +131,7 @@ public class Allosaur extends Dinosaur{
                     if (items.size() != 0) {
                         targetLocation = map.at(x, y);
                         for (Item item : items) {
-                            if (item.toString().equals("Stegosaur Egg") || item.toString().equals("Brachiosaur Egg") || item.toString().equals("Allosaur Egg") || item.toString().equals("Stegosaur Corpse") || item.toString().equals("Brachiosaur Corpse") || item.toString().equals("Allosaur Corpse")) {
+                            if ((item.toString().equals("Stegosaur Egg") || item.toString().equals("Brachiosaur Egg") || item.toString().equals("Allosaur Egg") || item.toString().equals("Stegosaur Corpse") || item.toString().equals("Brachiosaur Corpse") || item.toString().equals("Allosaur Corpse"))) {
                                 Location here = map.locationOf(this);
                                 int distance = new SearchBehaviour(targetLocation).distance(here, targetLocation);
                                 targets.put(distance, targetLocation);

@@ -3,6 +3,7 @@ package game;
 import edu.monash.fit2099.engine.*;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  * the class for the action for the dinosaurs to eat food that they have found, it will remove the fruit or food item
@@ -40,7 +41,7 @@ public class EatingAction extends Action {
             case "Stegosaur" -> {
 
                 // stegosaur searches the fruits on the bush that it has found and eats one
-                if (theTile.getFruits() != null) {
+                if (theTile.getFruits() != null ) {
                     if (theTile.getFruits().size() != 0) {
 
                         FoodItem theFood = theTile.removeFruit();
@@ -86,6 +87,43 @@ public class EatingAction extends Action {
                     }
                 }
             }
+            case "Pterodactyl" -> {
+
+                // Pterodactyl searches for a lake with fish in it and eats randomly 0, 1 or 2 fish
+                // while flying over the lake and also drinks a sip of the lake while doing so.
+                if (theTile.getFish() != null) {
+                    if (theTile.getFish().size() != 0) {
+                        int numberOfFish = new Random().nextInt(3);
+                        int totalHeal = 0;
+
+                        for (int i = 1; i <= numberOfFish; i++) {
+                            FoodItem theFood = theTile.removeFish();
+                            actor.heal(theFood.getHealValue());
+
+                            if(theTile.getSips() != 0) {
+                                theTile.removeSip();
+                                actor.drink(30);
+                            }
+
+                            totalHeal += theFood.getHealValue();
+                            map.locationOf(actor).removeItem(theFood);
+                        }
+                        return "Pterodactyl has healed " + totalHeal;
+                    }
+                } else {
+                    // Pterodactyl has found a food item on the map that's in its diet and will consume it.
+                    for (Item item : items) {
+                        for (String food: actor.getDiet()){
+                            if (item.toString().equals(food)){
+                                actor.heal(item.getHealValue());
+                                map.locationOf(actor).removeItem(item);
+                                return "Pterodactyl has healed " + item.getHealValue();
+                            }
+                        }
+                    }
+                }
+            }
+
         }
         return "Invalid Actor";
     }

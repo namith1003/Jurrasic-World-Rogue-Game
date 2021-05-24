@@ -29,7 +29,7 @@ public class Pterodactyl extends Dinosaur{
         super(name, 'p', 80);
         maxHitPoints = 100;
         behaviour = new WanderBehaviour();
-        diet = new String[]{"Fish", "Corpses", "MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
+        diet = new String[]{"Fish", "MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
         hungerLevel = 80;
         pregnantTime = 15;
         maxWaterLevel = 100;
@@ -46,7 +46,7 @@ public class Pterodactyl extends Dinosaur{
         super(name, 'p', 80, gender);
         maxHitPoints = 100;
         behaviour = new WanderBehaviour();
-        diet = new String[]{"Fish", "Corpses", "MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
+        diet = new String[]{"Fish", "MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
         hungerLevel = 80;
         pregnantTime = 15;
         maxWaterLevel = 100;

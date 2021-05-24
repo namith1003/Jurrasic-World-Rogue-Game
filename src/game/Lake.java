@@ -85,6 +85,7 @@ public class Lake extends Ground {
         return new Actions(new FishAction(this));
     }
 
+    @Override
     public Fish removeFish(){
         // remove last fish in the array list for efficiency when shuffling
         return fish.remove(fish.size() - 1);

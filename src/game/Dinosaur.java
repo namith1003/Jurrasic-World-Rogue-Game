@@ -184,6 +184,7 @@ public class Dinosaur extends Actor {
      * @param map the map the dinosaurs are on
      * @return boolean of whether the dinosaur is hungry
      */
+    @Override
     public boolean isHungry(GameMap map){
         Display display = new Display();
         if (hitPoints >= hungerLevel){
@@ -449,5 +450,6 @@ public class Dinosaur extends Actor {
     @Override
     public void drink(int waterValue){
         this.waterLevel += waterValue;
+        this.waterLevel = Math.min(this.waterLevel, this.maxWaterLevel);
     }
 }

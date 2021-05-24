@@ -134,6 +134,8 @@ public interface ActorInterface {
 
     default boolean isThirsty(GameMap map){return false;}
 
+    default boolean isHungry(GameMap map){return false;}
+
     default Action findLake(GameMap map, Location targetLocation){
         return null;
     }
@@ -145,4 +147,5 @@ public interface ActorInterface {
     default int getFuel() {return 0;}
 
     default void setFuel(int fuel) {}
+
 }

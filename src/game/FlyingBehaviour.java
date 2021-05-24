@@ -18,7 +18,7 @@ public class FlyingBehaviour implements Behaviour{
             actor.addCapability(FlyingStatus.ON_TREE);
             actor.setFuel(30);
         }
-        if (actor.getFuel() > 0) {
+        if (actor.getFuel() > 0 && (actor.isThirsty(map) || actor.isHungry(map))) {
             actor.removeCapability(FlyingStatus.ON_TREE);
             actor.removeCapability(FlyingStatus.WALKING);
             actor.addCapability(FlyingStatus.CAN_FLY);
