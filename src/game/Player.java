@@ -2,6 +2,8 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
+import java.util.Scanner;
+
 /**
  * Class representing the Player.
  */
@@ -13,6 +15,7 @@ public class Player extends Actor {
 	private int numberOfTurns = 0;
 	private int targetPoints = 0;
 	private int targetTurns = 0;
+	private Scanner keyboard = new Scanner(System.in);
 
 	/**
 	 * Constructor.
@@ -82,13 +85,13 @@ public class Player extends Actor {
 							------------------------------------
 							Insert Target Points to reach:
 							        """);
-					targetPoints = 1000; // change to be able to dynamically entered by the player
+					targetPoints = keyboard.nextInt();
 
 					display.println("""
 							Insert Number of Turns to reach Target Points:
 							        """);
 
-					targetTurns = 20; // change to be able to dynamically entered by the player
+					targetTurns = keyboard.nextInt();
 				}
 
 				if (gameMode == 3) {
@@ -96,25 +99,7 @@ public class Player extends Actor {
 				}
 			}
 
-			numberOfTurns++;
-
 			if (gameMode == 1) {
-				if (numberOfTurns > targetTurns) {
-					display.println("""
-							------------------------------------
-							You have failed to Complete the Challenge in the predicted Number of Turns!
-							Target Points: """ + targetPoints + """
-							
-							Number of Turns Passed: """ + numberOfTurns + """
-														
-							Points Reached: """ + Player.points.getPoints() + """
-														
-							You May Retry Or Try Another Game Mode
-							------------------------------------
-							""");
-					gameMode = 0;
-					continue;
-				}
 				if (Player.points.getPoints() > targetPoints) {
 					display.println("""
 							------------------------------------
@@ -134,8 +119,24 @@ public class Player extends Actor {
 					gameMode = 0;
 					continue;
 				}
-
+				if (numberOfTurns == targetTurns) {
+					display.println("""
+							------------------------------------
+							You have failed to Complete the Challenge in the predicted Number of Turns!
+							Target Points: """ + targetPoints + """
+							
+							Number of Turns Passed: """ + numberOfTurns + """
+														
+							Points Reached: """ + Player.points.getPoints() + """
+														
+							You May Retry Or Try Another Game Mode
+							------------------------------------
+							""");
+					gameMode = 0;
+					continue;
+				}
 			}
+			numberOfTurns++;
 
 			actions.add(new QuitGameAction(false));
 			// Handle multi-turn Actions
