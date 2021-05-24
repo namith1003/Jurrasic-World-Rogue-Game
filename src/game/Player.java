@@ -137,7 +137,6 @@ public class Player extends Actor {
 
 			}
 
-			actions.add(new SwitchMapAction(map));
 			actions.add(new QuitGameAction(false));
 			// Handle multi-turn Actions
 			if (lastAction.getNextAction() != null)

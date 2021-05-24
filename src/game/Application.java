@@ -19,6 +19,7 @@ public class Application {
 			FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Sky(), new Floor(), new Tree(), new Lake(), new VendingMachine());
 
 			List<String> map = Arrays.asList(
+					"................................................................................",
 					"`...............................................................................",
 					"................................................................................",
 					".....#######..........~.........................................................",
@@ -73,9 +74,22 @@ public class Application {
 					"..........++++++++++++++++++....................................#######.........",
 					"................................................................._____#.........",
 					".....................~.........................................V#_____#.........",
-					"................................................................#######.........");
+					"................................................................#######.........",
+			        "................................................................................");
 			GameMap gameMapTwo = new GameMap(groundFactory, mapTwo);
 			world.addGameMap(gameMapTwo);
+
+			/*for (int i = 0; i < gameMap.getXRange().max() + 1; i++) {
+				// original map
+				SwitchMap originalMapGateway =
+						new SwitchMap(gameMapTwo.at(i, (gameMapTwo.getYRange().max()) - 1), " to next map");
+				gameMap.at(i, gameMap.getYRange().min()).setGround(originalMapGateway);
+
+				// second map
+				SwitchMap newMapGateway =
+						new SwitchMap(gameMap.at(i, (gameMap.getYRange().min()) + 1), " to previous map");
+				gameMapTwo.at(i, gameMapTwo.getYRange().max()).setGround(newMapGateway);
+			}*/
 
 
 			// Place a pair of stegosaurs in the middle of the map one
@@ -90,8 +104,8 @@ public class Application {
 
 			gameMap.at(48, 10).addActor(new Allosaur("Allosaur"));
 
-			gameMap.at(38, 7).addActor(new Pterodactyl("Pterodactyl", "female"));
-			gameMap.at(39, 13).addActor(new Pterodactyl("Pterodactyl", "male"));
+			gameMap.at(37, 7).addActor(new Pterodactyl("Pterodactyl", "female"));
+			gameMap.at(41, 7).addActor(new Pterodactyl("Pterodactyl", "male"));
 
 			// adding the player to map one
 			Actor player = new Player("Player", '@', 100);
@@ -108,6 +122,9 @@ public class Application {
 					world.addPlayer(player, gameMapTwo.at(SwitchMapAction.x, 24));
 				}
 			}*/
+
+
+
 		}
 	}
 }
