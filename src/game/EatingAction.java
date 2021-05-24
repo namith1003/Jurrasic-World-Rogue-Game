@@ -93,14 +93,19 @@ public class EatingAction extends Action {
                 // while flying over the lake and also drinks a sip of the lake while doing so.
                 if (theTile.getFish() != null) {
                     if (theTile.getFish().size() != 0) {
-                        int numberOfFish = new Random().nextInt(3);
+                        int numberOfFish = 0;
+                        if (theTile.getFish().size() > 1) {
+                            numberOfFish = new Random().nextInt(3);
+                        } else if (theTile.getFish().size() == 1) {
+                            numberOfFish = new Random().nextInt(2);
+                        }
                         int totalHeal = 0;
 
                         for (int i = 1; i <= numberOfFish; i++) {
                             FoodItem theFood = theTile.removeFish();
                             actor.heal(theFood.getHealValue());
 
-                            if(theTile.getSips() != 0) {
+                            if (theTile.getSips() != 0) {
                                 theTile.removeSip();
                                 actor.drink(30);
                             }

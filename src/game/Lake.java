@@ -53,6 +53,7 @@ public class Lake extends Ground {
     @Override
     public void tick(Location location) {
         sips += Sky.rainValue;
+        System.out.println(sips);
         fishBorn();
     }
 
@@ -60,7 +61,7 @@ public class Lake extends Ground {
      * creates a fish in the lake with a 60% chance of one being born every turn
      */
     public void fishBorn(){
-        if (fish.size() <= 25) {
+        if (fish.size() < 24) {
             if (new Random().nextInt(5) <= 2) {
                 fish.add(new Fish("Fish"));
             }
@@ -88,7 +89,10 @@ public class Lake extends Ground {
     @Override
     public Fish removeFish(){
         // remove last fish in the array list for efficiency when shuffling
-        return fish.remove(fish.size() - 1);
+        if (fish.size() != 0) {
+            return fish.remove(fish.size() - 1);
+        }
+        return null;
     }
 
     @Override
