@@ -17,6 +17,8 @@ public class Pterodactyl extends Dinosaur{
      */
     private HashMap<Integer, Location> food = new HashMap<>();
 
+    private int fuel;
+
 
     /**
      * The constructor to create stegosaurs, they will be creates as babies, represented by 's' and
@@ -24,13 +26,14 @@ public class Pterodactyl extends Dinosaur{
      * @param name the name of the stegosaur.
      */
     public Pterodactyl(String name) {
-        super(name, 'p', 10);
+        super(name, 'p', 80);
         maxHitPoints = 100;
         behaviour = new WanderBehaviour();
         diet = new String[]{"Fish", "Corpses", "MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
         hungerLevel = 80;
         pregnantTime = 15;
         maxWaterLevel = 100;
+        fuel = 30;
     }
 
     /**
@@ -40,13 +43,14 @@ public class Pterodactyl extends Dinosaur{
      * @param gender the gender of the stegosaur
      */
     public Pterodactyl(String name, String gender){
-        super(name, 'p', 10, gender);
+        super(name, 'p', 80, gender);
         maxHitPoints = 100;
         behaviour = new WanderBehaviour();
         diet = new String[]{"Fish", "Corpses", "MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse"};
         hungerLevel = 80;
         pregnantTime = 15;
         maxWaterLevel = 100;
+        fuel = 30;
     }
 
     /**
@@ -68,19 +72,25 @@ public class Pterodactyl extends Dinosaur{
 
         drinkRain();
 
-        // checks if the stegosaur is unconscious and bout to die
+        // checks if the Pterodactyl is unconscious and bout to die
         Action death = dies(map);
         if (death != null) {
             return death;
         }
 
-        // checks if the stegosaur has been there for the right amount of turns for it to turn into an adult
+        // checks if the Pterodactyl has been there for the right amount of turns for it to turn into an adult
         Action grow = grows(map);
         if (grow != null){
             return grow;
         }
 
-        // checks if the brachiosaur is thirsty and it will try to find the closest lake to drink if it is.
+        // checks if the Pterodactyl has been there for the right amount of turns for it to turn into an adult
+        Action fly = flies(map);
+        if (fly != null){
+            return fly;
+        }
+
+        // checks if the Pterodactyl is thirsty and it will try to find the closest lake to drink if it is.
         Action drink = drinks(map);
         if (drink != null){
             return drink;
@@ -99,7 +109,7 @@ public class Pterodactyl extends Dinosaur{
                         if (lakes.getDisplayChar() == '~') {
                             if (lakes.getFish().size() != 0) {
                                 Location here = map.locationOf(this);
-                                int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
+                                int distance = new SearchBehaviour(targetLocation).distance(here, targetLocation);
                                 targets.put(distance, targetLocation);
                             }
                         }
@@ -112,7 +122,7 @@ public class Pterodactyl extends Dinosaur{
                             for (String foodItem: this.getDiet()) {
                                 if (item.toString().equals(foodItem)) {
                                     Location here = map.locationOf(this);
-                                    int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
+                                    int distance = new SearchBehaviour(targetLocation).distance(here, targetLocation);
                                     food.put(distance, targetLocation);
                                 }
                             }
@@ -131,7 +141,7 @@ public class Pterodactyl extends Dinosaur{
 
                 if (lowestItemDistance > 0) {
                     targetLocation = targets.get(lowestItemDistance);
-                    return new HungryBehaviour(targetLocation).getAction(this, map);
+                    return new SearchBehaviour(targetLocation).getAction(this, map);
                 } else {
                     targetLocation = targets.get(lowestItemDistance);
                     return new EatingAction(targetLocation);
@@ -146,7 +156,7 @@ public class Pterodactyl extends Dinosaur{
 
                 if (lowestItemDistance > 0) {
                     targetLocation = food.get(lowestItemDistance);
-                    return new HungryBehaviour(targetLocation).getAction(this, map);
+                    return new SearchBehaviour(targetLocation).getAction(this, map);
                 } else {
                     targetLocation = food.get(lowestItemDistance);
                     return new EatingAction(targetLocation);
@@ -170,7 +180,7 @@ public class Pterodactyl extends Dinosaur{
                 if (lowestDistance < lowestItemDistance) {
                     if (lowestDistance > 0) {
                         targetLocation = food.get(lowestDistance);
-                        return new HungryBehaviour(targetLocation).getAction(this, map);
+                        return new SearchBehaviour(targetLocation).getAction(this, map);
                     } else {
                         targetLocation = food.get(lowestDistance);
                         return new EatingAction(targetLocation);
@@ -186,18 +196,24 @@ public class Pterodactyl extends Dinosaur{
                     }
                 }
             }
-        } // if dinosaur is not hungry it will find a partner to breed with.
+        } // if Pterodactyl is not hungry it will find a partner to breed with, but only if its on a tree.
         else {
-            Action breed = breeding(map);
-            if (breed != null){
-                return breed;
+            char treeChar = map.locationOf(this).getGround().getDisplayChar();
+            if (treeChar == '+' || treeChar == 't' || treeChar == 'T') {
+                Action breed = breeding(map);
+                if (breed != null) {
+                    return breed;
+                }
             }
         }
 
-        // checks if the brachiosaur meets the conditions to lay an egg and if yes lays it
-        Action layEgg = layEgg(map);
-        if (layEgg != null){
-            return layEgg;
+        // checks if the Pterodactyl meets the conditions to lay an egg and if yes lays it, it should also be on a tree
+        char treeChar = map.locationOf(this).getGround().getDisplayChar();
+        if (treeChar == '+' || treeChar == 't' || treeChar == 'T') {
+            Action layEgg = layEgg(map);
+            if (layEgg != null) {
+                return layEgg;
+            }
         }
 
         Action wander = behaviour.getAction(this, map);
@@ -207,4 +223,13 @@ public class Pterodactyl extends Dinosaur{
         return new DoNothingAction();
     }
 
+    @Override
+    public int getFuel() {
+        return fuel;
+    }
+
+    @Override
+    public void setFuel(int fuel) {
+        this.fuel = fuel;
+    }
 }

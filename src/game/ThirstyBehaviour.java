@@ -22,7 +22,7 @@ public class ThirstyBehaviour implements Behaviour{
                             Lake lake = (Lake) lakes;
                             if (lake.getSips() != 0) {
                                 Location here = map.locationOf(actor);
-                                int distance = new HungryBehaviour(waterLocation).distance(here, waterLocation);
+                                int distance = new SearchBehaviour(waterLocation).distance(here, waterLocation);
                                 lakeTargets.put(distance, waterLocation);
                             }
                         }

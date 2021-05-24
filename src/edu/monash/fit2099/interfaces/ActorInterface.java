@@ -141,4 +141,8 @@ public interface ActorInterface {
     default void drink(int waterValue){
         return;
     }
+
+    default int getFuel() {return 0;}
+
+    default void setFuel(int fuel) {}
 }

@@ -10,10 +10,10 @@ import java.util.List;
  *
  */
 public class Application {
+	static int mapNum = 2;
 
 	public static void main(String[] args) {
 		while (!QuitGameAction.gameOver) {
-			int mapNum = 2;
 			World world = new World(new Display());
 
 			FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Sky(), new Floor(), new Tree(), new Lake(), new VendingMachine());
@@ -93,7 +93,8 @@ public class Application {
 			Actor player = new Player("Player", '@', 100);
 			world.addPlayer(player, gameMap.at(9, 4));
 
-			while (gameMap.locationOf(player) != null && gameMapTwo.locationOf(player) != null){
+			world.run();
+			/*while (gameMap.locationOf(player) != null && gameMapTwo.locationOf(player) != null){
 				world.run();
 				if (mapNum == 1){
 					mapNum = 2;
@@ -102,7 +103,7 @@ public class Application {
 					mapNum = 1;
 					world.addPlayer(player, gameMapTwo.at(SwitchMapAction.x, 24));
 				}
-			}
+			}*/
 		}
 	}
 }

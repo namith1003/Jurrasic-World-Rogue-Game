@@ -81,7 +81,6 @@ public class Allosaur extends Dinosaur{
         targets = new HashMap<>();
 
         boolean isHungry = isHungry(map);
-        boolean isThirsty = isThirsty(map);
 
         drinkRain();
 
@@ -124,7 +123,7 @@ public class Allosaur extends Dinosaur{
                     ArrayList<Item> items = new ArrayList<>(map.at(x, y).getItems());
 
                     // allosaur checks for stegosaur in all locations of the map
-                    if (actor != null && actor.toString().equals("Stegosaur") && !attackedStegosaurs.contains(actor)) {
+                    if (actor != null && actor.toString().equals("Stegosaur") && !attackedStegosaurs.contains(actor) && actor.toString().equals("Pterodactyl")) {
                         int distance = new FollowBehaviour(actor).distance(map.locationOf(actor), map.locationOf(this));
                         stegosaurs.put(distance, (Stegosaur) actor);
                     }
@@ -134,7 +133,7 @@ public class Allosaur extends Dinosaur{
                         for (Item item : items) {
                             if (item.toString().equals("Stegosaur Egg") || item.toString().equals("Brachiosaur Egg") || item.toString().equals("Allosaur Egg") || item.toString().equals("Stegosaur Corpse") || item.toString().equals("Brachiosaur Corpse") || item.toString().equals("Allosaur Corpse")) {
                                 Location here = map.locationOf(this);
-                                int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
+                                int distance = new SearchBehaviour(targetLocation).distance(here, targetLocation);
                                 targets.put(distance, targetLocation);
                             }
                         }
@@ -178,7 +177,7 @@ public class Allosaur extends Dinosaur{
 
                 if (lowestItemDistance > 0) {
                     targetLocation = targets.get(lowestItemDistance);
-                    return new HungryBehaviour(targetLocation).getAction(this, map);
+                    return new SearchBehaviour(targetLocation).getAction(this, map);
                 } else {
                     targetLocation = targets.get(lowestItemDistance);
                     return new EatingAction(targetLocation);

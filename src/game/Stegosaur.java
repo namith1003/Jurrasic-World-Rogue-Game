@@ -105,7 +105,7 @@ public class Stegosaur extends Dinosaur {
 						if (bushes.getDisplayChar() == '*') {
 							if (bushes.getFruits().size() != 0) {
 								Location here = map.locationOf(this);
-								int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
+								int distance = new SearchBehaviour(targetLocation).distance(here, targetLocation);
 								targets.put(distance, targetLocation);
 							}
 						}
@@ -117,7 +117,7 @@ public class Stegosaur extends Dinosaur {
 						for (Item item : items) {
 							if (item.toString().equals("Fruit")) {
 								Location here = map.locationOf(this);
-								int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
+								int distance = new SearchBehaviour(targetLocation).distance(here, targetLocation);
 								food.put(distance, targetLocation);
 							}
 						}
@@ -135,7 +135,7 @@ public class Stegosaur extends Dinosaur {
 
 				if (lowestItemDistance > 0) {
 					targetLocation = targets.get(lowestItemDistance);
-					return new HungryBehaviour(targetLocation).getAction(this, map);
+					return new SearchBehaviour(targetLocation).getAction(this, map);
 				} else {
 					targetLocation = targets.get(lowestItemDistance);
 					return new EatingAction(targetLocation);
@@ -150,7 +150,7 @@ public class Stegosaur extends Dinosaur {
 
 				if (lowestItemDistance > 0) {
 					targetLocation = food.get(lowestItemDistance);
-					return new HungryBehaviour(targetLocation).getAction(this, map);
+					return new SearchBehaviour(targetLocation).getAction(this, map);
 				} else {
 					targetLocation = food.get(lowestItemDistance);
 					return new EatingAction(targetLocation);
@@ -174,7 +174,7 @@ public class Stegosaur extends Dinosaur {
 				if (lowestDistance < lowestItemDistance) {
 					if (lowestDistance > 0) {
 						targetLocation = food.get(lowestDistance);
-						return new HungryBehaviour(targetLocation).getAction(this, map);
+						return new SearchBehaviour(targetLocation).getAction(this, map);
 					} else {
 						targetLocation = food.get(lowestDistance);
 						return new EatingAction(targetLocation);

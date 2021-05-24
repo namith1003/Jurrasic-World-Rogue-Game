@@ -405,6 +405,12 @@ public class Dinosaur extends Actor {
         return new BreedingBehaviour().getAction(this, map);
     }
 
+    public Action flies(GameMap map){
+        return new FlyingBehaviour().getAction(this, map);
+    }
+
+
+
     /**
      * calls the required behaviours of the dinosaur for it to find Food, the behaviour checks all the attributes of the
      * dinosaur and whether or not the requirements for it to find Food are met, and returns the action for the dinosaur
@@ -414,7 +420,7 @@ public class Dinosaur extends Actor {
      * @return the action for the dinosaur to find Food
      */
     public Action findFood(GameMap map, Location targetLocation){
-        return new HungryBehaviour(targetLocation).getAction(this, map);
+        return new SearchBehaviour(targetLocation).getAction(this, map);
     }
 
     public Action drinks(GameMap map){
@@ -423,7 +429,7 @@ public class Dinosaur extends Actor {
 
     @Override
     public Action findLake(GameMap map, Location targetLocation){
-        return new HungryBehaviour(targetLocation).getAction(this, map);
+        return new SearchBehaviour(targetLocation).getAction(this, map);
     }
 
     public boolean isConsciousThirst() {

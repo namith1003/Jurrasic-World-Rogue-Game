@@ -101,7 +101,7 @@ public class Brachiosaur extends Dinosaur{
                             Tree tree = (Tree) trees;
                             if (tree.getFruits().size() != 0) {
                                 Location here = map.locationOf(this);
-                                int distance = new HungryBehaviour(targetLocation).distance(here, targetLocation);
+                                int distance = new SearchBehaviour(targetLocation).distance(here, targetLocation);
                                 targets.put(distance, targetLocation);
                             }
                         }

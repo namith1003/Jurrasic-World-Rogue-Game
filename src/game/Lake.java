@@ -102,6 +102,6 @@ public class Lake extends Ground {
      */
     @Override
     public boolean canActorEnter(Actor actor) {
-        return actor.toString().equals("Player") || actor.toString().equals("Pterodactyl");
+        return actor.toString().equals("Player") || actor.hasCapability(FlyingStatus.CAN_FLY);
     }
 }

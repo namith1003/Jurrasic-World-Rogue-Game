@@ -8,7 +8,7 @@ import java.util.HashMap;
  * A class that figures out a MoveAction that will move the actor one step
  * closer to a target Actor.
  */
-public class HungryBehaviour implements Behaviour {
+public class SearchBehaviour implements Behaviour {
 
     /**
      * A HashMap to store the targets
@@ -23,7 +23,7 @@ public class HungryBehaviour implements Behaviour {
      * The constructor for HungryBehaviour
      * @param target The target to attack
      */
-    public HungryBehaviour(Location target) {
+    public SearchBehaviour(Location target) {
         this.targetLocation = target;
     }
 
