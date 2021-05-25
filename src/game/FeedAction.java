@@ -2,6 +2,7 @@ package game;
 
 import edu.monash.fit2099.engine.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -23,15 +24,56 @@ public class FeedAction extends Action {
      */
     HashMap<String, Integer> food = new HashMap();
 
+    /**
+     * the array list of all the characters the player can enter
+     */
+    ArrayList<Character> chars = new ArrayList<>();
+
+
+    /**
+     * counter for number of stegosaur eggs the player has in his inventory
+     */
     int sEggCounter = 0;
+    /**
+     * counter for number of Brachiosaur eggs the player has in his inventory
+     */
     int bEggCounter = 0;
+    /**
+     * counter for number of allosaur eggs the player has in his inventory
+     */
     int aEggCounter = 0;
+    /**
+     * counter for number of pterodactyl eggs the player has in his inventory
+     */
+    int pEggCounter = 0;
+    /**
+     * counter for number of fruits the player has in his inventory
+     */
     int fruitCounter = 0;
+    /**
+     * counter for number of vegetarian meal kits the player has in his inventory
+     */
     int vegeCounter = 0;
+    /**
+     * counter for number of Carnivorous meal kits the player has in his inventory
+     */
     int meatCounter = 0;
+    /**
+     * counter for number of stegosaur corpse the player has in his inventory
+     */
     int sCorpseCounter = 0;
+    /**
+     * counter for number of Brachiosaur corpse the player has in his inventory
+     */
     int bCorpseCounter = 0;
+    /**
+     * counter for number of allosaur corpse the player has in his inventory
+     */
     int aCorpseCounter = 0;
+    /**
+     * counter for number of pterodactyl corpse the player has in his inventory
+     */
+    int pCorpseCounter = 0;
 
     /**
      * the constructor for the FeedAction class which saves the target actor the player will feed.
@@ -46,12 +88,14 @@ public class FeedAction extends Action {
         food.put("Stegosaur Egg", 0);
         food.put("Brachiosaur Egg", 0);
         food.put("Allosaur Egg", 0);
+        food.put("Pterodactyl Egg", 0);
         food.put("Fruit", 0);
         food.put("VegeMealKit", 0);
         food.put("MeatMealKit", 0);
         food.put("Stegosaur Corpse", 0);
         food.put("Allosaur Corpse", 0);
         food.put("Brachiosaur Corpse", 0);
+        food.put("Pterodactyl Corpse", 0);
 
         while (true) {
             for (Item items: actor.getInventory()){
@@ -67,6 +111,10 @@ public class FeedAction extends Action {
                     case "Allosaur Egg" -> {
                         aEggCounter++;
                         food.put("Allosaur Egg", aEggCounter);
+                    }
+                    case "Pterodactyl Egg" -> {
+                        pEggCounter++;
+                        food.put("Pterodactyl Egg", pEggCounter);
                     }
                     case "Fruit" -> {
                         fruitCounter++;
@@ -92,6 +140,11 @@ public class FeedAction extends Action {
                         bCorpseCounter++;
                         food.put("Brachiosaur Corpse", bCorpseCounter);
                     }
+                    case "Pterodactyl Corpse" -> {
+                        pCorpseCounter++;
+                        food.put("Pterodactyl Corpse", pCorpseCounter);
+                    }
+
                 }
             }
             display.println("""
@@ -100,94 +153,120 @@ public class FeedAction extends Action {
                     Enter 'e' to not feed anything """ +
                     "\nYour Food Items in inventory: ");
 
-            display.println("1) Fruit X " + food.get("Fruit") +
-                    "\n2) Vegetarian Meal Kit X " + food.get("VegeMealKit")  +
-                    "\n3) Carnivorous Meal Kit X " + food.get("MeatMealKit")  +
-                    "\n4) Stegosaur Egg X " + food.get("Stegosaur Egg")  +
-                    "\n5) Brachiosaur Egg X " + food.get("Brachiosaur Egg")  +
-                    "\n6) Allosaur Egg X " + food.get("Allosaur Egg")  +
-                    "\n7) Stegosaur Corpse X " + food.get("Stegosaur Corpse")  +
-                    "\n8) Brachiosaur Corpse X " + food.get("Brachiosaur Corpse")  +
-                    "\n9) Allosaur Corpse X " + food.get("Allosaur Corpse") +
-                    "\ne) Do not feed");
+            display.println("a) Fruit X " + food.get("Fruit") +
+                    "\nb) Vegetarian Meal Kit X " + food.get("VegeMealKit")  +
+                    "\nc) Carnivorous Meal Kit X " + food.get("MeatMealKit")  +
+                    "\nd) Stegosaur Egg X " + food.get("Stegosaur Egg")  +
+                    "\ne) Brachiosaur Egg X " + food.get("Brachiosaur Egg")  +
+                    "\nf) Pterodactyl Egg X " + food.get("Pterodactyl Egg")  +
+                    "\ng) Allosaur Egg X " + food.get("Allosaur Egg")  +
+                    "\nh) Stegosaur Corpse X " + food.get("Stegosaur Corpse")  +
+                    "\ni) Brachiosaur Corpse X " + food.get("Brachiosaur Corpse")  +
+                    "\nj) Allosaur Corpse X " + food.get("Allosaur Corpse") +
+                    "\nk) Pterodactyl Corpse X " + food.get("Pterodactyl Corpse") +
+                    "\n1) Do not feed");
 
             display.println("\nInsert item number here: ");
 
-            char choiceChar = display.readChar();
+            chars.add('a');
+            chars.add('b');
+            chars.add('c');
+            chars.add('d');
+            chars.add('e');
+            chars.add('f');
+            chars.add('g');
+            chars.add('h');
+            chars.add('i');
+            chars.add('j');
+            chars.add('k');
 
-            if (choiceChar == 'e'){
-                return "You've decided not to feed anything.";
-            }
+            char choiceChar = display.readChar();
             int choice = Character.getNumericValue(choiceChar);
 
-            String selectedItem = "";
-            if (choice == 10) {
+            if (choice == 1){
                 return "You've decided not to feed anything.";
             }
-            else if (choice>=1 && choice<=9) {
-                switch (choice){
-                    case 1 -> {
+
+            String selectedItem = "";
+
+           if (chars.contains(choiceChar)) {
+                switch (choiceChar){
+                    case 'a' -> {
                         if (food.get("Fruit") == 0){
                             display.println("You do not have any Fruits to feed");
                             continue;
                         }
                         selectedItem = "Fruit";
                     }
-                    case 2 -> {
+                    case 'b' -> {
                         if (food.get("VegeMealKit") == 0){
                             display.println("You do not have any Vegetarian meal kits to feed");
                             continue;
                         }
                         selectedItem = "VegeMealKit";
                     }
-                    case 3 -> {
+                    case 'c' -> {
                         if (food.get("MeatMealKit") == 0){
                             display.println("You do not have any Carnivorous meal kits to feed");
                             continue;
                         }
                         selectedItem = "MeatMealKit";
                     }
-                    case 4 -> {
+                    case 'd' -> {
                         if (food.get("Stegosaur Egg") == 0){
                             display.println("you do not have any Stegosaur Eggs to feed");
                             continue;
                         }
                         selectedItem = "Stegosaur Egg";
                     }
-                    case 5 -> {
+                    case 'e' -> {
                         if (food.get("Brachiosaur Egg") == 0){
                             display.println("you do not have any Brachiosaur Eggs to feed");
                             continue;
                         }
                         selectedItem = "Brachiosaur Egg";
                     }
-                    case 6 -> {
+                    case 'f' -> {
+                        if (food.get("Pterodactyl Egg") == 0){
+                            display.println("you do not have any Pterodactyl Eggs to feed");
+                            continue;
+                        }
+                        selectedItem = "Pterodactyl Egg";
+                    }
+                    case 'g' -> {
                         if (food.get("Allosaur Egg") == 0){
                             display.println("you do not have any Allosaur Eggs to feed");
                             continue;
                         }
                         selectedItem = "Allosaur Egg";
                     }
-                    case 7 -> {
+                    case 'h' -> {
                         if (food.get("Stegosaur Corpse") == 0){
                             display.println("you do not have any Stegosaur Corpses to feed");
                             continue;
                         }
                         selectedItem = "Stegosaur Corpse";
                     }
-                    case 8 -> {
+                    case 'i' -> {
                         if (food.get("Brachiosaur Corpse") == 0){
                             display.println("you do not have any Brachiosaur Corpses to feed");
                             continue;
                         }
                         selectedItem = "Brachiosaur Corpse";
                     }
-                    case 9 -> {
+                    case 'j' -> {
                         if (food.get("Allosaur Corpse") == 0){
                             display.println("you do not have any Allosaur Corpses to feed");
                             continue;
                         }
                         selectedItem = "Allosaur Corpse";
+                    }
+                    case 'k' -> {
+                        if (food.get("Pterodactyl Corpse") == 0){
+                            display.println("you do not have any Pterodactyl Corpses to feed");
+                            continue;
+                        }
+                        selectedItem = "Pterodactyl Corpse";
                     }
                 }
             }

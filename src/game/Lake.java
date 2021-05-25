@@ -67,24 +67,47 @@ public class Lake extends Ground {
         }
     }
 
+    /**
+     * returns the number of sips left in the lake
+     * @return the number of sips left in the lake
+     */
     @Override
     public int getSips() {
         return sips;
     }
 
+    /**
+     * sets the new number of sips for the lake
+     * @param sips the new number of sips for the lake
+     */
     public void setSips(int sips) {
         this.sips = sips;
     }
 
+    /**
+     * remove a sip from the lake, usually used when a dinosaur drinks from the lake
+     */
     public void removeSip(){
         this.sips --;
     }
 
+    /**
+     * Allows the player to interact with this lake and use the fish action on it once it is next to the lake
+     * @param actor the Actor acting
+     * @param location the current Location
+     * @param direction the direction of the Ground from the Actor
+     * @return the actions the user can do to this lake
+     */
     @Override
     public Actions allowableActions(Actor actor, Location location, String direction) {
         return new Actions(new FishAction(this));
     }
 
+    /**
+     * remove a fish from this lake, usually when a dinosaur eats a fish or the player fishes
+     * in the lake
+     * @return the fish that was removed from the lake
+     */
     @Override
     public Fish removeFish(){
         // remove last fish in the array list for efficiency when shuffling
@@ -94,6 +117,10 @@ public class Lake extends Ground {
         return null;
     }
 
+    /**
+     * returns the list of all the fish that are in the lake
+     * @return the list of all the fish that are in the lake
+     */
     @Override
     public ArrayList<Fish> getFish() {
         return fish;

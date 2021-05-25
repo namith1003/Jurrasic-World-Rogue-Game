@@ -5,7 +5,7 @@ package game;
  */
 public class Fish extends FoodItem{
     /**
-     * constructor to create the food item
+     * constructor to create the food item fish
      *
      * @param name the name of the food item
      */

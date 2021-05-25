@@ -22,6 +22,10 @@ public class LazerGun extends WeaponItem {
         price = 500;
     }
 
+    /**
+     * returns the price of the weapon item
+     * @return the price of the weapon item
+     */
     @Override
     public int getPrices(){
         return price;

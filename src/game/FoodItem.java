@@ -34,11 +34,19 @@ public abstract class FoodItem extends PortableItem{
         return healValue;
     }
 
+    /**
+     * get the price of the food item
+     * @return the price of the food item
+     */
     @Override
     public int getPrices(){
         return price;
     }
 
+    /**
+     * set the heal value of the food item
+     * @param healValue the new heal value to set for the food item
+     */
     @Override
     public void setHealValue(int healValue) {
         this.healValue = healValue;

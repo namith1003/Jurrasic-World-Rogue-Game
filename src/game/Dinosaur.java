@@ -406,6 +406,13 @@ public class Dinosaur extends Actor {
         return new BreedingBehaviour().getAction(this, map);
     }
 
+    /**
+     * calls the required behaviours of the dinosaur for it to fly, the behaviour checks all the attributes of the
+     * dinosaur and whether or not the requirements for it to fly are met, and returns the action for the dinosaur
+     * to fly and if requirements not met returns null.
+     * @param map the map that the actor is on
+     * @return the action for the dinosaur to fly
+     */
     public Action flies(GameMap map){
         return new FlyingBehaviour().getAction(this, map);
     }
@@ -424,19 +431,43 @@ public class Dinosaur extends Actor {
         return new SearchBehaviour(targetLocation).getAction(this, map);
     }
 
+
+    /**
+     * calls the required behaviours of the dinosaur for it to find and drink water, the behaviour checks all the attributes of the
+     * dinosaur and whether or not the requirements for it to find and drink water are met, and returns the action for the dinosaur
+     * to find and drink water and if requirements are not met returns null.
+     * @param map the map that the actor is on
+     * @return the action for the dinosaur to find Food
+     */
     public Action drinks(GameMap map){
         return new ThirstyBehaviour().getAction(this, map);
     }
 
+    /**
+     * calls the searching behaviour of the dinosaur when it needs to find a lake to drink or eat from, flying dinosaurs can
+     * drink like a normal dinosaur and while eat eats fish, this returns the action for the dinosaur
+     * to find a lake and if requirements are not met returns null.
+     * @param map the map that the actor is on
+     * @param targetLocation the location that the dinosaur is going to find a lake
+     * @return the action of the dinosaur searching for a lake to go to
+     */
     @Override
     public Action findLake(GameMap map, Location targetLocation){
         return new SearchBehaviour(targetLocation).getAction(this, map);
     }
 
+    /**
+     * returns a boolean of whether or not the dinosaur is thirsty or not
+     * @return a boolean of whether or not the dinosaurs water level is greater than zero
+     */
     public boolean isConsciousThirst() {
         return waterLevel > 0;
     }
 
+    /**
+     * every time the sky rains if a dinosaur is unconscious due to thirst it can drink the rain water and come back to
+     * a water level of 10
+     */
     public void drinkRain(){
         Display display = new Display();
         if (!isConsciousThirst()){
@@ -447,6 +478,11 @@ public class Dinosaur extends Actor {
         }
     }
 
+    /**
+     * called when a dinosaur drinks water and will increase the water level of the dinosaur by the amount of
+     * water it drinks
+     * @param waterValue the amount of water the dinosaur drinks
+     */
     @Override
     public void drink(int waterValue){
         this.waterLevel += waterValue;

@@ -39,7 +39,7 @@ public class Player extends Actor {
 	 */
 	@Override
 	public Action playTurn(Actions actions, Action lastAction, GameMap map, Display display) {
-
+ // displays the menu for the player to pick the game mode that the user wants to play
 		while (gameMode != -1) {
 			if (gameMode == 0) {
 				numberOfTurns = 0;

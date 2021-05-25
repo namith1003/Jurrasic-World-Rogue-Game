@@ -4,6 +4,10 @@ import edu.monash.fit2099.engine.*;
 
 import java.util.HashMap;
 
+/**
+ * The behaviour of the dinosaur to find a lake to drink from once it gets thirsty with a very low water level
+ * this will make the dinosaur follow the closest lake and then drink from it when it is thirsty
+ */
 public class ThirstyBehaviour implements Behaviour{
     private HashMap<Integer, Location> lakeTargets = new HashMap<>();
 

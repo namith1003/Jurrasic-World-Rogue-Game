@@ -11,7 +11,7 @@ import edu.monash.fit2099.engine.GameMap;
  */
 public class DeathBehaviour implements Behaviour {
     /**
-     * he behaviour class that checks if the conditions for the actor to die has been met, here its whether the actor
+     * the behaviour class that checks if the conditions for the actor to die has been met, here its whether the actor
      *  has been unconscious for over the required number of turns for it to die and returns the action to die if the
      *  actor is accepted to die.
      * @param actor the Actor that's going to perform the death action
