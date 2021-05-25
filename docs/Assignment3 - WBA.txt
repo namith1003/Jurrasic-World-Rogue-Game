@@ -20,7 +20,23 @@ To complete this assignment, we have agreed to the following WBA:
     Implemented classes will be reviewed by each other.
 2. Update a number of class and sequence diagrams to reflect the changes done.
     This will be reviewed together.
-3. All tasks must be completed before the due date. (11:55pm AEST, May 8th, 2021)
+3. All tasks must be completed before the due date. (11:55pm AEST, 8th May, 2021)
+
+
+Group Tute04Team160's Work Breakdown Agreement (WBA) for FIT2099 Assignment 3.
+
+To complete this assignment, we have agreed to the following WBA:
+1. Create additional class files as required in the assignment spec.
+    Both Namith and Jack creates more or less half of the total required classes each.
+    The implemented classes will be reviewed by each other, as earlier.
+2. Update the class diagram and sequence diagrams to correct reflect the new classes' operations.
+    This will be reviewed together.
+3. Brainstorm together on what should be added to the game and what we have learnt from the entire process.
+    Jack then creates a document to briefly describe the ideas,
+    whereas Namith will help review the document when it's done.
+4. Update any relevant documentations to reflect the new implementations.
+    This will be reviewed together.
+5. All tasks must be completed before the due date. (11:55pm AEST, 25th May 2021)
 
 
 I accept this WBA.
