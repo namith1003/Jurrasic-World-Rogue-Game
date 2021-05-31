@@ -42,12 +42,10 @@ public class FlyingBehaviour implements Behaviour{
             actor.addCapability(FlyingStatus.CAN_FLY);
 
         }
-        else if (actor.getFuel() <= 0) {
+        else if (actor.getFuel() <= 0 || !(actor.getFuel() > 0 && (actor.isThirsty(map) || actor.isHungry(map)))) {
             actor.removeCapability(FlyingStatus.ON_TREE);
             actor.removeCapability(FlyingStatus.CAN_FLY);
             actor.addCapability(FlyingStatus.WALKING);
-        }
-        else{
             Location targetLocation;
             for (int x = 0; x < 80; x++) {
                 for (int y = 0; y < 25; y++) {
@@ -74,7 +72,10 @@ public class FlyingBehaviour implements Behaviour{
                 }
 
                 targetLocation = targets.get(lowestItemDistance);
-                return new SearchBehaviour(targetLocation).getAction(actor, map);
+                Action action = new SearchBehaviour(targetLocation).getAction(actor, map);
+                if (!(action instanceof DoNothingAction)) {
+                    return new SearchBehaviour(targetLocation).getAction(actor, map);
+                }
             }
         }
         return null;

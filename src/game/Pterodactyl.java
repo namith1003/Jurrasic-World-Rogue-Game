@@ -33,7 +33,7 @@ public class Pterodactyl extends Dinosaur{
         hungerLevel = 80;
         pregnantTime = 15;
         maxWaterLevel = 100;
-        fuel = 30;
+        fuel = 1;
     }
 
     /**
@@ -48,9 +48,10 @@ public class Pterodactyl extends Dinosaur{
         behaviour = new WanderBehaviour();
         diet = new String[]{"Fish", "MeatMealKit", "Stegosaur Egg", "Stegosaur Corpse", "Brachiosaur Egg", "Allosaur Egg", "Brachiosaur Corpse", "Allosaur Corpse", "Pterodactyl Egg", "Pterodactyl Corpse"};
         hungerLevel = 80;
-        pregnantTime = 15;
+        pregnantTime = 3;
         maxWaterLevel = 100;
-        fuel = 30;
+        fuel = 1;
+        age = 29;
 
     }
 

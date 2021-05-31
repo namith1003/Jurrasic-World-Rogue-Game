@@ -93,7 +93,7 @@ public class Application {
 
 
 			// Place a pair of stegosaurs in the middle of the map one
-			gameMap.at(38, 8).addActor(new Stegosaur("Stegosaur", "male"));
+			gameMap.at(34, 8).addActor(new Stegosaur("Stegosaur", "male"));
 			gameMap.at(48, 8).addActor(new Stegosaur("Stegosaur", "female"));
 
 			// Place 4 Brachiosaurs into the map one
@@ -102,10 +102,9 @@ public class Application {
 			gameMap.at(18, 12).addActor(new Brachiosaur("Brachiosaur", "male"));
 			gameMap.at(12, 16).addActor(new Brachiosaur("Brachiosaur", "female"));
 
-			gameMap.at(48, 10).addActor(new Allosaur("Allosaur"));
 
-			gameMap.at(37, 7).addActor(new Pterodactyl("Pterodactyl", "female"));
-			gameMap.at(41, 7).addActor(new Pterodactyl("Pterodactyl", "male"));
+			gameMap.at(38, 7).addActor(new Pterodactyl("Pterodactyl", "female"));
+			gameMap.at(39, 7).addActor(new Pterodactyl("Pterodactyl", "male"));
 
 			// adding the player to map one
 			Actor player = new Player("Player", '@', 100);

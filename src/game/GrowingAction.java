@@ -50,7 +50,7 @@ public class GrowingAction extends Action {
                 actor.setPregnantCounter(0);
             }
             case "Pterodactyl" -> {
-                actor.setHitPoints(50);
+                actor.setHitPoints(100);
                 actor.setDisplayChar('P');
                 actor.setPregnantCounter(0);
             }
