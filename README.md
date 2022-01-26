@@ -36,6 +36,11 @@ Item or Actor Name Corresponding Display Character
 18) Floor                     - ‘_’.
 
 
+## RULES
+
+All the rules and the descriptions for the interactions done by each and every charachter in the game is listed in the Design Rationale Document.
+PLEASE READ THE DESING RATIONALE BEFORE PLAYING!
+
 
 
 
