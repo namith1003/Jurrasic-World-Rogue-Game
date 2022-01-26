@@ -14,26 +14,26 @@ Item or Actor Name Corresponding Display Character
 1) Stegosaur                 - ‘s’ for baby and ‘S’ for adult,
 2) Brachiosaur               - ‘b’ for baby and ‘B’ for adult,
 3) Allosaur                  - ‘a’ for baby and ‘A’ for adult,
-Player                    - ‘@’,
+4) Player                    - ‘@’,
 
-Stegosaur Egg             - ‘o’,
-Brachiosaur Egg           - ‘O’,
-Allosaur Egg              - ‘0’,
+5) Stegosaur Egg             - ‘o’,
+6) Brachiosaur Egg           - ‘O’,
+7) Allosaur Egg              - ‘0’,
 
-Corpses of all dinosaurs  - ‘X’,
+8) Corpses of all dinosaurs  - ‘X’,
 
-Lazer Gun                 -  ‘=’,
-Vegetarian Meal Kit       - ‘^’,
-Carnivorous Meal Kit      - ‘%’,
-Fruit                     - ‘f’,
+9) Lazer Gun                 -  ‘=’,
+10) Vegetarian Meal Kit       - ‘^’,
+11) Carnivorous Meal Kit      - ‘%’,
+12) Fruit                     - ‘f’,
 
-Dirt                      - ‘.’,
-Tree                      - ‘+’, ‘t’ age more than 10 and ‘T’ age more than 20,
-Bush                      - ‘*’,
+13) Dirt                      - ‘.’,
+14) Tree                      - ‘+’, ‘t’ age more than 10 and ‘T’ age more than 20,
+15) Bush                      - ‘*’,
 
-Wall                      - ‘#’,
-Vending Machine           - ‘V’,
-Floor                     - ‘_’.
+16) Wall                      - ‘#’,
+17) Vending Machine           - ‘V’,
+18) Floor                     - ‘_’.
 
 
 
