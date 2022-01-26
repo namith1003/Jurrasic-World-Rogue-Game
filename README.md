@@ -11,9 +11,9 @@ Player can also carry items and interact with the dinosaurs either for natural b
 Item or Actor Name Corresponding Display Character
 --------------------------------------------------
 
-Stegosaur                 - ‘s’ for baby and ‘S’ for adult,
-Brachiosaur               - ‘b’ for baby and ‘B’ for adult,
-Allosaur                  - ‘a’ for baby and ‘A’ for adult,
+1) Stegosaur                 - ‘s’ for baby and ‘S’ for adult,
+2) Brachiosaur               - ‘b’ for baby and ‘B’ for adult,
+3) Allosaur                  - ‘a’ for baby and ‘A’ for adult,
 Player                    - ‘@’,
 
 Stegosaur Egg             - ‘o’,
