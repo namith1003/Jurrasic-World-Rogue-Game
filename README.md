@@ -1,47 +1,74 @@
-# Jurrasic-World-Rogue-Game
-A Rogue game with a character based UI, built using only java and very complex OOP with multiple classes and very structured documentations using javadoc and class diagrams.
-there are worlds where a player can move between and dinosaurs that have specific game physics and rules that they live by including each of their unique diets, 
-life span, starvation periods, how long they can go on without drinking and many more rules that interact with their environments including bushes and trees
-and also their ability to reproduce once criteria has been met. 
+# Rogue Game
 
-Player can also carry items and interact with the dinosaurs either for natural balance control, fun or even emotional reasons.
+A Rogue game with a character-based UI, built using only Java and very complex OOP with multiple classes and structured documentation using Javadoc and class diagrams. The game features worlds where a player can move between dinosaurs that adhere to specific game physics and rules. Each dinosaur has unique characteristics, including diet, lifespan, starvation periods, and hydration needs, interacting with their environments, including bushes and trees. Players can carry items and interact with dinosaurs for natural balance control, fun, or emotional reasons.
 
+## Installation
 
+Clone the repository:
 
-Item or Actor Name Corresponding Display Character
---------------------------------------------------
+Compile and run the Java files to start the game.
 
-1) Stegosaur                 - ‘s’ for baby and ‘S’ for adult,
-2) Brachiosaur               - ‘b’ for baby and ‘B’ for adult,
-3) Allosaur                  - ‘a’ for baby and ‘A’ for adult,
-4) Player                    - ‘@’,
+## Features
 
-5) Stegosaur Egg             - ‘o’,
-6) Brachiosaur Egg           - ‘O’,
-7) Allosaur Egg              - ‘0’,
+* Complex OOP structure
+* Multiple classes for various game entities
+* Structured documentation with Javadoc and class diagrams
+* Dynamic worlds with interactive dinosaurs
+* Player interaction with dinosaurs and items
+* Detailed rules and interactions described in the Design Rationale Document
 
-8) Corpses of all dinosaurs  - ‘X’,
+## Technologies
 
-9) Lazer Gun                 -  ‘=’,
-10) Vegetarian Meal Kit       - ‘^’,
-11) Carnivorous Meal Kit      - ‘%’,
-12) Fruit                     - ‘f’,
+![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)
 
-13) Dirt                      - ‘.’,
-14) Tree                      - ‘+’, ‘t’ age more than 10 and ‘T’ age more than 20,
-15) Bush                      - ‘*’,
+## Getting Started
 
-16) Wall                      - ‘#’,
-17) Vending Machine           - ‘V’,
-18) Floor                     - ‘_’.
+### UI
 
+The game features a character-based UI where each character corresponds to a specific game entity:
+- Stegosaur: 's' for baby and 'S' for adult
+- Brachiosaur: 'b' for baby and 'B' for adult
+- Allosaur: 'a' for baby and 'A' for adult
+- Player: '@'
+- Stegosaur Egg: 'o'
+- Brachiosaur Egg: 'O'
+- Allosaur Egg: '0'
+- Corpses of all dinosaurs: 'X'
+- Lazer Gun: '='
+- Vegetarian Meal Kit: '^'
+- Carnivorous Meal Kit: '%'
+- Fruit: 'f'
+- Dirt: '.'
+- Tree: '+' for age more than 10 and 'T' for age more than 20
+- Bush: '*'
+- Wall: '#'
+- Vending Machine: 'V'
+- Floor: '_'
 
-## RULES
+### RULES
 
-All the rules and the descriptions for the interactions done by each and every charachter in the game is listed in the Design Rationale Document.
-PLEASE READ THE DESING RATIONALE BEFORE PLAYING!
+All the rules and interactions for each character in the game are described in the Design Rationale Document. Please read the Design Rationale before playing.
 
+## Roadmap
 
+- [x] Implement OOP structure
+- [x] Define and implement game entities and their interactions
+- [x] Develop world generation and movement mechanics
+- [x] Implement dinosaur behaviors and rules
+- [x] Create player interaction and inventory management
+- [x] Test and debug game mechanics
+- [x] Document code with Javadoc and class diagrams
 
+## Demo
 
+## Documentation
 
+## Release Notes
+
+You can find the release note for the latest release [here](<release-note-link>)
+
+You can browse them all [here](<all-release-notes-link>)
+
+## License
+
+Licensed under MIT
